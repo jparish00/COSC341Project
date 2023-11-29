@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/veggies"
-    tools:context=".MainActivity">
+    tools:context=".VendorLogin">
 
     <View
         android:id="@+id/view2"
@@ -48,20 +48,20 @@
             android:id="@+id/textUser"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2.5dp"
+            android:layout_marginRight="4dp"
             android:fontFamily="@font/poorstory"
-            android:text="Customer"
+            android:text="Vendor"
             android:textSize="50dp" />
 
         <TextView
             android:id="@+id/textSignIn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:fontFamily="@font/poorstory"
             android:text="Sign-In"
             android:textColor="#447806"
-            android:textSize="50dp"
-            android:layout_marginLeft="2.5dp"
-            android:fontFamily="@font/poorstory"/>
+            android:textSize="50dp" />
     </LinearLayout>
 
     <!-- Username EditText -->
@@ -146,7 +146,7 @@
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/design_default_color_secondary"
         android:fontFamily="@font/poorstory"
-        android:text="Create Customer Account"
+        android:text="Create Vendor Account"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
