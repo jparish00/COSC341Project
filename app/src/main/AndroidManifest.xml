@@ -13,6 +13,12 @@
         android:theme="@style/Theme.COSC341Project"
         tools:targetApi="31">
         <activity
+            android:name=".VendorSignUp"
+            android:exported="false" />
+        <activity
+            android:name=".CustSignUp"
+            android:exported="false" />
+        <activity
             android:name=".StoreItems"
             android:exported="false" />
         <activity
