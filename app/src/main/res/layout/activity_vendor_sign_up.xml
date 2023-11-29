@@ -15,12 +15,11 @@
         tools:layout_editor_absoluteX="0dp"
         tools:layout_editor_absoluteY="0dp" />
 
-
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="138dp"
         android:layout_height="118dp"
-        android:layout_marginTop="28dp"
+        android:layout_marginTop="4dp"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -32,7 +31,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/poorstory"
         android:text="Sign-Up"
         android:textColor="#447806"
@@ -44,8 +43,8 @@
         android:id="@+id/vendorTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="76dp"
         android:fontFamily="@font/poorstory"
         android:text="Vendor"
         android:textColor="#121212"
@@ -73,31 +72,24 @@
     <!-- Forgot Password TextView -->
 
 
-    <Button
-        android:id="@+id/CreateAccount"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="#447806"
-        android:fontFamily="@font/poorstory"
-        android:text="Create Account"
-        android:textSize="20sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
 
-    <Button
-        android:id="@+id/returnBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
-        android:backgroundTint="@color/black"
+    <EditText
+        android:id="@+id/reEnterPassword2"
+        android:layout_width="347dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FCFFF5"
+        android:ems="10"
         android:fontFamily="@font/poorstory"
-        android:text="Go Back"
-        android:textSize="20sp"
+
+        android:hint="Re-Enter Password"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.105"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
 
@@ -106,7 +98,7 @@
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:background="#FCFFF5"
         android:ems="10"
@@ -125,7 +117,7 @@
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
         android:background="#FCFFF5"
         android:ems="10"
@@ -145,14 +137,14 @@
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="32dp"
         android:background="#FCFFF5"
         android:ems="10"
         android:fontFamily="@font/poorstory"
         android:hint="Email Address"
 
-        android:inputType="textPassword"
+        android:inputType="textEmailAddress"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -161,7 +153,7 @@
         app:layout_constraintTop_toBottomOf="@id/lastName" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/storewebsite"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -170,9 +162,9 @@
         android:background="#FCFFF5"
         android:ems="10"
         android:fontFamily="@font/poorstory"
-        android:hint="Password"
+        android:hint="Store Website URL"
 
-        android:inputType="textPassword"
+        android:inputType="textUri"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -191,20 +183,104 @@
         android:ems="10"
         android:fontFamily="@font/poorstory"
 
-        android:hint="Re-Enter Password"
+        android:hint="Password"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password" />
+        app:layout_constraintTop_toBottomOf="@id/storewebsite" />
+
+    <EditText
+        android:id="@+id/vendorAddress"
+        android:layout_width="347dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FCFFF5"
+        android:ems="10"
+        android:fontFamily="@font/poorstory"
+
+        android:hint="Vendor Address"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vendorT" />
+
+    <EditText
+        android:id="@+id/vendorT"
+        android:layout_width="347dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="12dp"
+        android:layout_marginEnd="32dp"
+        android:background="#FCFFF5"
+        android:ems="10"
+        android:fontFamily="@font/poorstory"
+
+        android:hint="Vendor Title"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reEnterPassword2" />
+
+    <Spinner
+        android:id="@+id/categories"
+        android:layout_width="151dp"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/cspinner"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="5dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vendorAddress" />
+
+    <Button
+        android:id="@+id/CreateAccount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="220dp"
+        android:backgroundTint="#447806"
+        android:fontFamily="@font/poorstory"
+        android:text="Create Account"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.934"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
+
+    <Button
+        android:id="@+id/returnBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="72dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poorstory"
+        android:text="Go Back"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.107"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/vendorAddress" />
 
     <Button
         android:id="@+id/ImCustomer"
-        android:layout_width="189dp"
-        android:layout_height="34dp"
-        android:layout_marginTop="148dp"
+        android:layout_width="162dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/design_default_color_secondary"
         android:fontFamily="@font/poorstory"
         android:text="Create Customer Account"
@@ -212,7 +288,7 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.931"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/CreateAccount" />
 
