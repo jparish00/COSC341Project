@@ -25,7 +25,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/market_image"
         android:layout_width="wrap_content"
         android:layout_height="290dp"
         android:src="@drawable/logo"
@@ -34,18 +34,18 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayoutTexts"
+        android:id="@+id/sign_in_text_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/market_image"
+        app:layout_constraintBottom_toBottomOf="@id/market_image"
         android:gravity="center">
 
         <TextView
-            android:id="@+id/textUser"
+            android:id="@+id/user_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="4dp"
@@ -54,7 +54,7 @@
             android:textSize="50dp" />
 
         <TextView
-            android:id="@+id/textSignIn"
+            android:id="@+id/sign_in_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="4dp"
@@ -66,7 +66,7 @@
 
     <!-- Username EditText -->
     <EditText
-        android:id="@+id/editTextUsername"
+        android:id="@+id/username_text_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Username"
@@ -87,7 +87,7 @@
 
     <!-- Password EditText -->
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/password_text_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:hint="Password"
@@ -98,7 +98,7 @@
         android:padding="16dp"
         android:background="#FCFFF5"
 
-        app:layout_constraintTop_toBottomOf="@id/editTextUsername"
+        app:layout_constraintTop_toBottomOf="@id/username_text_input"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -110,7 +110,7 @@
 
 
     <Button
-        android:id="@+id/textViewForgotPassword"
+        android:id="@+id/forgot_pass_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -123,10 +123,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password_text_input" />
 
     <Button
-        android:id="@+id/LogIn"
+        android:id="@+id/log_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
@@ -137,10 +137,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewForgotPassword" />
+        app:layout_constraintTop_toBottomOf="@id/forgot_pass_button" />
 
     <Button
-        android:id="@+id/createAccount"
+        android:id="@+id/create_account_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
@@ -153,10 +153,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/log_in_button" />
 
     <Button
-        android:id="@+id/ImVendor"
+        android:id="@+id/is_vendor_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
@@ -169,7 +169,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createAccount" />
+        app:layout_constraintTop_toBottomOf="@+id/create_account_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

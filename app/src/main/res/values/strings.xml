@@ -1,3 +1,23 @@
 <resources>
     <string name="app_name">COSC341Project</string>
+
+    <!-- Global -->
+    <string name="user_data">user_info.txt</string>
+
+    <!-- Main Activity -->
+    <string name="empty"></string>
+    <string name="customer_display_text">Customer</string>
+    <string name="sign_in_text">Sign-In</string>
+    <string name="username_hint_text">Username</string>
+    <string name="password_hint_text">Password</string>
+    <string name="forgot_password_text">forgot your password?</string>
+    <string name="log_in_text">Log in</string>
+    <string name="create_account_text">Create Customer Account</string>
+    <string name="is_vendor_text">I am a Vendor</string>
+    <string name="toast_missing_login_file">Error: Log-in file not found!</string>
+    <string name="toast_add_account">Please add an account</string>
+    <string name="toast_incorrect_login">Username or password is incorrect</string>
+
+    <!-- Other activities -->
+
 </resources>

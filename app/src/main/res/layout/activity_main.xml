@@ -8,14 +8,6 @@
     tools:context=".MainActivity">
 
     <View
-        android:id="@+id/view2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#99FFFFFF"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <View
         android:id="@+id/logoFrame"
         android:layout_width="match_parent"
         android:layout_height="320dp"
@@ -25,151 +17,152 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/market_image"
         android:layout_width="wrap_content"
         android:layout_height="290dp"
+        android:contentDescription="@string/empty"
         android:src="@drawable/logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayoutTexts"
+        android:id="@+id/sign_in_text_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/market_image"
+        app:layout_constraintBottom_toBottomOf="@id/market_image"
         android:gravity="center">
 
         <TextView
-            android:id="@+id/textUser"
+            android:id="@+id/user_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginRight="2.5dp"
+            android:layout_marginEnd="2.5dp"
             android:fontFamily="@font/poorstory"
-            android:text="Customer"
-            android:textSize="50dp" />
+            android:text="@string/customer_display_text"
+            android:textSize="50sp" />
 
         <TextView
-            android:id="@+id/textSignIn"
+            android:id="@+id/sign_in_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign-In"
+            android:layout_marginStart="2.5dp"
+            android:fontFamily="@font/poorstory"
+            android:text="@string/sign_in_text"
             android:textColor="#447806"
-            android:textSize="50dp"
-            android:layout_marginLeft="2.5dp"
-            android:fontFamily="@font/poorstory"/>
+            android:textSize="50sp" />
     </LinearLayout>
 
     <!-- Username EditText -->
     <EditText
-        android:id="@+id/editTextUsername"
+        android:id="@+id/username_text_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Username"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:fontFamily="@font/poorstory"
-        android:textSize="24sp"
-        android:padding="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:background="#FCFFF5"
+        android:ems="10"
+        android:fontFamily="@font/poorstory"
+        android:hint="@string/username_hint_text"
 
-        app:layout_constraintTop_toBottomOf="@+id/logoFrame"
-        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="textPersonName"
+        android:padding="16dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="32dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/logoFrame" />
 
     <!-- Password EditText -->
     <EditText
-        android:id="@+id/editTextPassword"
+        android:id="@+id/password_text_input"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:hint="Password"
-        android:ems="10"
-        android:inputType="textPassword"
-        android:fontFamily="@font/poorstory"
-        android:textSize="24sp"
-        android:padding="16dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
         android:background="#FCFFF5"
+        android:ems="10"
+        android:fontFamily="@font/poorstory"
+        android:hint="@string/password_hint_text"
 
-        app:layout_constraintTop_toBottomOf="@id/editTextUsername"
-        app:layout_constraintStart_toStartOf="parent"
+        android:inputType="textPassword"
+        android:padding="16dp"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginEnd="32dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/username_text_input" />
 
     <!-- Forgot Password TextView -->
 
 
     <Button
-        android:id="@+id/textViewForgotPassword"
+        android:id="@+id/forgot_pass_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
         android:fontFamily="@font/poorstory"
-        android:text="forgot your password?"
+        android:text="@string/forgot_password_text"
         android:textColor="#121212"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.231"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword" />
+        app:layout_constraintTop_toBottomOf="@+id/password_text_input" />
 
     <Button
-        android:id="@+id/LogIn"
+        android:id="@+id/log_in_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:backgroundTint="#447806"
         android:fontFamily="@font/poorstory"
-        android:text="Log in"
+        android:text="@string/log_in_text"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/textViewForgotPassword" />
+        app:layout_constraintTop_toBottomOf="@id/forgot_pass_button" />
 
     <Button
-        android:id="@+id/createAccount"
+        android:id="@+id/create_account_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/design_default_color_secondary"
         android:fontFamily="@font/poorstory"
-        android:text="Create Customer Account"
+        android:text="@string/create_account_text"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/LogIn" />
+        app:layout_constraintTop_toBottomOf="@+id/log_in_button" />
 
     <Button
-        android:id="@+id/ImVendor"
+        android:id="@+id/is_vendor_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="#121212"
         android:fontFamily="@font/poorstory"
-        android:text="I am a Vendor"
+        android:text="@string/is_vendor_text"
         android:textColor="#FFFF"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/createAccount" />
+        app:layout_constraintTop_toBottomOf="@+id/create_account_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

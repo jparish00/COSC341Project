@@ -69,7 +69,7 @@
             android:layout_weight="1" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/market_image"
             android:layout_width="65dp"
             android:layout_height="65dp"
             android:src="@drawable/logo"

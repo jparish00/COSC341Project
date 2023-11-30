@@ -19,7 +19,7 @@
 
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/market_image"
         android:layout_width="138dp"
         android:layout_height="118dp"
         android:layout_marginTop="28dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textSignIn"
+        android:id="@+id/sign_in_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -56,14 +56,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/linearLayoutTexts"
+        android:id="@+id/sign_in_text_layout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView"
-        app:layout_constraintBottom_toBottomOf="@id/imageView"
+        app:layout_constraintTop_toBottomOf="@id/market_image"
+        app:layout_constraintBottom_toBottomOf="@id/market_image"
         android:gravity="center">
 
     </LinearLayout>
@@ -120,7 +120,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/imageView" />
+        app:layout_constraintTop_toBottomOf="@id/market_image" />
 
     <EditText
         android:id="@+id/lastName"
@@ -203,7 +203,7 @@
         app:layout_constraintTop_toBottomOf="@id/password" />
 
     <Button
-        android:id="@+id/ImVendor"
+        android:id="@+id/is_vendor_button"
         android:layout_width="177dp"
         android:layout_height="34dp"
         android:layout_marginTop="148dp"
