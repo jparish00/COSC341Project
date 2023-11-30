@@ -27,7 +27,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sign_in_text"
+        android:id="@+id/sign_up_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
@@ -91,10 +91,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
+        app:layout_constraintTop_toBottomOf="@id/repeat_password_input" />
 
     <EditText
-        android:id="@+id/firstName"
+        android:id="@+id/first_name_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -113,7 +113,7 @@
         app:layout_constraintTop_toBottomOf="@id/market_image" />
 
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/last_name_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -130,10 +130,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/firstName" />
+        app:layout_constraintTop_toBottomOf="@id/first_name_input" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -150,7 +150,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lastName" />
+        app:layout_constraintTop_toBottomOf="@id/last_name_input" />
 
     <EditText
         android:id="@+id/storewebsite"
@@ -170,10 +170,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@id/email_input" />
 
     <EditText
-        android:id="@+id/reEnterPassword"
+        android:id="@+id/repeat_password_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -249,7 +249,7 @@
         app:layout_constraintTop_toBottomOf="@id/vendorAddress" />
 
     <Button
-        android:id="@+id/CreateAccount"
+        android:id="@+id/create_account_confirm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="220dp"
@@ -260,10 +260,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
+        app:layout_constraintTop_toBottomOf="@id/repeat_password_input" />
 
     <Button
-        android:id="@+id/returnBtn"
+        android:id="@+id/return_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
@@ -290,7 +290,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/CreateAccount" />
+        app:layout_constraintTop_toBottomOf="@id/create_account_confirm_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

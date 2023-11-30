@@ -3,6 +3,7 @@ package com.example.cosc341project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity {
     // Views
     TextView usernameInput, passwordInput;
     Button forgotPasswordButton, logInButton, createAccountButton, isVendorButton;
+    Resources res;
 
     // Var
     String username, password;
@@ -50,13 +52,14 @@ public class MainActivity extends AppCompatActivity {
         forgotPasswordButton.setOnClickListener(this::forgotPassword); // Does nothing atm
         logInButton.setOnClickListener(this::attemptLogin);
         createAccountButton.setOnClickListener(this::createAccount);
-    // Leaving vendor button, since we may move that to account creation
+        // Leaving vendor button, since we may move that to account creation
 
+        res = getResources();
     }
 
     public void checkLoggedIn() {
 
-        File f = new File(getApplicationContext().getFilesDir(), String.valueOf(R.string.user_data));
+        File f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.user_data));
         if (!f.exists())
             return;
 
@@ -66,7 +69,7 @@ public class MainActivity extends AppCompatActivity {
         boolean loggedIn = false;
         try {
 
-            FileInputStream fis = openFileInput(String.valueOf(R.string.user_data));
+            FileInputStream fis = openFileInput(res.getString(R.string.user_data));
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
 
@@ -84,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch(IOException e) {
-            Toast.makeText(this, R.string.toast_missing_login_file, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
         }
 
         if (!loggedIn)
@@ -108,14 +111,14 @@ public class MainActivity extends AppCompatActivity {
         // search for username
         // TODO: Consider case insensitive? Would be easy to implement
         if(!fileExists) {
-            Toast.makeText(this, R.string.toast_add_account, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, res.getString(R.string.toast_add_account), Toast.LENGTH_SHORT).show();
             return;
         }
 
         boolean loginSuccess = false;
         try {
 
-            FileInputStream fis = openFileInput(String.valueOf(R.string.user_data));
+            FileInputStream fis = openFileInput(res.getString(R.string.user_data));
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
 
@@ -134,11 +137,11 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         } catch(IOException e) {
-            Toast.makeText(this, R.string.toast_missing_login_file, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
         }
 
         if(!loginSuccess) {
-            Toast.makeText(this, R.string.toast_incorrect_login, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, res.getString(R.string.toast_incorrect_login), Toast.LENGTH_SHORT).show();
             return;
         }
 

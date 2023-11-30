@@ -30,26 +30,26 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/sign_in_text"
+        android:id="@+id/sign_up_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="48dp"
         android:fontFamily="@font/poorstory"
-        android:text="Sign-Up"
+        android:text="@string/sign_up_text"
         android:textColor="#447806"
         android:textSize="50dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/customerTitle"
+        android:id="@+id/customer_title_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="116dp"
         android:fontFamily="@font/poorstory"
-        android:text="Customer"
+        android:text="@string/customer_display_text"
         android:textColor="#121212"
         android:textSize="30dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,35 +76,35 @@
 
 
     <Button
-        android:id="@+id/CreateAccount"
+        android:id="@+id/create_account_confirm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:backgroundTint="#447806"
         android:fontFamily="@font/poorstory"
-        android:text="Create Account"
+        android:text="@string/create_account_general"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.869"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
+        app:layout_constraintTop_toBottomOf="@id/repeat_password_input" />
 
     <Button
-        android:id="@+id/returnBtn"
+        android:id="@+id/return_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poorstory"
-        android:text="Go Back"
+        android:text="@string/return_text"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.105"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
+        app:layout_constraintTop_toBottomOf="@id/repeat_password_input" />
 
     <EditText
-        android:id="@+id/firstName"
+        android:id="@+id/first_name_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -113,7 +113,7 @@
         android:background="#FCFFF5"
         android:ems="10"
         android:fontFamily="@font/poorstory"
-        android:hint="First Name"
+        android:hint="@string/first_name_hint_text"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:textSize="24sp"
@@ -123,7 +123,7 @@
         app:layout_constraintTop_toBottomOf="@id/market_image" />
 
     <EditText
-        android:id="@+id/lastName"
+        android:id="@+id/last_name_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -132,7 +132,7 @@
         android:background="#FCFFF5"
         android:ems="10"
         android:fontFamily="@font/poorstory"
-        android:hint="Last Name"
+        android:hint="@string/last_name_hint_text"
 
         android:inputType="textPassword"
         android:paddingLeft="10dp"
@@ -140,10 +140,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/firstName" />
+        app:layout_constraintTop_toBottomOf="@id/first_name_input" />
 
     <EditText
-        android:id="@+id/email"
+        android:id="@+id/email_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -152,7 +152,7 @@
         android:background="#FCFFF5"
         android:ems="10"
         android:fontFamily="@font/poorstory"
-        android:hint="Email Address"
+        android:hint="@string/email_hint_text"
 
         android:inputType="textPassword"
         android:paddingLeft="10dp"
@@ -160,10 +160,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/lastName" />
+        app:layout_constraintTop_toBottomOf="@id/last_name_input" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/password_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -172,7 +172,7 @@
         android:background="#FCFFF5"
         android:ems="10"
         android:fontFamily="@font/poorstory"
-        android:hint="Password"
+        android:hint="@string/password_hint_text"
 
         android:inputType="textPassword"
         android:paddingLeft="10dp"
@@ -180,10 +180,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email" />
+        app:layout_constraintTop_toBottomOf="@id/email_input" />
 
     <EditText
-        android:id="@+id/reEnterPassword"
+        android:id="@+id/repeat_password_input"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -193,14 +193,14 @@
         android:ems="10"
         android:fontFamily="@font/poorstory"
 
-        android:hint="Re-Enter Password"
+        android:hint="@string/reenter_password_hint_text"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password" />
+        app:layout_constraintTop_toBottomOf="@id/password_input" />
 
     <Button
         android:id="@+id/is_vendor_button"
@@ -209,14 +209,14 @@
         android:layout_marginTop="148dp"
         android:backgroundTint="@color/design_default_color_secondary"
         android:fontFamily="@font/poorstory"
-        android:text="Create Vendor Account"
+        android:text="@string/create_vendor_account_text"
         android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/CreateAccount" />
+        app:layout_constraintTop_toBottomOf="@id/create_account_confirm_button" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
