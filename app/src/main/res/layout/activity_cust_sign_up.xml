@@ -17,7 +17,6 @@
 
 
 
-
     <ImageView
         android:id="@+id/market_image"
         android:layout_width="138dp"
@@ -68,15 +67,10 @@
 
     </LinearLayout>
 
-    <!-- Username EditText -->
-
-    <!-- Password EditText -->
-
-    <!-- Forgot Password TextView -->
 
 
     <Button
-        android:id="@+id/create_account_confirm_button"
+        android:id="@+id/createAccountBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
@@ -203,7 +197,7 @@
         app:layout_constraintTop_toBottomOf="@id/password_input" />
 
     <Button
-        android:id="@+id/is_vendor_button"
+        android:id="@+id/createVendorBtn"
         android:layout_width="177dp"
         android:layout_height="34dp"
         android:layout_marginTop="148dp"
@@ -216,7 +210,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.931"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/create_account_confirm_button" />
+        app:layout_constraintTop_toBottomOf="@id/createAccountBtn" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

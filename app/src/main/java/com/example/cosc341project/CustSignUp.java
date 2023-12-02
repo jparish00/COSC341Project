@@ -34,8 +34,8 @@ public class CustSignUp extends AppCompatActivity {
         passwordInput = findViewById(R.id.password_input);
         repeatPassInput = findViewById(R.id.repeat_password_input);
         returnButton = findViewById(R.id.return_button);
-        createAccountButton = findViewById(R.id.create_account_confirm_button); // different id from main activity
-        createVendorButton = findViewById(R.id.is_vendor_button);
+        createAccountButton = findViewById(R.id.createAccountBtn); // different id from main activity
+        createVendorButton = findViewById(R.id.createVendorBtn);
 
         returnButton.setOnClickListener(this::onReturnClick);
         createAccountButton.setOnClickListener(this::createAccount);
