@@ -24,6 +24,6 @@ public class Reviews extends AppCompatActivity {
     }
 
     public void back(View view){
-        //TODO implement back button functionality
+        finish();
     }
 }
