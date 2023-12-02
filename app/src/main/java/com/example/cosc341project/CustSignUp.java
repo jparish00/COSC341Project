@@ -3,6 +3,7 @@ package com.example.cosc341project;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -38,6 +39,7 @@ public class CustSignUp extends AppCompatActivity {
 
         returnButton.setOnClickListener(this::onReturnClick);
         createAccountButton.setOnClickListener(this::createAccount);
+        createVendorButton.setOnClickListener(this::createAccountVendor);
 
         res = getResources();
     }
@@ -102,6 +104,19 @@ public class CustSignUp extends AppCompatActivity {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+
+        Toast.makeText(this, String.format(res.getString(R.string.toast_account_creation_success), username), Toast.LENGTH_LONG).show();
+        finish();
+
+    }
+
+    public void createAccountVendor(View v) {
+
+        Intent intent = new Intent(getApplicationContext(), VendorSignUp.class);
+        startActivity(intent);
+
+        // finish(); // Consider killing this, back button on next activity leads to login page
 
     }
 
