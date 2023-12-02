@@ -35,4 +35,18 @@
     <string name="toast_password_invalid">Password must contain at least one uppercase, lowercase, number, and special character</string>
     <string name="toast_password_mismatch">Passwords do not match</string>
 
+    <!--Reviews activity-->
+    <string name="back_button_review">Back</string>
+    <string name="add_review_button">Add Review</string>
+
+    <!--Add Reviews activity-->
+    <string name="review_box_hint">Max 200 Characters</string>
+    <string name="back_button_add_review">Back</string>
+    <string name="submit_review">Submit</string>
+    <string name="oneStar">1</string>
+    <string name="twoStar">2</string>
+    <string name="threeStar">3</string>
+    <string name="fourStar">4</string>
+    <string name="fiveStar">5</string>
+
 </resources>
