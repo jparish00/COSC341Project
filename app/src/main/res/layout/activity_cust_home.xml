@@ -52,7 +52,6 @@
             android:src="@drawable/navbar" />
 
 
-
         <!-- TextView for Market Name -->
         <TextView
             android:id="@+id/marketName"
@@ -103,17 +102,6 @@
             android:inputType="text" />
 
 
-        <!-- ImageButton with layout_weight -->
-        <!--        <ImageButton-->
-        <!--            android:id="@+id/googleMapsButton"-->
-        <!--            android:layout_width="45dp"-->
-        <!--            android:layout_height="45dp"-->
-        <!--            android:background=""-->
-        <!--            android:padding="7dp"-->
-        <!--            android:scaleType="centerInside"-->
-        <!--            android:src="@drawable/gmaps" />-->
-
-
     </LinearLayout>
 
     <Spinner
@@ -130,7 +118,6 @@
         android:layout_marginHorizontal="16dp"
         android:gravity="center"
         />
-
 
 
     <LinearLayout
@@ -186,7 +173,6 @@
             android:fontFamily="@font/poorstory"
             android:gravity="center"
             android:text="Store 1"
-
             android:textColor="#447806"
             android:textSize="30dp" />
 
@@ -201,7 +187,6 @@
             android:textColor="#447806"
             android:fontFamily="@font/poorstory"
             />
-
 
     </LinearLayout>
 
