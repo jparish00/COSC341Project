@@ -24,6 +24,7 @@
         android:layout_marginBottom="56dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poorstory"
+        android:textSize="16dp"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
@@ -35,6 +36,7 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="56dp"
         android:fontFamily="@font/poorstory"
+        android:textSize="16dp"
         android:backgroundTint="#447806"
         android:text="Add Review"
         app:layout_constraintBottom_toBottomOf="parent"
