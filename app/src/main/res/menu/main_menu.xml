@@ -9,12 +9,12 @@
         <item
             android:id="@+id/favMarket1"
             android:title="FavMarket 1"
-            android:icon="@drawable/home_icon"/>
+            android:icon="@drawable/store_icon"/>
 
         <item
             android:id="@+id/favMarket2"
             android:title="FavMarket 2"
-            android:icon="@drawable/home_icon"/>
+            android:icon="@drawable/store_icon"/>
 
         <!-- gather items customer favourite market items and paste inside group -->
     </group>
@@ -40,6 +40,5 @@
             </menu>
         </item>
     </group>
-
 
 </menu>

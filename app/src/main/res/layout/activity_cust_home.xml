@@ -7,6 +7,7 @@
     tools:context=".CustHome">
 
 
+
     <View
         android:id="@+id/view"
         android:layout_width="916dp"
@@ -29,16 +30,9 @@
         app:layout_constraintTop_toTopOf="parent"
         />
 
-    <com.google.android.material.navigation.NavigationView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"/>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
-
-    <LinearLayout
-        android:id="@+id/logoLayout"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
@@ -57,6 +51,7 @@
             android:background="@color/white"
             android:scaleType="centerInside"
             android:src="@drawable/navbar" />
+
 
 
         <!-- TextView for Market Name -->
@@ -81,7 +76,7 @@
             android:src="@drawable/logo"
             android:layout_gravity="end"/>
 
-    </LinearLayout>
+    </androidx.appcompat.widget.Toolbar>
 
 
     <LinearLayout
@@ -93,14 +88,14 @@
         android:padding="16dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logoLayout">
+        app:layout_constraintTop_toBottomOf="@id/toolbar">
 
 
         <!-- Spinner with layout_weight -->
 
         <EditText
             android:id="@+id/searchBar"
-            android:layout_width="0dp"
+            android:layout_width="377dp"
             android:layout_height="45dp"
             android:layout_marginEnd="16dp"
             android:layout_weight="1"
@@ -196,6 +191,27 @@
             />
 
     </LinearLayout>
+
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/drawer_layout"
+        android:fitsSystemWindows="true"
+        tools:openDrawer="start">
+
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/nav_view"
+            app:headerLayout="@layout/header"
+            app:menu="@menu/main_menu"
+            android:layout_gravity="start"/>
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
