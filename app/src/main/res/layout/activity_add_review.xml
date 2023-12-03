@@ -13,7 +13,6 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="39dp"
         android:ems="10"
-        android:hint="Max 200 characters"
         android:inputType="text"
         android:maxLength="200"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,6 +25,7 @@
         android:layout_marginEnd="67dp"
         android:layout_marginBottom="79dp"
         android:text="Submit"
+        android:onClick="submitReview"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -43,36 +43,31 @@
             android:id="@+id/oneStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="1" />
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/twoStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="2" />
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/threeStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="3" />
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/fourStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="4" />
+            android:layout_weight="1" />
 
         <RadioButton
             android:id="@+id/fiveStar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="5" />
+            android:layout_weight="1" />
     </RadioGroup>
 
     <TextView
@@ -91,6 +86,7 @@
         android:layout_marginStart="55dp"
         android:layout_marginBottom="75dp"
         android:text="Back"
+        android:onClick="back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
