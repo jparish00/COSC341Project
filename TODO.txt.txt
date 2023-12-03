@@ -1,0 +1,83 @@
+Text files: Note that the 
+- user_info.txt (do not modify)
+	primary key: username
+	format:
+		@username email@address.com
+		password
+		stayloggedin pref2 ...
+		@username2
+		...
+	Desc:
+		Information for logging in. Only the username is required to be passed once login is successful, as it is the primary key. preferences can be pulled by username.
+
+- inbox.txt (free to modify)
+	primary keys: vendor_username cust_username
+	format:
+		@vendor_username cust_username
+		username
+		message1
+		username
+		message2
+		...
+	Desc:
+		Messaging information. All records will simply be appended to the last message, and both customer and vendor has freedom to view.
+
+- market_info.txt (free to modify)
+	primary key: market_name
+	format:
+		@market_name
+		vendor_username1 cat1 cat2 ...
+		vendor_username2 cat3 cat5 ...
+		@market2_name ...
+	Desc:
+		Market name and its associated vendors. cat refers to category, to be saved for filtering
+
+- vendor_info.txt (free to modify)
+	primary key: vendor_username
+	format:
+		@vendor_username vendor_name
+		item_name price
+		item2_name price
+		@vendor2_username ...
+	Desc:
+		Holds all the vendor product information.
+
+- cart.txt (free to modify)
+	primary key: cust_username
+	format:
+		@username
+		vendor_name item:price
+		vendor_name item:price
+		...
+	Desc:
+		Lists the vendor's name, the item from the vendor, and the item price. the ":" is a delimiter to group items and prices.
+
+- reviews.txt (free to modify)
+	primary_key: vendor_username
+	format:
+		@vendor_username
+		average_rating
+		customer_username rating 
+		message
+		customer2_username
+		...
+	Desc:
+		Each vendor has its own average rating, updated when a new review is added. Each customer review is 2 lines, the first containing the users name and rating, and the next line is the message. If there is no message, the second line will simply be blank. That blank line will be detected when the file is read.
+
+ADD MORE FILES HERE AS NECESSARY
+
+TODO: Parenthesis indicated working on/planned to work on
+- Reviews (Zoe)
+- Nav bar xml (Mahir)
+- Nav bar code (Jarod/Mahir)
+- Forgot password code
+- Vendor sign up code
+- Market customer view xml
+- Market customer view code
+- Vendor customer view code
+- My reviews [optional]
+- Settings xml
+- Settings code
+
+
+		
