@@ -19,8 +19,11 @@
         android:id="@+id/add_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="#447806"
+        android:fontFamily="@font/poorstory"
+        android:textSize="16dp"
         android:text="Add Review"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
@@ -29,9 +32,12 @@
         android:id="@+id/ReviewBackButt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="56dp"
         android:text="Back"
+        android:textSize="16dp"
+        android:fontFamily="@font/poorstory"
+        android:backgroundTint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -46,10 +52,11 @@
 
     <LinearLayout
         android:id="@+id/review_List"
-        android:layout_width="407dp"
+        android:layout_width="365dp"
         android:layout_height="449dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/cspinner"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avg_review"></LinearLayout>

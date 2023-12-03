@@ -13,7 +13,8 @@
         android:layout_marginStart="19dp"
         android:layout_marginTop="39dp"
         android:ems="10"
-        android:hint="Max 200 characters"
+        android:hint="   Max 200 characters"
+        android:background="@drawable/cspinner"
         android:inputType="text"
         android:maxLength="200"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,11 +24,25 @@
         android:id="@+id/submitReview"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="67dp"
-        android:layout_marginBottom="79dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="#447806"
+        android:fontFamily="@font/poorstory"
         android:text="Submit"
+        android:textSize="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/review_button_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginBottom="108dp"
+        android:backgroundTint="@color/black"
+        android:text="Back"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <RadioGroup
         android:id="@+id/reviewStar"
@@ -84,13 +99,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/review_button_back"
+    <TextView
+        android:id="@+id/ratingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="55dp"
-        android:layout_marginBottom="75dp"
-        android:text="Back"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="144dp"
+        android:fontFamily="@font/poorstory"
+        android:text="Rate the vendor"
+        android:textSize="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
