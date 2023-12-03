@@ -2,7 +2,6 @@
     <string name="app_name">COSC341Project</string>
 
 
-
     <!-- Global -->
     <string name="user_data">user_info.txt</string>
     <string name="customer_display_text">Customer</string>

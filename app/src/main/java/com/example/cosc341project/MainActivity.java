@@ -32,14 +32,30 @@ public class MainActivity extends AppCompatActivity {
     // Var
     String username, password;
     boolean fileExists;
+    Button tempbtn; // TEMPORARY
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        /*---TEMPORARY BUTTON JUST TO TEST NAV --------------*/
+
+        tempbtn = findViewById(R.id.tempButton);
+        tempbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Create an Intent to start the CustHome activity
+                Intent intent = new Intent(MainActivity.this, CustHome.class);
+                startActivity(intent);
+            }
+        });
+
+        /*------------------------------------*/
+
+
         // check if logged in. If so, immediately load next activity (default market).
-        checkLoggedIn();
+        //checkLoggedIn();
 
         // if not logged in, init.
         usernameInput = findViewById(R.id.username_text_input);
@@ -57,47 +73,47 @@ public class MainActivity extends AppCompatActivity {
         res = getResources();
     }
 
-    public void checkLoggedIn() {
-
-        File f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.user_data));
-        if (!f.exists())
-            return;
-
-        fileExists = true;
-
-        String username = "";
-        boolean loggedIn = false;
-        try {
-
-            FileInputStream fis = openFileInput(res.getString(R.string.user_data));
-            InputStreamReader isr = new InputStreamReader(fis);
-            BufferedReader br = new BufferedReader(isr);
-
-            String line;
-            while ((line = br.readLine()) != null) {
-                if (line.charAt(0) == '@') { // For now, use an @ sign to indicate a user
-
-                    username = line;
-                    br.readLine(); // password
-                    line = br.readLine(); // options
-                    if (line.split(" ")[0].equals("true")) {
-                        loggedIn = true;
-                        break;
-                    }
-                }
-            }
-        } catch(IOException e) {
-            Toast.makeText(this, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
-        }
-
-        if (!loggedIn)
-            return;
-
-        Intent intent = new Intent(getApplicationContext(), CustHome.class);
-        intent.putExtra("username", username); // Assumption that users cannot share usernames, so username can be used as a primary key
-        startActivity(intent);
-        finish(); // No need to initialize the rest of the activity, since we are skipping it
-    }
+//    public void checkLoggedIn() {
+//
+//        File f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.user_data));
+//        if (!f.exists())
+//            return;
+//
+//        fileExists = true;
+//
+//        String username = "";
+//        boolean loggedIn = false;
+//        try {
+//
+//            FileInputStream fis = openFileInput(res.getString(R.string.user_data));
+//            InputStreamReader isr = new InputStreamReader(fis);
+//            BufferedReader br = new BufferedReader(isr);
+//
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                if (line.charAt(0) == '@') { // For now, use an @ sign to indicate a user
+//
+//                    username = line;
+//                    br.readLine(); // password
+//                    line = br.readLine(); // options
+//                    if (line.split(" ")[0].equals("true")) {
+//                        loggedIn = true;
+//                        break;
+//                    }
+//                }
+//            }
+//        } catch(IOException e) {
+//            Toast.makeText(this, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
+//        }
+//
+//        if (!loggedIn)
+//            return;
+//
+//        Intent intent = new Intent(getApplicationContext(), CustHome.class);
+//        intent.putExtra("username", username); // Assumption that users cannot share usernames, so username can be used as a primary key
+//        startActivity(intent);
+//        finish(); // No need to initialize the rest of the activity, since we are skipping it
+//    }
 
     // TODO: Figure out what we want to do with the forgot password button. Aesthetic purposes?
     public void forgotPassword(View v) {}

@@ -5,19 +5,29 @@
             android:id="@+id/nav_home"
             android:title="Home"
             android:icon="@drawable/home_icon"/>
-
         <item
-            android:id="@+id/favMarket1"
-            android:title="FavMarket 1"
+            android:id="@+id/nav_all_market"
+            android:title="All Markets"
             android:icon="@drawable/store_icon"/>
-
-        <item
-            android:id="@+id/favMarket2"
-            android:title="FavMarket 2"
-            android:icon="@drawable/store_icon"/>
-
-        <!-- gather items customer favourite market items and paste inside group -->
     </group>
+
+    <group android:checkableBehavior="single">
+        <!-- gather items customer favourite market items and paste inside group -->
+        <item android:title="Favourite Markets">
+            <menu>
+                <item
+                    android:id="@+id/favMarket1"
+                    android:title="FavMarket 1"
+                    android:icon="@drawable/store_icon"/>
+
+                <item
+                    android:id="@+id/favMarket2"
+                    android:title="FavMarket 2"
+                    android:icon="@drawable/store_icon"/>
+            </menu>
+        </item>
+    </group>
+
     <group android:checkableBehavior="single">
         <item android:title="Profile Settings">
             <menu>

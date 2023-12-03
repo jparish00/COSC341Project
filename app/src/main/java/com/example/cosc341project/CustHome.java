@@ -29,6 +29,7 @@ public class CustHome extends AppCompatActivity {
         toolbar = findViewById(R.id.toolbar);
         // tool bar
         setSupportActionBar(toolbar);
+        getSupportActionBar().setTitle("");
 
         // nav drawer menu
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);

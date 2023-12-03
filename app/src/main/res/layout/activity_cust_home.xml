@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CustHome">
+    android:fitsSystemWindows="true"
+    tools:context=".CustHome"
+    tools:openDrawer="start">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
     <View
         android:id="@+id/view"
@@ -93,6 +100,7 @@
         android:paddingHorizontal="16dp"
         android:paddingVertical="5dp"
         android:background="@drawable/cspinner"
+
         android:layout_marginHorizontal="16dp"
         android:gravity="center"
         />
@@ -143,51 +151,15 @@
             android:textColor="#447806"
             android:textSize="30dp" />
 
-        <Button
-            android:id="@+id/store1"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:backgroundTint="#FFFF"
-            android:fontFamily="@font/poorstory"
-            android:gravity="center"
-            android:text="Store 1"
-            android:textColor="#447806"
-            android:textSize="30dp" />
-
-        <Button
-            android:id="@+id/store4"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:gravity="center"
-            android:text="Store 1"
-            android:textSize="30dp"
-            android:backgroundTint="#FFFF"
-            android:textColor="#447806"
-            android:fontFamily="@font/poorstory"
-            />
-
     </LinearLayout>
 
-
-    <androidx.drawerlayout.widget.DrawerLayout
-        android:layout_width="match_parent"
+    </androidx.constraintlayout.widget.ConstraintLayout>
+    <com.google.android.material.navigation.NavigationView
+        android:layout_width="wrap_content"
         android:layout_height="match_parent"
-        android:id="@+id/drawer_layout"
-        android:fitsSystemWindows="true"
-        tools:openDrawer="start">
+        android:id="@+id/nav_view"
+        app:headerLayout="@layout/header"
+        app:menu="@menu/main_menu"
+        android:layout_gravity="start"/>
 
-        <com.google.android.material.navigation.NavigationView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/nav_view"
-            app:headerLayout="@layout/header"
-            app:menu="@menu/main_menu"
-            android:layout_gravity="start"/>
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-
-    </androidx.drawerlayout.widget.DrawerLayout>
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.drawerlayout.widget.DrawerLayout>
