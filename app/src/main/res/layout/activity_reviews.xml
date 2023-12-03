@@ -11,45 +11,54 @@
         android:layout_width="271dp"
         android:layout_height="47dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="52dp"
+        android:fontFamily="@font/poorstory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/add_review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="13dp"
-        android:layout_marginBottom="58dp"
-        android:text="Add Review"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
         android:id="@+id/ReviewBackButt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginBottom="58dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="56dp"
+        android:backgroundTint="@color/black"
+        android:fontFamily="@font/poorstory"
         android:text="Back"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/add_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="56dp"
+        android:fontFamily="@font/poorstory"
+        android:backgroundTint="#447806"
+        android:text="Add Review"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
 
     <TextView
         android:id="@+id/avg_review"
         android:layout_width="134dp"
         android:layout_height="30dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="23dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
+        android:fontFamily="@font/poorstory"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vendor_name_text_R" />
 
     <LinearLayout
         android:id="@+id/review_List"
-        android:layout_width="407dp"
+        android:layout_width="360dp"
         android:layout_height="449dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/cspinner"
+
+        android:gravity="center"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/avg_review"></LinearLayout>
