@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".VendorSignUp">
+    tools:context=".VendorSignUp2">
 
 
     <View
@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:background="#99FFFFFF"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-41dp" />
+        tools:layout_editor_absoluteY="0dp" />
 
     <ImageView
         android:id="@+id/market_image"
@@ -52,105 +52,42 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/sign_in_text_layout"
+    <TextView
+        android:id="@+id/categorySelect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginStart="40dp"
+        android:layout_marginTop="316dp"
+        android:fontFamily="@font/poorstory"
+        android:text="Vendor Category"
+        android:textColor="#121212"
+        android:textSize="20dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/market_image"
-        app:layout_constraintBottom_toBottomOf="@id/market_image"
-        android:gravity="center">
-
-    </LinearLayout>
-
-
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 
 
     <EditText
-        android:id="@+id/first_name_input"
+        android:id="@+id/vendorT"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="76dp"
         android:layout_marginEnd="32dp"
         android:background="#FCFFF5"
         android:ems="10"
-        android:fontFamily="@font/poorstory"
-        android:hint="First Name"
-        android:inputType="textPersonName"
-        android:paddingLeft="10dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/market_image" />
 
-    <EditText
-        android:id="@+id/last_name_input"
-        android:layout_width="347dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="#FCFFF5"
-        android:ems="10"
         android:fontFamily="@font/poorstory"
-        android:hint="Last Name"
-
+        android:hint="Vendor Title"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/first_name_input" />
+        app:layout_constraintTop_toBottomOf="@id/vendorTitle" />
 
     <EditText
-        android:id="@+id/email_input"
-        android:layout_width="347dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="#FCFFF5"
-        android:ems="10"
-        android:fontFamily="@font/poorstory"
-        android:hint="Email Address"
-
-        android:inputType="textEmailAddress"
-        android:paddingLeft="10dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/last_name_input" />
-
-    <EditText
-        android:id="@+id/storewebsite"
-        android:layout_width="347dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="#FCFFF5"
-        android:ems="10"
-        android:fontFamily="@font/poorstory"
-        android:hint="Store Website URL"
-
-        android:inputType="textUri"
-        android:paddingLeft="10dp"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/email_input" />
-
-    <EditText
-        android:id="@+id/password_input"
+        android:id="@+id/vendorAddress"
         android:layout_width="347dp"
         android:layout_height="35dp"
         android:layout_marginStart="32dp"
@@ -160,54 +97,50 @@
         android:ems="10"
         android:fontFamily="@font/poorstory"
 
-        android:hint="Password"
+        android:hint="Vendor Address"
         android:inputType="textPassword"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/storewebsite" />
+        app:layout_constraintTop_toBottomOf="@id/vendorT" />
 
-    <EditText
-        android:id="@+id/reEnterPassword"
-        android:layout_width="347dp"
-        android:layout_height="35dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
-        android:layout_marginEnd="32dp"
-        android:background="#FCFFF5"
-        android:ems="10"
-        android:fontFamily="@font/poorstory"
+    <Spinner
+        android:id="@+id/categories"
+        android:layout_width="151dp"
+        android:layout_height="30dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="35dp"
+        android:background="@drawable/cspinner"
+        android:gravity="center"
+        android:paddingHorizontal="16dp"
+        android:paddingVertical="5dp"
 
-        android:hint="Re-Enter Password"
-        android:inputType="textPassword"
-        android:paddingLeft="10dp"
-        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.938"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_input" />
+        app:layout_constraintTop_toBottomOf="@id/vendorAddress" />
 
     <Button
-        android:id="@+id/nextPage"
+        android:id="@+id/create_account_confirm_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="104dp"
+        android:layout_marginTop="32dp"
         android:backgroundTint="#447806"
         android:fontFamily="@font/poorstory"
         android:text="Create Account"
         android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.869"
+        app:layout_constraintHorizontal_bias="0.934"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/password_input" />
+        app:layout_constraintTop_toBottomOf="@id/categories" />
 
     <Button
-        android:id="@+id/returnButton"
+        android:id="@+id/return_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="92dp"
         android:backgroundTint="@color/black"
         android:fontFamily="@font/poorstory"
         android:text="Go Back"
@@ -215,13 +148,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.107"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/reEnterPassword" />
+        app:layout_constraintTop_toBottomOf="@id/vendorAddress" />
 
     <Button
         android:id="@+id/ImCustomer"
         android:layout_width="162dp"
         android:layout_height="51dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/design_default_color_secondary"
         android:fontFamily="@font/poorstory"
         android:text="Create Customer Account"
@@ -229,8 +162,9 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.875"
+        app:layout_constraintHorizontal_bias="0.935"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/nextPage" />
+        app:layout_constraintTop_toBottomOf="@id/create_account_confirm_button" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
