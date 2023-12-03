@@ -80,61 +80,54 @@
 
 
 
-    <LinearLayout
-        android:id="@+id/marketLayout"
-        android:layout_width="411dp"
-        android:layout_height="64dp"
-        android:gravity="center"
-        android:orientation="horizontal"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/toolbar">
-
-
         <!-- Spinner with layout_weight -->
 
-        <EditText
-            android:id="@+id/searchBar"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginEnd="16dp"
-            android:layout_weight="1"
-            android:ems="10"
-            android:hint="Search here"
-            android:inputType="text" />
+
+        <!--    &lt;!&ndash; Search market names &ndash;&gt;-->
+        <!--    <EditText-->
+        <!--        android:id="@+id/searchBar"-->
+        <!--        android:layout_width="377dp"-->
+        <!--        android:layout_height="45dp"-->
+        <!--        android:layout_marginEnd="16dp"-->
+        <!--        android:layout_weight="1"-->
+        <!--        android:ems="10"-->
+        <!--        android:hint="Search Markets Here"-->
+        <!--        android:inputType="text"-->
+        <!--        app:layout_constraintEnd_toEndOf="parent"-->
+        <!--        app:layout_constraintStart_toStartOf="parent"-->
+        <!--        app:layout_constraintTop_toBottomOf="@id/toolbar"/>-->
+
+        <!-- category select -->
+<!--        <Spinner-->
+<!--            android:id="@+id/categories"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="wrap_content"-->
+<!--           -->
+<!--            android:paddingHorizontal="16dp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            android:paddingVertical="5dp"-->
+<!--            android:background="@drawable/cspinner"-->
+
+<!--            android:layout_marginHorizontal="16dp"-->
+<!--            android:gravity="center"-->
+<!--            />-->
 
 
-        <!-- ImageButton with layout_weight -->
-        <!--        <ImageButton-->
-        <!--            android:id="@+id/googleMapsButton"-->
-        <!--            android:layout_width="45dp"-->
-        <!--            android:layout_height="45dp"-->
-        <!--            android:background=""-->
-        <!--            android:padding="7dp"-->
-        <!--            android:scaleType="centerInside"-->
-        <!--            android:src="@drawable/gmaps" />-->
+        <ImageButton
+            android:id="@+id/gobackbtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/poorstory"
+            android:src="@drawable/back_icon"
+            android:backgroundTint="@color/white"
+            android:layout_marginTop="16dp"
+            android:textSize="16sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.049"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/toolbar"/>
 
-
-    </LinearLayout>
-
-    <Spinner
-        android:id="@+id/categories"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/marketLayout"
-        android:paddingHorizontal="16dp"
-        android:paddingVertical="5dp"
-        android:background="@drawable/cspinner"
-
-        android:layout_marginHorizontal="16dp"
-        android:gravity="center"
-        />
-
-
-    <LinearLayout
+        <LinearLayout
         android:id="@+id/storesLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -146,7 +139,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categories"
+        app:layout_constraintTop_toBottomOf="@id/gobackbtn"
         app:layout_constraintVertical_bias="1.0">
 
         <TextView
