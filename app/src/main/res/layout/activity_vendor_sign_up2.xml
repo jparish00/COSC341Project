@@ -150,21 +150,5 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/vendorAddress" />
 
-    <Button
-        android:id="@+id/ImCustomer"
-        android:layout_width="162dp"
-        android:layout_height="51dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/design_default_color_secondary"
-        android:fontFamily="@font/poorstory"
-        android:text="Create Customer Account"
-        android:textColor="@color/black"
-        android:textSize="15sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.935"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/create_account_confirm_button" />
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

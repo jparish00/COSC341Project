@@ -49,7 +49,7 @@
             android:id="@+id/user_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="2.5dp"
+            android:layout_marginEnd="4dp"
             android:fontFamily="@font/poorstory"
             android:text="@string/customer_display_text"
             android:textSize="50sp" />
@@ -58,7 +58,7 @@
             android:id="@+id/sign_up_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2.5dp"
+            android:layout_marginStart="4dp"
             android:fontFamily="@font/poorstory"
             android:text="@string/sign_in_text"
             android:textColor="#447806"

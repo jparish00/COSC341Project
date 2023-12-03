@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".VendorSignUp">
 
-
     <View
         android:id="@+id/view2"
         android:layout_width="match_parent"
@@ -64,11 +63,6 @@
         android:gravity="center">
 
     </LinearLayout>
-
-
-
-
-
 
     <EditText
         android:id="@+id/first_name_input"
