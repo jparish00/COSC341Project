@@ -49,5 +49,6 @@
     <string name="threeStar">3</string>
     <string name="fourStar">4</string>
     <string name="fiveStar">5</string>
+    <string name="invalid_review">Please select a rating</string>
 
 </resources>
