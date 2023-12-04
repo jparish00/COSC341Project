@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Market Name"
-            android:fontFamily="@font/poorstory"
+            android:fontFamily="@font/poppins"
             android:textSize="25dp"/>
 
         <!-- Space after TextView -->

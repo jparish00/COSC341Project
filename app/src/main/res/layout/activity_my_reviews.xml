@@ -35,7 +35,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
-            android:fontFamily="@font/poorstory"
+            android:fontFamily="@font/poppins"
             android:text="My Reviews"
             android:textColor="#447806"
             android:textSize="50dp"
@@ -73,9 +73,9 @@
             android:layout_marginEnd="24dp"
             android:layout_marginBottom="56dp"
             android:backgroundTint="#447806"
-            android:fontFamily="@font/poorstory"
+            android:fontFamily="@font/poppinslight"
             android:text="Add Review"
-            android:textSize="16dp"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 

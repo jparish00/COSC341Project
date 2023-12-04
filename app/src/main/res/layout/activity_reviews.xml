@@ -8,45 +8,49 @@
 
     <TextView
         android:id="@+id/vendor_name_text_R"
-        android:layout_width="271dp"
-        android:layout_height="47dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/add_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="56dp"
-        android:backgroundTint="#447806"
-        android:fontFamily="@font/poorstory"
-        android:textSize="16dp"
-        android:text="Add Review"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="50dp"
+        android:textSize="35sp"
+        android:fontFamily="@font/poppins"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/ReviewBackButt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginBottom="56dp"
-        android:text="Back"
-        android:textSize="16dp"
-        android:fontFamily="@font/poorstory"
+        android:layout_marginBottom="16dp"
         android:backgroundTint="@color/black"
+        android:fontFamily="@font/poppinslight"
+        android:text="Back"
+        android:textSize="15sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
+    <Button
+        android:id="@+id/add_review"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="16dp"
+        android:backgroundTint="#447806"
+        android:fontFamily="@font/poppinslight"
+        android:text="Add Review"
+        android:textSize="15sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
     <TextView
         android:id="@+id/avg_review"
-        android:layout_width="134dp"
-        android:layout_height="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="27dp"
         android:layout_marginTop="23dp"
+        android:textSize="32sp"
+        android:fontFamily="@font/poppinslight"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vendor_name_text_R" />
 
