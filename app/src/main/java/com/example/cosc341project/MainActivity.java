@@ -116,8 +116,10 @@ public class MainActivity extends AppCompatActivity {
 //        finish(); // No need to initialize the rest of the activity, since we are skipping it
 //    }
 
-    // TODO: Figure out what we want to do with the forgot password button. Aesthetic purposes?
-    public void forgotPassword(View v) {}
+    public void forgotPassword(View v) {
+        Intent intent = new Intent(getApplicationContext(), ForgotPassword.class);
+        startActivity(intent);
+    }
 
     public void attemptLogin(View v) {
 
