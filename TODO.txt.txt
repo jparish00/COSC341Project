@@ -68,16 +68,15 @@ ADD MORE FILES HERE AS NECESSARY
 
 TODO: Parenthesis indicated working on/planned to work on
 - Reviews (Zoe)
-- Nav bar xml (Mahir)
-- Nav bar code (Jarod/Mahir)
+- Nav bar xml (Mahir) - done
+- Nav bar code (Jarod/Mahir) - done
 - Forgot password code
 - Vendor sign up code
 - Market customer view xml
 - Market customer view code
 - Vendor customer view code
-- My reviews [optional]
-- Settings xml
+- My reviews [optional] - xml done
+- Settings xml - done
 - Settings code
-
 
 		
