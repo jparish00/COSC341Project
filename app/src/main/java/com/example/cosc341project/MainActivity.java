@@ -39,7 +39,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*---TEMPORARY BUTTON JUST TO TEST NAV --------------*/
+        /*---TEMPORARY BUTTON JUST TO TEST NAV
+         delete when we can successfully log into custHome--------------*/
 
         tempbtn = findViewById(R.id.tempButton);
         tempbtn.setOnClickListener(new View.OnClickListener() {
@@ -55,7 +56,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // check if logged in. If so, immediately load next activity (default market).
-        //checkLoggedIn();
+      //  checkLoggedIn();
 
         // if not logged in, init.
         usernameInput = findViewById(R.id.username_text_input);
@@ -72,7 +73,7 @@ public class MainActivity extends AppCompatActivity {
 
         res = getResources();
     }
-
+//
 //    public void checkLoggedIn() {
 //
 //        File f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.user_data));

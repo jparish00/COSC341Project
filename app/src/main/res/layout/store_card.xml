@@ -1,0 +1,56 @@
+<!-- res/layout/store_card.xml -->
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:layout_marginRight="32dp"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/store_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Store Title"
+                android:textSize="18sp"
+                android:textStyle="bold"/>
+
+            <RatingBar
+                android:id="@+id/store_rating"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                style="@android:style/Widget.DeviceDefault.RatingBar.Small"
+                android:isIndicator="true" />
+
+            <TextView
+                android:id="@+id/store_desc"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="10sp"
+                android:fontFamily="@font/poorstory"
+                />
+
+        </LinearLayout>
+
+        <ImageView
+            android:id="@+id/store_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/temp_image"
+        android:scaleType="centerCrop" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
