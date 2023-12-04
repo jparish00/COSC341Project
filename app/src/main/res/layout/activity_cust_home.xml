@@ -119,53 +119,60 @@
         android:gravity="center"
         />
 
+    <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categories">
     <!-- stores layout -->
-    <LinearLayout
-        android:id="@+id/storesLayout"
-        android:layout_width="411dp"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/categories"
-        >
-
-        <Button
-            android:id="@+id/store2"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:backgroundTint="#FFFF"
-            android:fontFamily="@font/poorstory"
+        <LinearLayout
+            android:id="@+id/storesLayout"
+            android:layout_width="411dp"
+            android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="Store 1"
-            android:textColor="#447806"
-            android:textSize="30dp" />
+            android:orientation="vertical"
+            android:padding="16dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/categories"
+            >
 
-        <Button
-            android:id="@+id/store3"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:backgroundTint="#FFFF"
-            android:fontFamily="@font/poorstory"
-            android:gravity="center"
-            android:text="Store 1"
-            android:textColor="#447806"
-            android:textSize="30dp" />
+    <!--        <Button-->
+    <!--            android:id="@+id/store2"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:backgroundTint="#FFFF"-->
+    <!--            android:fontFamily="@font/poorstory"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="Store 1"-->
+    <!--            android:textColor="#447806"-->
+    <!--            android:textSize="30dp" />-->
 
-        <Button
-            android:id="@+id/store5"
-            android:layout_width="match_parent"
-            android:layout_height="100dp"
-            android:backgroundTint="#FFFF"
-            android:fontFamily="@font/poorstory"
-            android:gravity="center"
-            android:text="Store 1"
-            android:textColor="#447806"
-            android:textSize="30dp" />
+    <!--        <Button-->
+    <!--            android:id="@+id/store3"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:backgroundTint="#FFFF"-->
+    <!--            android:fontFamily="@font/poorstory"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="Store 1"-->
+    <!--            android:textColor="#447806"-->
+    <!--            android:textSize="30dp" />-->
 
-    </LinearLayout>
+    <!--        <Button-->
+    <!--            android:id="@+id/store5"-->
+    <!--            android:layout_width="match_parent"-->
+    <!--            android:layout_height="100dp"-->
+    <!--            android:backgroundTint="#FFFF"-->
+    <!--            android:fontFamily="@font/poorstory"-->
+    <!--            android:gravity="center"-->
+    <!--            android:text="Store 1"-->
+    <!--            android:textColor="#447806"-->
+    <!--            android:textSize="30dp" />-->
+
+        </LinearLayout>
+    </ScrollView>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
     <com.google.android.material.navigation.NavigationView
