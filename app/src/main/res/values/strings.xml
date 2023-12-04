@@ -25,6 +25,10 @@
     <string name="toast_add_account">Please add an account</string>
     <string name="toast_incorrect_login">Username or password is incorrect</string>
 
+    <!-- Forgot Password Activity -->
+    <string name="toast_username_does_not_exist">No account is associated with the Username: %1$s</string>
+    <string name="toast_password_changed">Password successfully updated</string>
+
     <!-- Cust Sign Up Activity -->
     <string name="sign_up_text">Sign-Up</string>
     <string name="return_text">Go Back</string>
