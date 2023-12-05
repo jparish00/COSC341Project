@@ -35,7 +35,8 @@ Text files: Note that the
 - vendor_info.txt (free to modify)
 	primary key: vendor_username
 	format:
-		@vendor_username vendor_name vendor_email
+		@vendor_username vendor_email
+		vendor_name
 		vendor_url
 		vendor_address
 		vendor_category
@@ -44,6 +45,21 @@ Text files: Note that the
 		@vendor2_username ...
 	Desc:
 		Holds all the vendor product information.
+
+- sign_in_type.txt (free to modify)
+    primary key: username (vendor and customer)
+    format:
+        @username [account_type]
+    Desc:
+        Holds the account information to reference once log in is successful. account type is either { "vendor", "customer" }
+
+- default_market.txt (free to modify)
+    primary key: cust_username
+    format:
+        @username
+        market_name
+    Desc:
+        When loading market, refer to this file to determine what market to load on login
 
 - cart.txt (free to modify)
 	primary key: cust_username
@@ -73,8 +89,8 @@ TODO: Parenthesis indicated working on/planned to work on
 - Reviews (Zoe)
 - Nav bar xml (Mahir) - done
 - Nav bar code (Jarod/Mahir) - done
-- Forgot password code
-- Vendor sign up code
+- Forgot password code - done
+- Vendor sign up code - done, except for improvements
 - Market customer view xml
 - Market customer view code
 - Vendor customer view code

@@ -5,6 +5,9 @@
     <!-- Global -->
     <string name="user_data">user_info.txt</string>
     <string name="vendor_data">vendor_data.txt</string>
+    <string name="sign_in_type">sign_in_type.txt</string>
+    <string name="default_market">default_market.txt</string>
+    <string name="default_market_preference">MARKETA</string>
     <string name="customer_display_text">Customer</string>
     <string name="create_account_general">Create Account</string>
 

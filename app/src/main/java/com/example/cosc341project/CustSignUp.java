@@ -2,6 +2,7 @@ package com.example.cosc341project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -21,6 +22,8 @@ public class CustSignUp extends AppCompatActivity {
     Resources res;
     // Var
     int[] textIds = { R.id.first_name_input, R.id.last_name_input, R.id.email_input, R.id.password_input, R.id.repeat_password_input };
+
+    public static Activity first; // To kill this activity from the second sign up vendor activity if sign up successful
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class CustSignUp extends AppCompatActivity {
         createVendorButton.setOnClickListener(this::createAccountVendor);
 
         res = getResources();
+        first = this;
     }
 
     public void onReturnClick(View v) {
@@ -107,6 +111,22 @@ public class CustSignUp extends AppCompatActivity {
             e.printStackTrace();
         }
 
+        // Write account information
+        try {
+            fout = openFileOutput(res.getString(R.string.sign_in_type), Context.MODE_APPEND);
+            fout.write(("@" + username + " customer\n").getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Write default market
+        try {
+            fout = openFileOutput(res.getString(R.string.sign_in_type), Context.MODE_APPEND);
+            fout.write(("@" + username + "\n").getBytes());
+            fout.write((res.getString(R.string.default_market_preference) + "\n").getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Toast.makeText(this, String.format(res.getString(R.string.toast_account_creation_success), username), Toast.LENGTH_LONG).show();
         finish();

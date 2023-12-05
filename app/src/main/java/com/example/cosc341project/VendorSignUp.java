@@ -37,7 +37,7 @@ public class VendorSignUp extends AppCompatActivity {
         storeURLInput = findViewById(R.id.storewebsite);
         passwordInput = findViewById(R.id.password_input);
         rePasswordInput = findViewById(R.id.reEnterPassword);
-        returnButton = findViewById(R.id.return_button);
+        returnButton = findViewById(R.id.returnButton);
         nextButton = findViewById(R.id.nextPage);
         custAccountButton = findViewById(R.id.ImCustomer);
 
@@ -81,6 +81,7 @@ public class VendorSignUp extends AppCompatActivity {
         String password = passwordInput.getText().toString().trim();
         if (password.length() < 8) {
             Toast.makeText(this, res.getString(R.string.toast_password_short), Toast.LENGTH_SHORT).show();
+            return;
         }
         // Verify password contains uppercase, lowercase, special character
         else if(!password.matches(".*\\d.*") || !password.matches(".*[a-z].*")
@@ -91,6 +92,7 @@ public class VendorSignUp extends AppCompatActivity {
         String passwordCheck = rePasswordInput.getText().toString();
         if (!password.equals(passwordCheck)) {
             Toast.makeText(this, res.getString(R.string.toast_password_mismatch), Toast.LENGTH_SHORT).show();
+            return;
         }
 
         // Store URL can be blank
@@ -103,13 +105,11 @@ public class VendorSignUp extends AppCompatActivity {
 
         intent.putExtras(b);
         startActivity(intent);
-
     }
 
     public void onImCustClick(View v) {
 
-        Intent intent = new Intent(getApplicationContext(), CustSignUp.class);
-        startActivity(intent);
+        // Simply finish, we want to access cust account creation through MainActivity
         finish();
 
     }

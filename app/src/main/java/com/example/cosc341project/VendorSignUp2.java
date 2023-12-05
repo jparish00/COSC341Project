@@ -35,7 +35,7 @@ public class VendorSignUp2 extends AppCompatActivity {
         username = b.getString("username");
         password = b.getString("password");
         email = b.getString("email");
-        storeURL = b.getString("storeURL");
+        storeURL = b.getString("store_url");
 
         // Views
         vendorTitleInput = findViewById(R.id.vendorT);
@@ -68,15 +68,17 @@ public class VendorSignUp2 extends AppCompatActivity {
         String vendorTitle = vendorTitleInput.getText().toString();
         String vendorAddress = vendorAddressInput.getText().toString();
 
-        String category = vendorCategorySpinner.getSelectedItem().toString();
+        // TODO: FIX ONCE CATEGORIES ARE ADDED TO SPINNER
+        //String category = vendorCategorySpinner.getSelectedItem().toString();
+        String category = "Meats";
 
         // Write user info, appending to end
         FileOutputStream fout;
         try {
             fout = openFileOutput(res.getString(R.string.user_data), Context.MODE_APPEND);
-            fout.write(("@" + username + " " + email).getBytes());
-            fout.write(password.getBytes());
-            fout.write("false".getBytes());
+            fout.write(("@" + username + " " + email + "\n").getBytes());
+            fout.write((password + "\n").getBytes());
+            fout.write("false\n".getBytes());
             fout.close();
         } catch (Exception e) {
             e.printStackTrace();
@@ -85,14 +87,36 @@ public class VendorSignUp2 extends AppCompatActivity {
         // Write to vendor info, appending to end
         try {
             fout = openFileOutput(res.getString(R.string.vendor_data), Context.MODE_APPEND);
-            fout.write(("@" + username + " " + vendorTitle + " " + email).getBytes());
-            fout.write(storeURL.getBytes());
-            fout.write(vendorAddress.getBytes());
-            fout.write(category.getBytes());
+            fout.write(("@" + username + " " + email + "\n").getBytes());
+            fout.write((vendorTitle + "\n").getBytes());
+            fout.write((storeURL + "\n").getBytes());
+            fout.write((vendorAddress + "\n").getBytes());
+            fout.write((category + "\n").getBytes());
             fout.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        // Write account information
+        try {
+            fout = openFileOutput(res.getString(R.string.sign_in_type), Context.MODE_APPEND);
+            fout.write(("@" + username + " vendor\n").getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Write default market
+        try {
+            fout = openFileOutput(res.getString(R.string.default_market), Context.MODE_APPEND);
+            fout.write(("@" + username + "\n").getBytes());
+            fout.write((res.getString(R.string.default_market_preference) + "\n").getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        Toast.makeText(this, String.format(res.getString(R.string.toast_account_creation_success), username), Toast.LENGTH_LONG).show();
+
+        CustSignUp.first.finish();
         VendorSignUp.first.finish();
         finish();
 
