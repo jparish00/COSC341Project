@@ -80,6 +80,7 @@ public class CustSignUp extends AppCompatActivity {
         String password = passwordInput.getText().toString().trim();
         if (password.length() < 8) {
             Toast.makeText(this, res.getString(R.string.toast_password_short), Toast.LENGTH_SHORT).show();
+            return;
         }
         // Verify password contains uppercase, lowercase, special character
         else if(!password.matches(".*\\d.*") || !password.matches(".*[a-z].*")
@@ -90,6 +91,7 @@ public class CustSignUp extends AppCompatActivity {
         String passwordCheck = repeatPassInput.getText().toString();
         if (!password.equals(passwordCheck)) {
             Toast.makeText(this, res.getString(R.string.toast_password_mismatch), Toast.LENGTH_SHORT).show();
+            return;
         }
 
         // Success :)

@@ -4,6 +4,7 @@
 
     <!-- Global -->
     <string name="user_data">user_info.txt</string>
+    <string name="vendor_data">vendor_data.txt</string>
     <string name="customer_display_text">Customer</string>
     <string name="create_account_general">Create Account</string>
 

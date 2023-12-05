@@ -84,7 +84,7 @@ public class VendorSignUp2 extends AppCompatActivity {
 
         // Write to vendor info, appending to end
         try {
-            fout = openFileOutput(res.getString(R.string.user_data), Context.MODE_APPEND);
+            fout = openFileOutput(res.getString(R.string.vendor_data), Context.MODE_APPEND);
             fout.write(("@" + username + " " + vendorTitle + " " + email).getBytes());
             fout.write(storeURL.getBytes());
             fout.write(vendorAddress.getBytes());
