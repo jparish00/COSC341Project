@@ -2,6 +2,7 @@ package com.example.cosc341project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
@@ -21,6 +22,8 @@ public class CustSignUp extends AppCompatActivity {
     Resources res;
     // Var
     int[] textIds = { R.id.first_name_input, R.id.last_name_input, R.id.email_input, R.id.password_input, R.id.repeat_password_input };
+
+    public static Activity first; // To kill this activity from the second sign up vendor activity if sign up successful
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,6 +45,7 @@ public class CustSignUp extends AppCompatActivity {
         createVendorButton.setOnClickListener(this::createAccountVendor);
 
         res = getResources();
+        first = this;
     }
 
     public void onReturnClick(View v) {
@@ -80,6 +84,7 @@ public class CustSignUp extends AppCompatActivity {
         String password = passwordInput.getText().toString().trim();
         if (password.length() < 8) {
             Toast.makeText(this, res.getString(R.string.toast_password_short), Toast.LENGTH_SHORT).show();
+            return;
         }
         // Verify password contains uppercase, lowercase, special character
         else if(!password.matches(".*\\d.*") || !password.matches(".*[a-z].*")
@@ -90,6 +95,7 @@ public class CustSignUp extends AppCompatActivity {
         String passwordCheck = repeatPassInput.getText().toString();
         if (!password.equals(passwordCheck)) {
             Toast.makeText(this, res.getString(R.string.toast_password_mismatch), Toast.LENGTH_SHORT).show();
+            return;
         }
 
         // Success :)
@@ -97,14 +103,30 @@ public class CustSignUp extends AppCompatActivity {
         FileOutputStream fout;
         try {
             fout = openFileOutput(res.getString(R.string.user_data), Context.MODE_APPEND);
-            fout.write(("@" + username + " " + email).getBytes());
-            fout.write(password.getBytes());
-            fout.write("false".getBytes()); // To be changed as preferences are added
+            fout.write(("@" + username + " " + email + "\n").getBytes());
+            fout.write((password + "\n").getBytes());
+            fout.write("false\n".getBytes()); // To be changed as preferences are added
             fout.close();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
+        // Write account information
+        try {
+            fout = openFileOutput(res.getString(R.string.sign_in_type), Context.MODE_APPEND);
+            fout.write(("@" + username + " customer\n").getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Write default market
+        try {
+            fout = openFileOutput(res.getString(R.string.sign_in_type), Context.MODE_APPEND);
+            fout.write(("@" + username + "\n").getBytes());
+            fout.write((res.getString(R.string.default_market_preference) + "\n").getBytes());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
         Toast.makeText(this, String.format(res.getString(R.string.toast_account_creation_success), username), Toast.LENGTH_LONG).show();
         finish();
