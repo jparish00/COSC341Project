@@ -8,14 +8,14 @@
     tools:context=".MainActivity">
 
     <Button
+        android:id="@+id/tempButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="632dp"
+        android:layout_marginTop="660dp"
         android:backgroundTint="@color/black"
-        android:id="@+id/tempButton"
         android:text="custhome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.12"
+        app:layout_constraintHorizontal_bias="0.056"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -33,8 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#99FFFFFF"
-        tools:layout_editor_absoluteX="16dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteX="-37dp"
+        tools:layout_editor_absoluteY="16dp" />
 
     <ImageView
         android:id="@+id/market_image"
@@ -57,21 +57,14 @@
         app:layout_constraintBottom_toBottomOf="@id/market_image"
         android:gravity="center">
 
-        <TextView
-            android:id="@+id/user_text"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="4dp"
-            android:fontFamily="@font/poorstory"
-            android:text="@string/customer_display_text"
-            android:textSize="50sp" />
+
 
         <TextView
             android:id="@+id/sign_up_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="4dp"
-            android:fontFamily="@font/poorstory"
+            android:fontFamily="@font/poppinslight"
             android:text="@string/sign_in_text"
             android:textColor="#447806"
             android:textSize="50sp" />
@@ -128,10 +121,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="@color/white"
-        android:fontFamily="@font/poorstory"
+        android:fontFamily="@font/poppinslight"
         android:text="@string/forgot_password_text"
         android:textColor="#121212"
-        android:textSize="15sp"
+        android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.231"
@@ -144,9 +137,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
         android:backgroundTint="#447806"
-        android:fontFamily="@font/poorstory"
+        android:fontFamily="@font/poppinslight"
         android:text="@string/log_in_text"
-        android:textSize="20sp"
+        android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.172"
         app:layout_constraintStart_toStartOf="parent"
@@ -158,7 +151,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:backgroundTint="@color/design_default_color_secondary"
-        android:fontFamily="@font/poorstory"
+        android:fontFamily="@font/poppinslight"
         android:text="@string/create_account_text"
         android:textColor="@color/black"
         android:textSize="15sp"
@@ -174,7 +167,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:backgroundTint="#121212"
-        android:fontFamily="@font/poorstory"
+        android:fontFamily="@font/poppinslight"
         android:text="@string/is_vendor_text"
         android:textColor="#FFFF"
         android:textSize="15sp"

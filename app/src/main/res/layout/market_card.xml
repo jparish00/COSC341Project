@@ -4,7 +4,6 @@
     android:layout_height="match_parent"
     android:layout_marginBottom="16dp">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -12,17 +11,22 @@
             android:padding="16dp">
 
             <TextView
-                android:id="@+id/review_title"
+                android:id="@+id/market_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Review Name"
-                android:fontFamily="@font/poppinslight"
+                android:text="Market Name"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"/>
 
+            <TextView
+                android:id="@+id/market_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Market Address"
+                android:textSize="14sp"/>
 
             <RatingBar
-                android:id="@+id/review_rating"
+                android:id="@+id/market_rating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:numStars="5"
@@ -30,6 +34,6 @@
                 android:stepSize="0.5"
                 android:isIndicator="true"
                 style="?android:attr/ratingBarStyleSmall" />
-        </LinearLayout>
 
+        </LinearLayout>
 </androidx.cardview.widget.CardView>
