@@ -3,8 +3,11 @@ package com.example.cosc341project;
 import androidx.annotation.StringRes;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.ContentValues;
+import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -48,6 +51,26 @@ public class AddReview extends AppCompatActivity {
         s4.setText(R.string.fourStar);
         s5.setText(R.string.fiveStar);
 
+    }
+
+    public void addReview(Context context, String vendorUsername, String custUsername, int reviewRating, String reviewText) {
+        // Create an instance of the DatabaseHelper class
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        // Get a writable database
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Create a ContentValues object to store the review data
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_VENDOR_USERNAME, vendorUsername);
+        values.put(DatabaseHelper.COLUMN_CUST_USERNAME, custUsername);
+        values.put(DatabaseHelper.COLUMN_REVIEW_RATING, reviewRating);
+        values.put(DatabaseHelper.COLUMN_REVIEW_TEXT, reviewText);
+
+        // Insert the review data into the database
+        db.insert(DatabaseHelper.TABLE_NAME, null, values);
+
+        // Close the database connection
+        db.close();
     }
 
     public void submitReview(View view){
