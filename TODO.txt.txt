@@ -35,7 +35,10 @@ Text files: Note that the
 - vendor_info.txt (free to modify)
 	primary key: vendor_username
 	format:
-		@vendor_username vendor_name
+		@vendor_username vendor_name vendor_email
+		vendor_url
+		vendor_address
+		vendor_category
 		item_name price
 		item2_name price
 		@vendor2_username ...
