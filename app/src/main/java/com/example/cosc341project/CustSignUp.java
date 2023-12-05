@@ -99,9 +99,9 @@ public class CustSignUp extends AppCompatActivity {
         FileOutputStream fout;
         try {
             fout = openFileOutput(res.getString(R.string.user_data), Context.MODE_APPEND);
-            fout.write(("@" + username + " " + email).getBytes());
-            fout.write(password.getBytes());
-            fout.write("false".getBytes()); // To be changed as preferences are added
+            fout.write(("@" + username + " " + email + "\n").getBytes());
+            fout.write((password + "\n").getBytes());
+            fout.write("false\n".getBytes()); // To be changed as preferences are added
             fout.close();
         } catch (Exception e) {
             e.printStackTrace();

@@ -85,7 +85,6 @@ public class ForgotPassword extends AppCompatActivity {
                     if (username.equals(usernameIn)) {
                         usernameFound = true;
                         passLocation = count; // Don't add +1, since arraylist starts from 0
-                        break;
                     }
                 }
             }
@@ -95,7 +94,7 @@ public class ForgotPassword extends AppCompatActivity {
 
         // Check if the username was found
         if(!usernameFound) {
-            Toast.makeText(this, res.getString(R.string.toast_username_does_not_exist), Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, String.format(res.getString(R.string.toast_username_does_not_exist), username), Toast.LENGTH_SHORT).show();
             return;
         }
 

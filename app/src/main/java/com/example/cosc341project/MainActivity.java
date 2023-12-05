@@ -72,7 +72,11 @@ public class MainActivity extends AppCompatActivity {
         // Leaving vendor button, since we may move that to account creation
 
         res = getResources();
-    }
+        // REMOVE WHEN checkLoggedIn IS UNCOMMENTED, NEEDED TO LOGIN
+        File f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.user_data));
+        if (f.exists())
+            fileExists = true;
+        }
 //
 //    public void checkLoggedIn() {
 //
