@@ -17,7 +17,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class ListOfStores {
@@ -114,7 +113,7 @@ public class ListOfStores {
             // Customize card view
             TextView storeTitle = cardView.findViewById(R.id.store_title);
             RatingBar storeRating = cardView.findViewById(R.id.store_rating);
-            TextView storeDesc = cardView.findViewById(R.id.store_desc);
+            TextView storeDesc = cardView.findViewById(R.id.message_text);
 
             storeTitle.setText(names.get(i));
             storeRating.setRating(Float.valueOf(ratings.get(i))); // Just for example, setting a rating

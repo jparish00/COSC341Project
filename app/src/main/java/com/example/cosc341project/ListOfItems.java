@@ -1,13 +1,10 @@
 package com.example.cosc341project;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.Resources;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
-import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -65,7 +62,6 @@ public class ListOfItems {
         String[] splitInfo;
         for (int i = 0; i < productSplit.length; i++) {
             splitInfo = productSplit[i].split(":");
-            System.out.println(splitInfo[0] + " ");
             productNames.add(splitInfo[0]);
             prices.add(splitInfo[1]);
         }
@@ -76,7 +72,7 @@ public class ListOfItems {
 
             // Customize card view
             TextView itemtitle = cardView.findViewById(R.id.item_name);
-            TextView itemPrice = cardView.findViewById(R.id.item_price);
+            TextView itemPrice = cardView.findViewById(R.id.message);
 
             itemtitle.setText(productNames.get(i));
             itemPrice.setText("$"+ prices.get(i)); // Just for example, setting a rating
