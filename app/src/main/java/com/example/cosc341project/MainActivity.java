@@ -9,6 +9,7 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -30,7 +31,9 @@ public class MainActivity extends AppCompatActivity {
 
     // Views
     TextView usernameInput, passwordInput;
-    Button forgotPasswordButton, logInButton, createAccountButton, isVendorButton;
+    Button forgotPasswordButton, logInButton, createAccountButton;
+
+    RadioButton isVendorButton;
     Resources res;
 
     // Var
@@ -68,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         forgotPasswordButton = findViewById(R.id.forgot_pass_button);
         logInButton = findViewById(R.id.log_in_button);
         createAccountButton = findViewById(R.id.create_account_button);
-        isVendorButton = findViewById(R.id.is_vendor_button);
+        isVendorButton = findViewById(R.id.is_vendor_radio_button);
 
         forgotPasswordButton.setOnClickListener(this::forgotPassword); // Does nothing atm
         logInButton.setOnClickListener(this::attemptLogin);
