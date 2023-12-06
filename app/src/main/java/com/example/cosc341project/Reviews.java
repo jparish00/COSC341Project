@@ -2,6 +2,7 @@ package com.example.cosc341project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
@@ -68,20 +69,20 @@ public class Reviews extends AppCompatActivity {
         // Execute the query to retrieve the reviews for the specific vendor
         Cursor cursor = db.query(DatabaseHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
 
-        //todo fix this portion.
+       
         // Iterate through the cursor and add the reviews to the LinearLayout
-//        while (cursor.moveToNext()) {
-//            String reviewRating = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_RATING));
-//            String reviewText = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_TEXT));
-//            String customerName = cursor.getString((cursor.getColumnIndex(DatabaseHelper.COLUMN_CUST_USERNAME)));
-//
-//            // Create a TextView to display the review
-//            TextView reviewTextView = new TextView(context);
-//            reviewTextView.setText(customerName + "Rating: " + reviewRating + "\nReview: " + reviewText);
-//
-//            // Add the TextView to the LinearLayout
-//            linearLayout.addView(reviewTextView);
-//        }
+        while (cursor.moveToNext()) {
+            @SuppressLint("Range") String reviewRating = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_RATING));
+            @SuppressLint("Range") String reviewText = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_TEXT));
+            @SuppressLint("Range") String customerName = cursor.getString((cursor.getColumnIndex(DatabaseHelper.COLUMN_CUST_USERNAME)));
+
+            // Create a TextView to display the review
+            TextView reviewTextView = new TextView(context);
+            reviewTextView.setText(customerName + "Rating: " + reviewRating + "\nReview: " + reviewText);
+
+            // Add the TextView to the LinearLayout
+            linearLayout.addView(reviewTextView);
+        }
 
         // Close the cursor and database connection
         cursor.close();
