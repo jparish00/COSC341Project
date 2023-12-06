@@ -18,7 +18,7 @@ import android.widget.Toast;
 
 public class AddReview extends AppCompatActivity {
 
-    int review_count, review;
+    int  review;
     TextView vendorName;
     RadioGroup review_rating;
     RadioButton s1,s2,s3,s4,s5, rb;
@@ -35,6 +35,9 @@ public class AddReview extends AppCompatActivity {
 
         res = getResources();
         Intent intent = getIntent();
+        Bundle bundle = intent.getExtras();
+        venName = bundle.getString("vendorName");
+        custName = bundle.getString("customerName");
 
         leave_review.findViewById(R.id.add_review_input);
         leave_review.setHint(R.string.review_box_hint);
@@ -54,28 +57,27 @@ public class AddReview extends AppCompatActivity {
     }
 
     // See Reviews comment
-//    public void addReview(Context context, String vendorUsername, String custUsername, int reviewRating, String reviewText) {
-//        // Create an instance of the DatabaseHelper class
-//        DatabaseHelper dbHelper = new DatabaseHelper(context);
-//        // Get a writable database
-//        SQLiteDatabase db = dbHelper.getWritableDatabase();
-//
-//        // Create a ContentValues object to store the review data
-//        ContentValues values = new ContentValues();
-//        values.put(DatabaseHelper.COLUMN_VENDOR_USERNAME, vendorUsername);
-//        values.put(DatabaseHelper.COLUMN_CUST_USERNAME, custUsername);
-//        values.put(DatabaseHelper.COLUMN_REVIEW_RATING, reviewRating);
-//        values.put(DatabaseHelper.COLUMN_REVIEW_TEXT, reviewText);
-//
-//        // Insert the review data into the database
-//        db.insert(DatabaseHelper.TABLE_NAME, null, values);
-//
-//        // Close the database connection
-//        db.close();
-//    }
+    public void addReview(Context context, String vendorUsername, String custUsername, int reviewRating, String reviewText) {
+        // Create an instance of the DatabaseHelper class
+        DatabaseHelper dbHelper = new DatabaseHelper(context);
+        // Get a writable database
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Create a ContentValues object to store the review data
+        ContentValues values = new ContentValues();
+        values.put(DatabaseHelper.COLUMN_VENDOR_USERNAME, vendorUsername);
+        values.put(DatabaseHelper.COLUMN_CUST_USERNAME, custUsername);
+        values.put(DatabaseHelper.COLUMN_REVIEW_RATING, reviewRating);
+        values.put(DatabaseHelper.COLUMN_REVIEW_TEXT, reviewText);
+
+        // Insert the review data into the database
+        db.insert(DatabaseHelper.TABLE_NAME, null, values);
+
+        // Close the database connection
+        db.close();
+    }
 
     public void submitReview(View view){
-        //TODO save review text and rating. increment count for number of reviews vendor has to compute average
 
         int selectedID = review_rating.getCheckedRadioButtonId();
         if(selectedID==-1){
@@ -88,11 +90,8 @@ public class AddReview extends AppCompatActivity {
         review = Integer.parseInt(rv);
 
         reviewtext = leave_review.getText().toString();
-        review_count++;
 
-        //todo store review rating, count, reviewtext, custname under vendor name in text.
-
-
+        addReview(this,venName,custName,review,reviewtext);
 
 
     }
