@@ -24,7 +24,7 @@ public class CustHome extends AppCompatActivity {
 
     // Vars
     Resources res;
-    String username;
+    static String username;
     static String defaultMarket, currentMarket;
 
     @Override

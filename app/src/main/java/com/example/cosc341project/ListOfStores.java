@@ -24,6 +24,7 @@ public class ListOfStores {
 
     static ArrayList<String> vendorNames;
     static ArrayList<Integer> vendorIds;
+    static ArrayList<Float> vendorRatings;
 
     // Retaining original in case I break everything
 //    public static void populateStores(Context context, LinearLayout storeContainer) {
@@ -63,8 +64,9 @@ public class ListOfStores {
 
         // Temporary data structures
         ArrayList<String> names = new ArrayList<>();
-        ArrayList<String> ratings = new ArrayList<>();
+        ArrayList<Float> ratings = new ArrayList<>();
         ArrayList<String> desc = new ArrayList<>();
+        // Needed for indexing when a store is clicked
         vendorIds = new ArrayList<>();
 
 
@@ -92,7 +94,7 @@ public class ListOfStores {
 
             for (int i = 0; i < numStores; i++) {
                     names.add(br.readLine());
-                    ratings.add(br.readLine());
+                    ratings.add(Float.valueOf(br.readLine()));
                     desc.add(br.readLine());
             }
 
@@ -100,7 +102,9 @@ public class ListOfStores {
             Toast.makeText(context, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
         }
 
+        // Store names away for indexing when a store is clicked
         vendorNames = names;
+        vendorRatings = ratings;
 
         // Load into cardview
         for (int i = 0; i < names.size(); i++) {
@@ -125,14 +129,18 @@ public class ListOfStores {
                     Bundle b = new Bundle();
                     int id = v.getId();
                     String vendorName = "";
+                    Float vendorRating = 0.0f;
                     for (int i = 0; i < vendorIds.size(); i++) {
                         if(id == vendorIds.get(i)) {
                             vendorName = vendorNames.get(i);
+                            vendorRating = Float.valueOf(vendorRatings.get(i));
                             break;
                         }
                     }
+                    b.putString("username", CustHome.username);
                     b.putString("vendor_name", vendorName);
-                    System.out.println(vendorName);
+                    b.putFloat("vendor_rating", vendorRating);
+                    b.putString("market_name", CustHome.currentMarket);
                     Intent intent = new Intent(context, StoreItems.class);
                     intent.putExtras(b);
                     context.startActivity(intent);

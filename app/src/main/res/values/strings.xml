@@ -4,13 +4,15 @@
 
     <!-- Global -->
     <string name="user_data">user_info.txt</string>
-    <string name="vendor_data">vendor_data.txt</string>
+    <string name="vendor_data">vendor_info.txt</string>
     <string name="sign_in_type">sign_in_type.txt</string>
     <string name="default_market">default_market.txt</string>
     <string name="default_market_preference">MARKETA</string>
     <string name="market_info">market_info.txt</string>
+    <string name="cart_info">cart_info.txt</string>
     <string name="customer_display_text">Customer</string>
     <string name="create_account_general">Create Account</string>
+    <string name="toast_added_to_cart">Item successfully added to cart</string>
 
     <!-- NavBar -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
