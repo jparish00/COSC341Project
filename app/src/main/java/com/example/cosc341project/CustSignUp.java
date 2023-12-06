@@ -121,7 +121,7 @@ public class CustSignUp extends AppCompatActivity {
 
         // Write default market
         try {
-            fout = openFileOutput(res.getString(R.string.sign_in_type), Context.MODE_APPEND);
+            fout = openFileOutput(res.getString(R.string.default_market), Context.MODE_APPEND);
             fout.write(("@" + username + "\n").getBytes());
             fout.write((res.getString(R.string.default_market_preference) + "\n").getBytes());
         } catch (Exception e) {

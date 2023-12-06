@@ -11,8 +11,8 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="#99FFFFFF"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="-41dp" />
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="48dp" />
 
     <ImageView
         android:id="@+id/market_image"
@@ -95,7 +95,7 @@
         android:fontFamily="@font/poorstory"
         android:hint="Last Name"
 
-        android:inputType="textPassword"
+        android:inputType="textPersonName"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -190,7 +190,7 @@
         android:layout_marginTop="104dp"
         android:backgroundTint="#447806"
         android:fontFamily="@font/poppinslight"
-        android:text="Create Account"
+        android:text="Next"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.869"
@@ -223,7 +223,7 @@
         android:textSize="10sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.844"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/nextPage" />
 

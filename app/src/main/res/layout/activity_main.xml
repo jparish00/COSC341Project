@@ -11,11 +11,11 @@
         android:id="@+id/tempButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="660dp"
+        android:layout_marginTop="504dp"
         android:backgroundTint="@color/black"
         android:text="custhome"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.056"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -83,7 +83,7 @@
         android:fontFamily="@font/poorstory"
         android:hint="@string/username_hint_text"
 
-        android:inputType="textPersonName"
+        android:inputType="text"
         android:padding="16dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +103,6 @@
         android:ems="10"
         android:fontFamily="@font/poorstory"
         android:hint="@string/password_hint_text"
-
         android:inputType="textPassword"
         android:padding="16dp"
         android:textSize="24sp"
@@ -124,12 +123,12 @@
         android:fontFamily="@font/poppinslight"
         android:text="@string/forgot_password_text"
         android:textColor="#121212"
-        android:textSize="10sp"
+        android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.231"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/password_text_input" />
+        app:layout_constraintTop_toBottomOf="@+id/log_in_button" />
 
     <Button
         android:id="@+id/log_in_button"
@@ -141,15 +140,15 @@
         android:text="@string/log_in_text"
         android:textSize="15sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.172"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/forgot_pass_button" />
+        app:layout_constraintTop_toBottomOf="@id/is_vendor_radio_button" />
 
     <Button
         android:id="@+id/create_account_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/design_default_color_secondary"
         android:fontFamily="@font/poppinslight"
         android:text="@string/create_account_text"
@@ -157,25 +156,22 @@
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.772"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/log_in_button" />
+        app:layout_constraintTop_toBottomOf="@+id/forgot_pass_button" />
 
-    <Button
-        android:id="@+id/is_vendor_button"
+    <RadioButton
+        android:id="@+id/is_vendor_radio_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:backgroundTint="#121212"
-        android:fontFamily="@font/poppinslight"
         android:text="@string/is_vendor_text"
-        android:textColor="#FFFF"
+        android:textColor="@color/black"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.821"
+        app:layout_constraintHorizontal_bias="0.805"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/create_account_button" />
+        app:layout_constraintTop_toBottomOf="@+id/password_text_input" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

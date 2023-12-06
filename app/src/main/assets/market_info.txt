@@ -1,0 +1,17 @@
+@MarketA 5
+Henry's Meats
+4
+Local butcher selling various meat products.
+Jane's Clothes
+4.5
+Homemade clothing for all ages, clothing repairs.
+Sarah's Stuff
+4
+Knick-knacks, toys, decorations, and antiques.
+Carl's Orchard
+4
+Wines and Fruit. Not much else.
+Jordan's Bakery
+4.5
+A reason to come to the market :).
+@MarketB 0

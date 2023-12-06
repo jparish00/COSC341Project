@@ -13,7 +13,7 @@
         android:layout_height="match_parent"
         android:background="#99FFFFFF"
         tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
+        tools:layout_editor_absoluteY="4dp" />
 
     <ImageView
         android:id="@+id/market_image"
@@ -78,7 +78,7 @@
 
         android:fontFamily="@font/poorstory"
         android:hint="Vendor Title"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -98,7 +98,7 @@
         android:fontFamily="@font/poorstory"
 
         android:hint="Vendor Address"
-        android:inputType="textPassword"
+        android:inputType="text"
         android:paddingLeft="10dp"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
