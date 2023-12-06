@@ -1,0 +1,2 @@
+@Henry's Meats/JParish
+JParish:Do you have any other beef Jerky flavors?/Henry's Meats:I also have Mesquite/JParish:Could you reserve that for me?/Henry's Meats:Sure, I can hold about 200 grams for the day

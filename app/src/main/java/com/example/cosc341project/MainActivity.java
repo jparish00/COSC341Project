@@ -190,7 +190,7 @@ public class MainActivity extends AppCompatActivity {
 
         AssetManager am = getAssets();
         try {
-            // user_data.txt, consider removing for final apk so there is no base login info
+            // user_info.txt, consider removing for final apk so there is no base login info
             InputStream is = am.open(res.getString(R.string.user_data));
             InputStreamReader isr = new InputStreamReader(is);
             BufferedReader br = new BufferedReader(isr);
@@ -228,6 +228,26 @@ public class MainActivity extends AppCompatActivity {
             br = new BufferedReader(isr);
 
             fout = openFileOutput(res.getString(R.string.default_market), Context.MODE_APPEND);
+            while ((line = br.readLine()) != null) {
+                fout.write((line + "\n").getBytes());
+            }
+
+            // vendor_info.txt
+            is = am.open(res.getString(R.string.vendor_data));
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+
+            fout = openFileOutput(res.getString(R.string.vendor_data), Context.MODE_APPEND);
+            while ((line = br.readLine()) != null) {
+                fout.write((line + "\n").getBytes());
+            }
+
+            // cart_info.txt
+            is = am.open(res.getString(R.string.cart_info));
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+
+            fout = openFileOutput(res.getString(R.string.cart_info), Context.MODE_APPEND);
             while ((line = br.readLine()) != null) {
                 fout.write((line + "\n").getBytes());
             }
