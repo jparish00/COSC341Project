@@ -2,7 +2,9 @@ package com.example.cosc341project;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
@@ -13,7 +15,9 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 
 // For consistency
@@ -56,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
 
 
         // check if logged in. If so, immediately load next activity (default market).
-      //  checkLoggedIn();
+        //  checkLoggedIn();
 
         // if not logged in, init.
         usernameInput = findViewById(R.id.username_text_input);
@@ -72,19 +76,16 @@ public class MainActivity extends AppCompatActivity {
         // Leaving vendor button, since we may move that to account creation
 
         res = getResources();
-        // REMOVE WHEN checkLoggedIn IS UNCOMMENTED, NEEDED TO LOGIN
+
+        // Copy writeable files to android
         File f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.user_data));
-        if (f.exists())
-            fileExists = true;
-        }
+        if (!f.exists())
+            copyAssetsToAndroid();
+
+        fileExists = true;
+    }
 //
 //    public void checkLoggedIn() {
-//
-//        File f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.user_data));
-//        if (!f.exists())
-//            return;
-//
-//        fileExists = true;
 //
 //        String username = "";
 //        boolean loggedIn = false;
@@ -180,6 +181,57 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(getApplicationContext(), CustSignUp.class);
         startActivity(intent);
 
+    }
+
+    public void copyAssetsToAndroid() {
+
+        AssetManager am = getAssets();
+        try {
+            // user_data.txt, consider removing for final apk so there is no base login info
+            InputStream is = am.open(res.getString(R.string.user_data));
+            InputStreamReader isr = new InputStreamReader(is);
+            BufferedReader br = new BufferedReader(isr);
+
+            FileOutputStream fout = openFileOutput(res.getString(R.string.user_data), Context.MODE_APPEND);
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                fout.write((line + "\n").getBytes());
+            }
+
+            // sign_in_type.txt
+            is = am.open(res.getString(R.string.sign_in_type));
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+
+            fout = openFileOutput(res.getString(R.string.sign_in_type), Context.MODE_APPEND);
+            while ((line = br.readLine()) != null) {
+                fout.write((line + "\n").getBytes());
+            }
+
+            // market_info.txt
+            is = am.open(res.getString(R.string.market_info));
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+
+            fout = openFileOutput(res.getString(R.string.market_info), Context.MODE_APPEND);
+            while ((line = br.readLine()) != null) {
+                fout.write((line + "\n").getBytes());
+            }
+
+            // default_market.txt
+            is = am.open(res.getString(R.string.default_market));
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+
+            fout = openFileOutput(res.getString(R.string.default_market), Context.MODE_APPEND);
+            while ((line = br.readLine()) != null) {
+                fout.write((line + "\n").getBytes());
+            }
+
+        } catch(IOException e) {
+            System.out.println("Something went wrong! Assets could not be copied to android");
+        }
     }
 
 }
