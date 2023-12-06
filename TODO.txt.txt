@@ -65,8 +65,8 @@ Text files: Note that the
 	primary key: cust_username
 	format:
 		@username
-		vendor_name item:price
-		vendor_name item:price
+		vendor_name/item:price
+		vendor_name/item:price
 		...
 	Desc:
 		Lists the vendor's name, the item from the vendor, and the item price. the ":" is a delimiter to group items and prices.
