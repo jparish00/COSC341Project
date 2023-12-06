@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
     TextView usernameInput, passwordInput;
     Button forgotPasswordButton, logInButton, createAccountButton;
 
-    RadioButton isVendorButton;
     Resources res;
 
     // Var
@@ -71,7 +70,6 @@ public class MainActivity extends AppCompatActivity {
         forgotPasswordButton = findViewById(R.id.forgot_pass_button);
         logInButton = findViewById(R.id.log_in_button);
         createAccountButton = findViewById(R.id.create_account_button);
-        isVendorButton = findViewById(R.id.is_vendor_radio_button);
 
         forgotPasswordButton.setOnClickListener(this::forgotPassword); // Does nothing atm
         logInButton.setOnClickListener(this::attemptLogin);
