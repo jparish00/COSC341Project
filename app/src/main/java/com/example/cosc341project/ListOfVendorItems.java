@@ -55,7 +55,7 @@ public class ListOfVendorItems {
 
             // Add to layout
             for (int i = 0; i < items.size(); i++) {
-                CardView cardView = (CardView) inflater.inflate(R.layout.items_card, itemsContainer, false);
+                CardView cardView = (CardView) inflater.inflate(R.layout.items_vendor_card, itemsContainer, false);
 
                 // Customize card view
                 TextView itemName = cardView.findViewById(R.id.item_name);

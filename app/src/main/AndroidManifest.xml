@@ -13,6 +13,9 @@
         android:theme="@style/Theme.COSC341Project"
         tools:targetApi="31">
         <activity
+            android:name=".AddVendorItem"
+            android:exported="false" />
+        <activity
             android:name=".VendorItems"
             android:exported="false" />
         <activity
