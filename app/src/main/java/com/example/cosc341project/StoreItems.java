@@ -17,12 +17,14 @@ public class StoreItems extends AppCompatActivity {
     // Views
     TextView marketTitle, vendorTitle;
     RatingBar ratingBar;
+    Button inboxButton;
     Button reviewBtn;
     ImageButton goBackBtn;
 
     // Vars
     static String vendorName, marketName, username;
     static Float vendorRating;
+    static String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +34,8 @@ public class StoreItems extends AppCompatActivity {
         vendorTitle = findViewById(R.id.vendorTitleText);
         marketTitle = findViewById(R.id.marketName);
         ratingBar = findViewById(R.id.ratingBar);
+
+        inboxButton = findViewById(R.id.inboxBtn);
         reviewBtn = findViewById(R.id.writeReviewBtn);
         goBackBtn = findViewById(R.id.gobackbtn);
 
@@ -43,6 +47,7 @@ public class StoreItems extends AppCompatActivity {
         marketName = b.getString("market_name");
         vendorName = b.getString("vendor_name");
         vendorRating = b.getFloat("vendor_rating");
+        type = b.getString("account_type");
 
         marketTitle.setText(marketName);
         vendorTitle.setText(vendorName);
@@ -56,6 +61,11 @@ public class StoreItems extends AppCompatActivity {
         LinearLayout itemsContainer = findViewById(R.id.itemsLayout);
         // Populating store cards
         ListOfItems.populateItems(this, itemsContainer);
+
+        // Go Back button
+        ImageButton goBackBtn = findViewById(R.id.gobackbtn);
+
+        inboxButton.setOnClickListener(this::onClickInbox);
 
 
         goBackBtn.setOnClickListener(new View.OnClickListener() {
@@ -79,6 +89,17 @@ public class StoreItems extends AppCompatActivity {
 
         bundle.putString("vendorName", vendorName);
         bundle.putString("customerName", username);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
+    public void onClickInbox(View v) {
+        Intent intent = new Intent(getApplicationContext(), Inbox.class);
+        Bundle bundle = new Bundle();
+
+        bundle.putString("vendor_name", vendorName);
+        bundle.putString("username", username);
+        bundle.putString("account_type", type);
         intent.putExtras(bundle);
         startActivity(intent);
     }

@@ -25,6 +25,7 @@ public class CustHome extends AppCompatActivity {
     Resources res;
     static String username, userType;
     static String defaultMarket, currentMarket;
+    static String type;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,7 +49,7 @@ public class CustHome extends AppCompatActivity {
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
 
-            String line, userCheck, type;
+            String line, userCheck;
             while ((line = br.readLine()) != null) {
                 if (line.charAt(0) == '@') {
                     userCheck = line.split(" ")[0].substring(1);

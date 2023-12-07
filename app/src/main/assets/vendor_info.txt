@@ -1,16 +1,27 @@
-@HSmith test@email.com
-Henry's Meats
+Teriyaki Beef Jerky:6.50/Salt & Pepper Jerky:6.50/Ribeye Steak:30.00/Tomahawk Steak:33.00/Beer Cheese:9.50
+@JDoe test@email.com
+Jane's Clothes
 example.com
 Highway 97
-Meats
-@items Teriyaki Beef Jerky:6.50/Salt & Pepper Jerky:6.50/Ribeye Steak:30.00/Tomahawk Steak:33.00/Beer Cheese:9.50
-@stopper
-
-@MRahman test@gmail.com
-MarketTest
-test.com
-123 lane
-Dairy
-@items Teriyaki Beef Jerky:6.50/Salt & Pepper Jerky:6.50/Ribeye Steak:30.00/Tomahawk Steak:33.00/Beer Cheese:9.50
+Clothes
+Clothing repair per hour:9.50
+@JDoe test@email.com
+Jane's Clothes
+example.com
+Highway 97
+Clothes
+Clothing repair(per hour):9.50
+@SSilverman test@email.com
+Sarah's Stuff
+example.com
+Highway 98
+Toys, Antiques
+Surprise Bag:5.00/Furniture(message):0.00
+@CGoodman test@email.com
+Carl's Orchard
+example.com
+Highway 98
+Toys, Antiques
+Wines:25.00/Grapes(per kg):8.00/Specialty Wines:200.00
 @stopper
 

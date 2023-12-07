@@ -7,9 +7,9 @@ import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -25,9 +25,10 @@ import java.util.ArrayList;
 public class Inbox extends AppCompatActivity {
 
     // Views
+    TextView vendorTitle;
     TextView custTextInput;
-    Button backButton, sendButton;
-
+    Button sendButton;
+    ImageButton backButton;
     // Var
     static String accountType;
     static String username, vendorName;
@@ -44,20 +45,22 @@ public class Inbox extends AppCompatActivity {
         username = b.getString("username");
         vendorName = b.getString("vendor_name");
         accountType = b.getString("account_type");
+        System.out.println("ACCOUNT TYPE: " + accountType);
 
         res = getResources();
 
-        // UNCOMMENT ONCE XML IS FINISHED
         // Views
-//        custTextInput = findViewById(R.id.cust_text_input);
-//        backButton = findViewById(R.id.back_button);
-//        sendButton = findViewById(R.id.sendButton);
-//
-//
-//        // Code for inserting all items in market
-//        LinearLayout itemsContainer = findViewById(R.id.messageLayout);
+        vendorTitle = findViewById(R.id.vendorTitleText);
+        custTextInput = findViewById(R.id.cust_msg_input);
+        backButton = findViewById(R.id.gobackbtn);
+        sendButton = findViewById(R.id.request_button);
+
+        vendorTitle.setText(vendorName);
+
+        // Code for inserting all items in market
+        LinearLayout itemsContainer = findViewById(R.id.messageLayout);
         // Populating store cards
-//        ListOfItems.populateMessages(this, itemsContainer);
+        ListOfMessages.populateMessages(this, itemsContainer);
 
         // Set up back button
         backButton.setOnClickListener(this::onBackClick);
@@ -71,9 +74,9 @@ public class Inbox extends AppCompatActivity {
         if (!convoFound) {
             try {
                 fout = openFileOutput(res.getString(R.string.inbox_data), Context.MODE_APPEND);
-                fout.write(("@" + username + vendorName + "\n").getBytes());
+                fout.write(("\n@" + vendorName + "/" + username + "\n").getBytes());
                 for (int i = 0; i < ListOfMessages.users.size(); i++) {
-                    fout.write((ListOfMessages.users.get(i) + ":" + ListOfMessages.users.get(i)).getBytes());
+                    fout.write((ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i)).getBytes());
                     if(i != ListOfMessages.users.size()-1)
                         fout.write(("/").getBytes());
                 }
@@ -98,10 +101,10 @@ public class Inbox extends AppCompatActivity {
             while ((line = br.readLine()) != null) {
                 count++;
                 lines.add(line);
-                if (line.charAt(0) == '@') { // For now, use an @ sign to indicate a user
+                if (!line.isEmpty() && line.charAt(0) == '@') { // For now, use an @ sign to indicate a user
 
-                    usernameIn = line.substring(1).split("/")[0];
-                    vendorIn = line.substring(1).split("/")[1];
+                    vendorIn = line.substring(1).split("/")[0];
+                    usernameIn = line.substring(1).split("/")[1];
                     if (username.equals(usernameIn) && vendorName.equals(vendorIn)) {
                         convoLocation = count; // Don't add +1, since arraylist starts from 0
                     }
@@ -112,6 +115,9 @@ public class Inbox extends AppCompatActivity {
         }
 
         String convo = "";
+        System.out.println(ListOfMessages.users.size());
+        System.out.println(ListOfMessages.messages.size());
+
         for (int i = 0; i < ListOfMessages.users.size(); i++) {
             convo += ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i);
             if(i != ListOfMessages.users.size()-1)
@@ -137,13 +143,12 @@ public class Inbox extends AppCompatActivity {
 
     public void onSendClick(View v) {
 
-        // UNCOMMENT WHEN XML IS COMPLETE
         // Go into List of messages and update
-        //LinearLayout itemsContainer = findViewById(R.id.messageLayout);
+        LinearLayout itemsContainer = findViewById(R.id.messageLayout);
 
-        //String message = custTextInput.getText();
+        String message = custTextInput.getText().toString();
 
-        //ListOfItems.updateMessages(this, itemsContainer, message);
+        ListOfMessages.updateMessages(this, itemsContainer, message);
 
     }
 }

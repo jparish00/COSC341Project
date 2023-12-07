@@ -1,4 +1,2 @@
 @JParish
-MarketA
-@MRahman
-MARKETA
+KelownaMarket

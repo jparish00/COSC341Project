@@ -1,4 +1,4 @@
-@MarketA 5
+@KelownaMarket 5
 Henry's Meats
 4
 Local butcher selling various meat products.

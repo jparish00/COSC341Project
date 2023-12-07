@@ -16,9 +16,9 @@ public class NavSetup {
 
     static String userType;
     static String username;
-    public static void setupDrawer(final Activity activity, int drawerLayoutId, int navViewId, int toolbarId, String userTypeSent, String userNameSent) {
+    public static void setupDrawer(final Activity activity, int drawerLayoutId, int navViewId, int toolbarId, String userTypeSent) {
         userType = userTypeSent;
-        username = userNameSent;
+        username = CustHome.username;
         Bundle b = new Bundle();
 
         DrawerLayout drawerLayout = activity.findViewById(drawerLayoutId);
@@ -70,12 +70,15 @@ public class NavSetup {
                 intent = new Intent(activity.getApplicationContext(), MyReviews.class);
             } else if (id == R.id.nav_logout) {
                 intent = new Intent(activity.getApplicationContext(), MainActivity.class);
-            }
+            } else if (id == R.id.nav_mycart)
+                intent = new Intent(activity.getApplicationContext(), Cart.class);
 
             if (intent != null) {
                 b.putString("userType", userType);
                 b.putString("username", username);
+
                 intent.putExtras(b);
+
                 activity.startActivity(intent);
             }
 

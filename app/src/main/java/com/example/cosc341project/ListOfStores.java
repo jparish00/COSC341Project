@@ -25,38 +25,6 @@ public class ListOfStores {
     static ArrayList<Integer> vendorIds;
     static ArrayList<Float> vendorRatings;
 
-    // Retaining original in case I break everything
-//    public static void populateStores(Context context, LinearLayout storeContainer) {
-//        LayoutInflater inflater = LayoutInflater.from(context);
-//
-//        for (int i = 0; i < 10; i++) {
-//            // Inflate or create your custom card view layout
-//            CardView cardView = (CardView) inflater.inflate(R.layout.store_card, storeContainer, false);
-//
-//            // Customize card view
-//            TextView storeTitle = cardView.findViewById(R.id.store_title);
-//            RatingBar storeRating = cardView.findViewById(R.id.store_rating);
-//            TextView storeDesc = cardView.findViewById(R.id.store_desc);
-//
-//            storeTitle.setText("Store " + (i + 1));
-//            storeRating.setRating(i % 5 + 1); // Just for example, setting a rating
-//            storeDesc.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit, diam in fermentum consequat, leo libero cursus purus, in ullamcorper.");
-//
-//            // Set an OnClickListener for each CardView
-//            cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(context, StoreItems.class);
-//                    context.startActivity(intent);
-//                }
-//            });
-//
-//
-//            // Add the card view to your container
-//            storeContainer.addView(cardView);
-//        }
-//    }
-
     public static void populateStores(Context context, LinearLayout storeContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
         Resources res = context.getResources();
@@ -85,8 +53,6 @@ public class ListOfStores {
                     if(marketCheck.equals(CustHome.defaultMarket)) {
                         CustHome.currentMarket = marketCheck;
                         numStores = Integer.valueOf(line.split(" ")[1]);
-                        System.out.println(line.split(" ")[1]);
-                        System.out.println(Integer.valueOf(line.split(" ")[1]));
                         break;
                     }
                 }
@@ -130,20 +96,19 @@ public class ListOfStores {
                 @Override
                 public void onClick(View v) {
                     Bundle b = new Bundle();
-                    int id = v.getId();
+
+                    int index = storeContainer.indexOfChild(v);
+
                     String vendorName = "";
                     Float vendorRating = 0.0f;
-                    for (int i = 0; i < vendorIds.size(); i++) {
-                        if(id == vendorIds.get(i)) {
-                            vendorName = vendorNames.get(i);
-                            vendorRating = Float.valueOf(vendorRatings.get(i));
-                            break;
-                        }
-                    }
+                    vendorName = vendorNames.get(index);
+                    vendorRating = Float.valueOf(vendorRatings.get(index));
+
                     b.putString("username", CustHome.username);
                     b.putString("vendor_name", vendorName);
                     b.putFloat("vendor_rating", vendorRating);
                     b.putString("market_name", CustHome.currentMarket);
+                    b.putString("account_type", CustHome.type);
                     Intent intent = new Intent(context, StoreItems.class);
                     intent.putExtras(b);
                     context.startActivity(intent);

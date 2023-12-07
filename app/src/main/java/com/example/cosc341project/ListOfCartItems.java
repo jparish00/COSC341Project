@@ -1,6 +1,8 @@
 package com.example.cosc341project;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SyncStats;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,6 @@ public class ListOfCartItems {
         items = new ArrayList<>();
         prices = new ArrayList<>();
 
-        // find Conversation. It there isn't one, make one
         String line, userCheck;
         try {
             FileInputStream fis = context.openFileInput(res.getString(R.string.cart_info));
@@ -45,25 +46,21 @@ public class ListOfCartItems {
             boolean cartFound = false;
             while ((line = br.readLine()) != null) {
                 if (line.charAt(0) == '@') {
-                    userCheck = line.substring(1);
-                    if (userCheck.equals(Cart.username)) { // conversation found
+                    userCheck = line.substring(1).split("/")[0];
+                    if (userCheck.equals(Cart.username)) {
                         cartFound = true;
-                        break;
+                        System.out.println("HERE: " + line);
+                        vendors.add(line.split("/")[1]);
+                        items.add(line.split("/")[2].split(":")[0]);
+                        prices.add(line.split("/")[2].split(":")[1]);
                     }
                 }
             }
 
             if (!cartFound) {
-                Cart.totalPrice = "0.00";
+                Cart.totalPriceValue = 0.0f;
+                Cart.totalPrice = "Total: $0.00";
                 return;
-            }
-
-            while ((line = br.readLine()) != null) {
-                if (line.charAt(0) == '@')
-                    break;
-                vendors.add(line.split("/")[0]);
-                items.add(line.split("/")[1].split(":")[0]);
-                prices.add(line.split("/")[1].split(":")[1]);
             }
 
             } catch(IOException e) {
@@ -86,27 +83,24 @@ public class ListOfCartItems {
             itemName.setText(items.get(i));
             itemPrice.setText("$" + prices.get(i));
 
-            Button deleteButton = cardView.findViewById(R.id.delete_button);
-
-            buttonIds.add(deleteButton.getId());
             viewIds.add(cardView.getId());
 
-            deleteButton.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    CardView cardView = null;
-                    for (int i = 0; i < buttonIds.size(); i++) {
-                        if(buttonIds.get(i) == view.getId()) {
-                            cardView = view.findViewById(viewIds.get(i)); // NOT SURE IF THIS WILL WORK
-                            break;
-                        }
-                    }
+                public void onClick(View v) {
+                    int index = itemsContainer.indexOfChild(v); // Hopefully gets cardview id
+
+                    CardView cardView = (CardView)itemsContainer.getChildAt(index);
 
                     TextView priceView = cardView.findViewById(R.id.cart_price);
                     Float removePrice = Float.valueOf(priceView.getText().toString().substring(1));
                     Cart.totalPriceValue -= removePrice;
-                    Cart.totalPrice = String.valueOf(Cart.totalPriceValue);
-                    Cart.price.setText(String.valueOf(Cart.totalPrice));
+                    Cart.totalPrice = String.format("%.2f",Cart.totalPriceValue);
+                    Cart.price.setText("Total: $" + Cart.totalPrice);
+
+                    vendors.remove(index);
+                    items.remove(index);
+                    prices.remove(index);
 
                     itemsContainer.removeView(cardView);
 
@@ -116,8 +110,8 @@ public class ListOfCartItems {
             itemsContainer.addView(cardView);
         }
 
-        Cart.totalPrice = String.valueOf(Cart.totalPriceValue);
-        Cart.price.setText(String.valueOf(Cart.totalPrice));
+        Cart.totalPrice = "Total: $" + String.format("%.2f",Cart.totalPriceValue);
+        Cart.price.setText(Cart.totalPrice);
 
     }
 

@@ -1,3 +1,2 @@
-@JParish
-Henry's Meats/Teriyaki Beef Jerky:6.50
-Henry's Meats/Ribeye Steak:30.00
+@JParish/Henry's Meats/Teriyaki Beef Jerky:6.50
+@JParish/Henry's Meats/Ribeye Steak:30.00
