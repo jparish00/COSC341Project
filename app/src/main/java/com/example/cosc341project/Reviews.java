@@ -1,6 +1,7 @@
 package com.example.cosc341project;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -16,10 +17,11 @@ import android.widget.TextView;
 
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.List;
 
 public class Reviews extends AppCompatActivity {
 
-    LinearLayout reviews;
+    LinearLayout reviewList;
     TextView vendor, averageReview;
     String venName, custName, avgRate;
     Button addReview, goBackBtn;
@@ -36,7 +38,7 @@ public class Reviews extends AppCompatActivity {
         addReview = findViewById(R.id.add_review);
 
 
-        reviews = findViewById(R.id.review_List);
+        reviewList = findViewById(R.id.review_List);
         goBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -63,13 +65,15 @@ public class Reviews extends AppCompatActivity {
             vendor.setText(venName);
             avgRate = String.valueOf(getAverageReviewRatingForVendor(this, venName));
             averageReview.setText(avgRate);
+            displayReviewsForVendor(this,venName,reviewList);
 
-            displayReviewsForVendor(this, venName, reviews);
+
+            // displayReviewsForVendor(this, venName, reviews);
         } catch (Exception e) {
             Log.e("Reviews", "Error in onCreate: ", e);
         }
     }
-
+    //commented out while testing other method.
     public void displayReviewsForVendor(Context context, String vendorUsername, LinearLayout linearLayout) {
 
         DatabaseHelper dbHelper = new DatabaseHelper(context);
@@ -77,44 +81,43 @@ public class Reviews extends AppCompatActivity {
         Cursor cursor = null;
 
 
+        try {
 
-//        try {
-//
-//            db = dbHelper.getReadableDatabase();
-//
-//            String[] columns = {
-//                    DatabaseHelper.COLUMN_VENDOR_NAME,
-//                    DatabaseHelper.COLUMN_REVIEW_RATING,
-//                    DatabaseHelper.COLUMN_REVIEW_TEXT
-//            };
-//
-//            String selection = DatabaseHelper.COLUMN_VENDOR_NAME + " = ?";
-//            String[] selectionArgs = {vendorUsername};
-//
-//            cursor = db.query(DatabaseHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
-//
-//            if (cursor != null && cursor.moveToFirst()) {
-//                do {
-//                    @SuppressLint("Range") String reviewRating = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_RATING));
-//                    @SuppressLint("Range") String reviewText = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_TEXT));
-//                    @SuppressLint("Range") String customerName = cursor.getString((cursor.getColumnIndex(DatabaseHelper.COLUMN_CUST_USERNAME)));
-//
-//                    TextView reviewTextView = new TextView(linearLayout.getContext());
-//                    reviewTextView.setText(customerName + " Rating: " + reviewRating + "\nReview: " + reviewText);
-//
-//                    linearLayout.addView(reviewTextView);
-//                } while (cursor.moveToNext());
-//            }
-//        } catch (Exception e) {
-//            Log.e("Reviews", "Error in displayReviewsForVendor: ", e);
-//        } finally {
-//            if (cursor != null) {
-//                cursor.close();
-//            }
-//            if (db != null) {
-//                db.close();
-//            }
-//        }
+            db = dbHelper.getReadableDatabase();
+
+            String[] columns = {
+                    DatabaseHelper.COLUMN_VENDOR_NAME,
+                    DatabaseHelper.COLUMN_REVIEW_RATING,
+                    DatabaseHelper.COLUMN_REVIEW_TEXT
+            };
+
+            String selection = DatabaseHelper.COLUMN_VENDOR_NAME + " = ?";
+            String[] selectionArgs = {vendorUsername};
+
+            cursor = db.query(DatabaseHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+
+            if (cursor != null && cursor.moveToFirst()) {
+                do {
+                    @SuppressLint("Range") String reviewRating = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_RATING));
+                    @SuppressLint("Range") String reviewText = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_TEXT));
+                    @SuppressLint("Range") String customerName = cursor.getString((cursor.getColumnIndex(DatabaseHelper.COLUMN_CUST_USERNAME)));
+
+                    TextView reviewTextView = new TextView(this);
+                    reviewTextView.setText(customerName + " Rating: " + reviewRating + "\nReview: " + reviewText);
+                    reviewTextView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
+                    linearLayout.addView(reviewTextView);
+                } while (cursor.moveToNext());
+            }
+        } catch (Exception e) {
+            Log.e("Reviews", "Error in displayReviewsForVendor: ", e);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+            if (db != null) {
+                db.close();
+            }
+        }
     }
 
     public float getAverageReviewRatingForVendor(Context context, String vendorUsername) {
@@ -160,10 +163,13 @@ public class Reviews extends AppCompatActivity {
 
         if (requestCode == ADD_REVIEW_REQUEST) {
             // Refresh the reviews
-            reviews.removeAllViews(); // Clear all views in the LinearLayout
-            displayReviewsForVendor(this, venName, reviews);
+            reviewList.removeAllViews(); // Clear all views in the LinearLayout
+            displayReviewsForVendor(this, venName, reviewList);
+
             avgRate = String.valueOf(getAverageReviewRatingForVendor(this, venName));
             averageReview.setText(avgRate);
         }
     }
+
+
 }
