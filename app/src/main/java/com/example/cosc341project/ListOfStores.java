@@ -25,38 +25,6 @@ public class ListOfStores {
     static ArrayList<Integer> vendorIds;
     static ArrayList<Float> vendorRatings;
 
-    // Retaining original in case I break everything
-//    public static void populateStores(Context context, LinearLayout storeContainer) {
-//        LayoutInflater inflater = LayoutInflater.from(context);
-//
-//        for (int i = 0; i < 10; i++) {
-//            // Inflate or create your custom card view layout
-//            CardView cardView = (CardView) inflater.inflate(R.layout.store_card, storeContainer, false);
-//
-//            // Customize card view
-//            TextView storeTitle = cardView.findViewById(R.id.store_title);
-//            RatingBar storeRating = cardView.findViewById(R.id.store_rating);
-//            TextView storeDesc = cardView.findViewById(R.id.store_desc);
-//
-//            storeTitle.setText("Store " + (i + 1));
-//            storeRating.setRating(i % 5 + 1); // Just for example, setting a rating
-//            storeDesc.setText("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut hendrerit, diam in fermentum consequat, leo libero cursus purus, in ullamcorper.");
-//
-//            // Set an OnClickListener for each CardView
-//            cardView.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View v) {
-//                    Intent intent = new Intent(context, StoreItems.class);
-//                    context.startActivity(intent);
-//                }
-//            });
-//
-//
-//            // Add the card view to your container
-//            storeContainer.addView(cardView);
-//        }
-//    }
-
     public static void populateStores(Context context, LinearLayout storeContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
         Resources res = context.getResources();
@@ -84,8 +52,6 @@ public class ListOfStores {
                     if(marketCheck.equals(CustHome.defaultMarket)) {
                         CustHome.currentMarket = marketCheck;
                         numStores = Integer.valueOf(line.split(" ")[1]);
-                        System.out.println(line.split(" ")[1]);
-                        System.out.println(Integer.valueOf(line.split(" ")[1]));
                         break;
                     }
                 }

@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RatingBar;
@@ -16,6 +17,7 @@ public class StoreItems extends AppCompatActivity {
     // Views
     TextView marketTitle, vendorTitle;
     RatingBar ratingBar;
+    Button reviewsButton;
 
     // Vars
     static String vendorName, marketName, username;
@@ -29,6 +31,7 @@ public class StoreItems extends AppCompatActivity {
         vendorTitle = findViewById(R.id.vendorTitleText);
         marketTitle = findViewById(R.id.marketName);
         ratingBar = findViewById(R.id.ratingBar);
+        reviewsButton = findViewById(R.id.writeReviewBtn);
 
         Resources res = getResources();
 
@@ -52,6 +55,9 @@ public class StoreItems extends AppCompatActivity {
 
         // Go Back button
         ImageButton goBackBtn = findViewById(R.id.gobackbtn);
+
+        reviewsButton.setOnClickListener(this::viewReview);
+
         goBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
