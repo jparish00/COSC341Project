@@ -95,11 +95,12 @@ public class CustHome extends AppCompatActivity {
         /******** Nav bar items I swear not to touch out of fear **********/
         NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar);
 
-        Spinner spinner = findViewById(R.id.categories);
+        Spinner vendorCategorySpinner = findViewById(R.id.categories);
 
-        // code for editing categories selector
-        ArrayAdapter<String> adapter = SpinnerMenu.createAdapter(this);
-        spinner.setAdapter(adapter);
+        String[] categories = {"Meats", "Vegetables", "Bakery", "Dairy", "Home-Care"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        vendorCategorySpinner.setAdapter(adapter);
 
         // Layout stuff I will likely touch
         // code for inserting all stores in market
