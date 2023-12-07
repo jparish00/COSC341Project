@@ -106,11 +106,11 @@
             android:layout_marginTop="16dp">
 
             <EditText
+                android:id="@+id/cust_msg_input"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
                 android:layout_weight="7"
-                android:background="@drawable/cspinner"
-                />
+                android:background="@drawable/cspinner" />
 
             <Space
                 android:layout_width="0dp"

@@ -250,6 +250,16 @@ public class MainActivity extends AppCompatActivity {
                 fout.write((line + "\n").getBytes());
             }
 
+            // inbox.txt
+            is = am.open(res.getString(R.string.inbox_data));
+            isr = new InputStreamReader(is);
+            br = new BufferedReader(isr);
+
+            fout = openFileOutput(res.getString(R.string.inbox_data), Context.MODE_APPEND);
+            while ((line = br.readLine()) != null) {
+                fout.write((line + "\n").getBytes());
+            }
+
         } catch(IOException e) {
             System.out.println("Something went wrong! Assets could not be copied to android");
         }

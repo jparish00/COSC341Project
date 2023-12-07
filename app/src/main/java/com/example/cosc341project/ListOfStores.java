@@ -104,6 +104,7 @@ public class ListOfStores {
                     b.putString("vendor_name", vendorName);
                     b.putFloat("vendor_rating", vendorRating);
                     b.putString("market_name", CustHome.currentMarket);
+                    b.putString("account_type", CustHome.type);
                     Intent intent = new Intent(context, StoreItems.class);
                     intent.putExtras(b);
                     context.startActivity(intent);

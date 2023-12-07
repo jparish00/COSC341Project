@@ -40,8 +40,12 @@ public class ListOfMessages {
 
             while ((line = br.readLine()) != null) {
                 if (line.charAt(0) == '@') {
-                    userCheck = line.substring(1).split("/")[0];
-                    vendorCheck = line.substring(1).split("/")[1];
+                    vendorCheck = line.substring(1).split("/")[0];
+                    userCheck = line.substring(1).split("/")[1];
+                    System.out.println(userCheck);
+                    System.out.println(vendorCheck);
+                    System.out.println(Inbox.username);
+                    System.out.println(Inbox.vendorName);
                     if (vendorCheck.equals(Inbox.vendorName) && userCheck.equals(Inbox.username)) { // conversation found
                         Inbox.convoFound = true;
                         convo = br.readLine();
@@ -49,6 +53,7 @@ public class ListOfMessages {
                     }
                 }
             }
+            System.out.println("CONVO:" + convo);
 
         } catch(IOException e) {
             e.printStackTrace();
@@ -67,8 +72,8 @@ public class ListOfMessages {
             CardView cardView = (CardView) inflater.inflate(R.layout.message_card, itemsContainer, false);
 
             // Customize card view
-            TextView itemUser = cardView.findViewById(R.id.item_name);
-            TextView itemMessage = cardView.findViewById(R.id.message);
+            TextView itemUser = cardView.findViewById(R.id.vendor_name);
+            TextView itemMessage = cardView.findViewById(R.id.message_text);
 
             itemUser.setText(users.get(i));
             itemMessage.setText(messages.get(i)); // Just for example, setting a rating
@@ -86,8 +91,8 @@ public class ListOfMessages {
         CardView cardView = (CardView) inflater.inflate(R.layout.message_card, itemsContainer, false);
 
         // Customize card view
-        TextView itemUser = cardView.findViewById(R.id.item_name);
-        TextView itemMessage = cardView.findViewById(R.id.message);
+        TextView itemUser = cardView.findViewById(R.id.vendor_name);
+        TextView itemMessage = cardView.findViewById(R.id.message_text);
 
         if (Inbox.accountType == "customer") {
             itemUser.setText(Inbox.username);
