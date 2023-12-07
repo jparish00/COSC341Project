@@ -19,6 +19,7 @@ public class ListOfVendorItems {
 
     static ArrayList<String> items;
     static ArrayList<String> prices;
+    static CardView modifyCardView;
 
     public static void populateItems(Context context, LinearLayout itemsContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -33,7 +34,6 @@ public class ListOfVendorItems {
             BufferedReader br = new BufferedReader(isr);
 
             String line;
-            boolean isCorrectVendor = false;
 
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("@")) {
@@ -73,18 +73,18 @@ public class ListOfVendorItems {
                         int index = itemsContainer.indexOfChild(v); // Gets cardview id
                         CardView cardView = (CardView)itemsContainer.getChildAt(index);
 
-                        int id = cardView.getId();
+                        modifyCardView = cardView;
 
                         String name = items.get(index);
                         String price = prices.get(index);
 
                         Intent intent = new Intent(context.getApplicationContext(), ModifyItem.class);
                         Bundle b = new Bundle();
-                        b.putInt("id", id);
                         b.putInt("index", index);
                         b.putString("name", name);
                         b.putString("price", price);
 
+                        intent.putExtras(b);
                         context.startActivity(intent);
                     }
                 });

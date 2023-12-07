@@ -18,7 +18,7 @@ public class ModifyItem extends AppCompatActivity {
     TextView nameInput, priceInput;
 
     // Var
-    int index, id;
+    int index;
     String name, price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +26,6 @@ public class ModifyItem extends AppCompatActivity {
         setContentView(R.layout.activity_modify_item);
 
         Bundle b = getIntent().getExtras();
-        id = b.getInt("id");
         index = b.getInt("index");
         name = b.getString("name");
         price = b.getString("price");
@@ -37,7 +36,7 @@ public class ModifyItem extends AppCompatActivity {
         priceInput = findViewById(R.id.priceTextInput);
 
         nameInput.setText(name);
-        nameInput.setText(price);
+        priceInput.setText(price);
 
         backButton.setOnClickListener(v -> { finish(); });
         saveButton.setOnClickListener(this::onSaveClick);
@@ -55,7 +54,7 @@ public class ModifyItem extends AppCompatActivity {
         ListOfVendorItems.items.set(index, new_name);
         ListOfVendorItems.prices.set(index, new_price);
 
-        CardView cardView = findViewById(id);
+        CardView cardView = ListOfVendorItems.modifyCardView;
         TextView nameView = cardView.findViewById(R.id.item_name);
         TextView priceView = cardView.findViewById(R.id.item_price);
 
