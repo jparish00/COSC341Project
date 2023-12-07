@@ -83,23 +83,24 @@ public class ListOfCartItems {
             itemName.setText(items.get(i));
             itemPrice.setText("$" + prices.get(i));
 
-            Button deleteButton = cardView.findViewById(R.id.delete_button);
-
-            buttonIds.add(deleteButton.getId());
             viewIds.add(cardView.getId());
 
-            deleteButton.setOnClickListener(new View.OnClickListener() {
+            cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int id = v.getRootView().getId(); // Hopefully gets cardview id
+                    int index = itemsContainer.indexOfChild(v); // Hopefully gets cardview id
 
-                    CardView cardView = itemsContainer.findViewById(id);
+                    CardView cardView = (CardView)itemsContainer.getChildAt(index);
 
                     TextView priceView = cardView.findViewById(R.id.cart_price);
                     Float removePrice = Float.valueOf(priceView.getText().toString().substring(1));
                     Cart.totalPriceValue -= removePrice;
-                    Cart.totalPrice = String.valueOf(Cart.totalPriceValue);
+                    Cart.totalPrice = String.format("%.2f",Cart.totalPriceValue);
                     Cart.price.setText("Total: $" + Cart.totalPrice);
+
+                    vendors.remove(index);
+                    items.remove(index);
+                    prices.remove(index);
 
                     itemsContainer.removeView(cardView);
 
@@ -109,7 +110,7 @@ public class ListOfCartItems {
             itemsContainer.addView(cardView);
         }
 
-        Cart.totalPrice = "Total: $" + String.valueOf(Cart.totalPriceValue);
+        Cart.totalPrice = "Total: $" + String.format("%.2f",Cart.totalPriceValue);
         Cart.price.setText(Cart.totalPrice);
 
     }

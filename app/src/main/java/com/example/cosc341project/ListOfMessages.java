@@ -39,7 +39,7 @@ public class ListOfMessages {
             BufferedReader br = new BufferedReader(isr);
 
             while ((line = br.readLine()) != null) {
-                if (line.charAt(0) == '@') {
+                if (!line.isEmpty() && line.charAt(0) == '@') {
                     vendorCheck = line.substring(1).split("/")[0];
                     userCheck = line.substring(1).split("/")[1];
                     if (vendorCheck.equals(Inbox.vendorName) && userCheck.equals(Inbox.username)) { // conversation found
@@ -54,6 +54,9 @@ public class ListOfMessages {
         } catch(IOException e) {
             e.printStackTrace();
         }
+
+        if (!Inbox.convoFound)
+            return;
 
         // Parse message data
         messageData = convo.split("/");

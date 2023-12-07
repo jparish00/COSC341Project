@@ -82,16 +82,11 @@ public class ListOfItems {
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int id = v.getId(); // THIS doesn't work
-                    System.out.println(id);
-                    String productName = "", productPrice = "";
-                    for (int i = 0; i < productIds.size(); i++) {
-                        if(id == productIds.get(i)) {
-                            productName = productNames.get(i);
-                            productPrice = prices.get(i);
-                            break;
-                        }
-                    }
+                    int index = itemsContainer.indexOfChild(v); // Hopefully gets cardview id
+
+                    String productName = productNames.get(index);
+                    String productPrice = prices.get(index);
+
                     addToCart(context, StoreItems.username, StoreItems.vendorName, productName, productPrice);
                 }
             });
@@ -109,8 +104,8 @@ public class ListOfItems {
         FileOutputStream fout;
         try {
             fout = context.openFileOutput(res.getString(R.string.cart_info), Context.MODE_APPEND);
-            fout.write(("@" + username + " " + vendorName + ":"
-            + productName + ":" + productPrice + "\n").getBytes());
+            fout.write(("@" + username + "/" + vendorName + "/"
+                + productName + ":" + productPrice + "\n").getBytes());
             fout.close();
         } catch (Exception e) {
             e.printStackTrace();

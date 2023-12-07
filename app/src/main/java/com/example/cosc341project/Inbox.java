@@ -74,9 +74,9 @@ public class Inbox extends AppCompatActivity {
         if (!convoFound) {
             try {
                 fout = openFileOutput(res.getString(R.string.inbox_data), Context.MODE_APPEND);
-                fout.write(("@" + username + vendorName + "\n").getBytes());
+                fout.write(("\n@" + vendorName + "/" + username + "\n").getBytes());
                 for (int i = 0; i < ListOfMessages.users.size(); i++) {
-                    fout.write((ListOfMessages.users.get(i) + ":" + ListOfMessages.users.get(i)).getBytes());
+                    fout.write((ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i)).getBytes());
                     if(i != ListOfMessages.users.size()-1)
                         fout.write(("/").getBytes());
                 }
@@ -101,7 +101,7 @@ public class Inbox extends AppCompatActivity {
             while ((line = br.readLine()) != null) {
                 count++;
                 lines.add(line);
-                if (line.charAt(0) == '@') { // For now, use an @ sign to indicate a user
+                if (!line.isEmpty() && line.charAt(0) == '@') { // For now, use an @ sign to indicate a user
 
                     vendorIn = line.substring(1).split("/")[0];
                     usernameIn = line.substring(1).split("/")[1];

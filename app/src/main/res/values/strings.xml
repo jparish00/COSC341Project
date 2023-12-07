@@ -14,6 +14,7 @@
     <string name="customer_display_text">Customer</string>
     <string name="create_account_general">Create Account</string>
     <string name="toast_added_to_cart">Item successfully added to cart</string>
+    <string name="toast_request_sent">Request(s) sent to vendors!</string>
 
     <!-- NavBar -->
     <string name="navigation_drawer_open">Open navigation drawer</string>
