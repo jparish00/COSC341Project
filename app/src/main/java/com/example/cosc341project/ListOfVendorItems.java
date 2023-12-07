@@ -9,8 +9,12 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 public class ListOfVendorItems {
+
+    static ArrayList<String> items;
+    static ArrayList<String> price;
 
     public static void populateItems(Context context, LinearLayout itemsContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -19,6 +23,7 @@ public class ListOfVendorItems {
             FileInputStream fis = context.openFileInput("vendor_info.txt");
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
+
             String line;
             boolean isCorrectVendor = false;
 
