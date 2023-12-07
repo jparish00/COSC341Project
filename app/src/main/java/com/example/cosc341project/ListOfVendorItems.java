@@ -19,6 +19,10 @@ public class ListOfVendorItems {
 
     public static void populateItems(Context context, LinearLayout itemsContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
+
+        items = new ArrayList<>();
+        prices = new ArrayList<>();
+
         String username = CustHome.username;
         try {
             FileInputStream fis = context.openFileInput("vendor_info.txt");
@@ -41,6 +45,7 @@ public class ListOfVendorItems {
                 }
             }
 
+            System.out.println(line);
             // Load items
             String[] products = line.split("/");
             for (int i = 0; i < products.length; i++) {
