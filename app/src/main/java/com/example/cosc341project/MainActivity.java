@@ -45,21 +45,6 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        /*---TEMPORARY BUTTON JUST TO TEST NAV
-         delete when we can successfully log into custHome--------------*/
-
-        tempbtn = findViewById(R.id.tempButton);
-        tempbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Create an Intent to start the CustHome activity
-                Intent intent = new Intent(MainActivity.this, CustHome.class);
-                startActivity(intent);
-            }
-        });
-
-        /*------------------------------------*/
-
 
         // check if logged in. If so, immediately load next activity (default market).
         //  checkLoggedIn();

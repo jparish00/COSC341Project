@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -60,6 +61,8 @@ public class ListOfVendorItems {
             for (int i = 0; i < items.size(); i++) {
                 CardView cardView = (CardView) inflater.inflate(R.layout.items_vendor_card, itemsContainer, false);
 
+                ImageView deleteButton = cardView.findViewById(R.id.delete_icon);
+
                 // Customize card view
                 TextView itemName = cardView.findViewById(R.id.item_name);
                 TextView itemPrice = cardView.findViewById(R.id.item_price);
@@ -67,6 +70,7 @@ public class ListOfVendorItems {
                 itemName.setText(items.get(i));
                 itemPrice.setText("$" + prices.get(i));
 
+                // Modify
                 cardView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
@@ -86,6 +90,20 @@ public class ListOfVendorItems {
 
                         intent.putExtras(b);
                         context.startActivity(intent);
+                    }
+                });
+
+                deleteButton.setOnLongClickListener(new View.OnLongClickListener() {
+                    @Override
+                    public boolean onLongClick(View view) {
+                        int index = itemsContainer.indexOfChild(view); // Gets cardview id
+                        CardView cardView = (CardView)itemsContainer.getChildAt(index);
+
+                        items.remove(index);
+                        prices.remove(index);
+
+                        itemsContainer.removeView(view.getRootView());
+                        return true;
                     }
                 });
 
