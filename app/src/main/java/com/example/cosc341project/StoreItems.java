@@ -82,7 +82,7 @@ public class StoreItems extends AppCompatActivity {
     }
 
     public void viewReview(View view){
-        Intent intent = new Intent(getApplicationContext(), Reviews.class);
+        Intent intent = new Intent(this, Reviews.class);
         Bundle bundle = new Bundle();
 
         bundle.putString("vendorName", vendorName);
