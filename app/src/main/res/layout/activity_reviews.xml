@@ -47,10 +47,10 @@
         android:id="@+id/avg_review"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="23dp"
-        android:textSize="32sp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="20dp"
         android:fontFamily="@font/poppinslight"
+        android:textSize="32sp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vendor_name_text_R" />
 
@@ -63,5 +63,8 @@
         android:background="@drawable/cspinner"
         android:orientation="vertical"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/avg_review"></LinearLayout>
+        app:layout_constraintTop_toBottomOf="@+id/avg_review">
+
+
+    </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

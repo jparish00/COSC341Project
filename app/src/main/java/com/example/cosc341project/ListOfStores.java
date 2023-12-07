@@ -65,6 +65,7 @@ public class ListOfStores {
         ArrayList<String> names = new ArrayList<>();
         ArrayList<Float> ratings = new ArrayList<>();
         ArrayList<String> desc = new ArrayList<>();
+        ArrayList<String> address = new ArrayList<>();
         // Needed for indexing when a store is clicked
         vendorIds = new ArrayList<>();
 
@@ -95,6 +96,7 @@ public class ListOfStores {
                     names.add(br.readLine());
                     ratings.add(Float.valueOf(br.readLine()));
                     desc.add(br.readLine());
+                    address.add(br.readLine());
             }
 
         } catch(IOException e) {
@@ -114,10 +116,12 @@ public class ListOfStores {
             TextView storeTitle = cardView.findViewById(R.id.store_title);
             RatingBar storeRating = cardView.findViewById(R.id.store_rating);
             TextView storeDesc = cardView.findViewById(R.id.message_text);
+            TextView storeAddress = cardView.findViewById(R.id.addressText);
 
             storeTitle.setText(names.get(i));
             storeRating.setRating(Float.valueOf(ratings.get(i))); // Just for example, setting a rating
             storeDesc.setText(desc.get(i));
+            storeAddress.setText(address.get(i));
             vendorIds.add(cardView.getId());
 
 
