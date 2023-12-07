@@ -20,29 +20,31 @@ public class NavSetup {
         NavigationView navigationView = activity.findViewById(navViewId);
         Toolbar toolbar = activity.findViewById(toolbarId);
 
-        // Set up the toolbar
         ((AppCompatActivity) activity).setSupportActionBar(toolbar);
         ((AppCompatActivity) activity).getSupportActionBar().setTitle("");
 
-        // Set up the drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 activity, drawerLayout, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
 
-        // Modify navigation menu based on user type
         Menu menu = navigationView.getMenu();
+
         if ("vendor".equals(userType)) {
             // Remove the "Cart" menu item for vendors
             menu.removeItem(R.id.nav_mycart);
+
             // Change "All Markets" to "My Items"
             MenuItem allMarketItem = menu.findItem(R.id.nav_all_market);
             allMarketItem.setTitle("My Items");
+
+        } else if ("customer".equals(userType)) {
+            // Optionally remove "My Inbox" if it exists for customer
+            menu.removeItem(R.id.nav_my_inbox);
         }
 
 
-        // Set up the navigation item listener
         navigationView.setNavigationItemSelectedListener(item -> {
             Intent intent = null;
             int id = item.getItemId();
@@ -70,7 +72,7 @@ public class NavSetup {
                 activity.startActivity(intent);
             }
 
-            drawerLayout.closeDrawers(); // Close drawer after item selection
+            drawerLayout.closeDrawers();
             return true;
         });
     }

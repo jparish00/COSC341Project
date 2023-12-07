@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
+
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_home"
@@ -13,6 +14,10 @@
             android:id="@+id/nav_all_market"
             android:title="All Markets"
             android:icon="@drawable/store_icon"/>
+        <item
+            android:id="@+id/nav_my_inbox"
+            android:title="My Inbox"
+            android:icon="@drawable/inbox_icon"/>
     </group>
 
 
