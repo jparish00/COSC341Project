@@ -38,7 +38,6 @@ public class ListOfVendorItems {
                             String itemName = itemDetails[0];
                             String itemPrice = itemDetails[1];
 
-                            // Inflate and customize card view layout
                             CardView cardView = (CardView) inflater.inflate(R.layout.items_card, itemsContainer, false);
                             TextView itemNameView = cardView.findViewById(R.id.item_name);
                             TextView itemPriceView = cardView.findViewById(R.id.item_price);
@@ -46,11 +45,10 @@ public class ListOfVendorItems {
                             itemNameView.setText(itemName);
                             itemPriceView.setText("$" + itemPrice);
 
-                            // Add card view to container
                             itemsContainer.addView(cardView);
                         }
                     }
-                    break; // Stop reading after processing items for the correct vendor
+                    break;
                 }
             }
             fis.close();
