@@ -15,22 +15,6 @@
             android:icon="@drawable/store_icon"/>
     </group>
 
-<!--    <group android:checkableBehavior="single">-->
-<!--        &lt;!&ndash; gather items customer favourite market items and paste inside group &ndash;&gt;-->
-<!--        <item android:title="Favourite Markets">-->
-<!--            <menu>-->
-<!--                <item-->
-<!--                    android:id="@+id/favMarket1"-->
-<!--                    android:title="FavMarket 1"-->
-<!--                    android:icon="@drawable/store_icon"/>-->
-
-<!--                <item-->
-<!--                    android:id="@+id/favMarket2"-->
-<!--                    android:title="FavMarket 2"-->
-<!--                    android:icon="@drawable/store_icon"/>-->
-<!--            </menu>-->
-<!--        </item>-->
-<!--    </group>-->
 
     <group android:checkableBehavior="single">
         <item android:title="Profile Settings">

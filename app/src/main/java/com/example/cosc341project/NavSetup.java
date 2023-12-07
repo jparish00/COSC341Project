@@ -12,16 +12,17 @@ import androidx.appcompat.widget.Toolbar;
 import com.google.android.material.navigation.NavigationView;
 
 public class NavSetup {
-    public static void setupDrawer(final Activity activity, int drawerLayoutId, int navViewId, int toolbarId) {
+
+    static String userType;
+    public static void setupDrawer(final Activity activity, int drawerLayoutId, int navViewId, int toolbarId, String userTypeSent) {
+        userType = userTypeSent;
         DrawerLayout drawerLayout = activity.findViewById(drawerLayoutId);
         NavigationView navigationView = activity.findViewById(navViewId);
         Toolbar toolbar = activity.findViewById(toolbarId);
 
-        Menu menu = navigationView.getMenu();
-
         // Set up the toolbar
-        ((AppCompatActivity)activity).setSupportActionBar(toolbar);
-        ((AppCompatActivity)activity).getSupportActionBar().setTitle("");
+        ((AppCompatActivity) activity).setSupportActionBar(toolbar);
+        ((AppCompatActivity) activity).getSupportActionBar().setTitle("");
 
         // Set up the drawer toggle
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -29,6 +30,17 @@ public class NavSetup {
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawerLayout.addDrawerListener(toggle);
         toggle.syncState();
+
+        // Modify navigation menu based on user type
+        Menu menu = navigationView.getMenu();
+        if ("vendor".equals(userType)) {
+            // Remove the "Cart" menu item for vendors
+            menu.removeItem(R.id.nav_mycart);
+            // Change "All Markets" to "My Items"
+            MenuItem allMarketItem = menu.findItem(R.id.nav_all_market);
+            allMarketItem.setTitle("My Items");
+        }
+
 
         // Set up the navigation item listener
         navigationView.setNavigationItemSelectedListener(item -> {
@@ -38,7 +50,11 @@ public class NavSetup {
             if (id == R.id.nav_home) {
                 intent= new Intent(activity, CustHome.class);
             } else if (id == R.id.nav_all_market) {
-                intent= new Intent(activity, ViewMarket.class);
+                if(userType.equals("customer")){
+                    intent= new Intent(activity, ViewMarket.class);
+                } else {
+                    intent= new Intent(activity, VendorItems.class);
+                }
             } else if (id == R.id.nav_account) {
                 intent = new Intent(activity, AccountPage.class);
             } else if (id == R.id.nav_security) {
@@ -50,6 +66,7 @@ public class NavSetup {
             }
 
             if (intent != null) {
+                intent.putExtra("userType", userType);
                 activity.startActivity(intent);
             }
 
