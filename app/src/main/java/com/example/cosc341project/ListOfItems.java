@@ -82,7 +82,8 @@ public class ListOfItems {
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    int id = v.getId();
+                    int id = v.getId(); // THIS doesn't work
+                    System.out.println(id);
                     String productName = "", productPrice = "";
                     for (int i = 0; i < productIds.size(); i++) {
                         if(id == productIds.get(i)) {
@@ -103,13 +104,13 @@ public class ListOfItems {
     public static void addToCart(Context context, String username, String vendorName, String productName, String productPrice) {
 
         // Write the information to cart
-        // Format @username vendor:item:price:quantity
+        // Format @username vendor:item:price
         Resources res = context.getResources();
         FileOutputStream fout;
         try {
             fout = context.openFileOutput(res.getString(R.string.cart_info), Context.MODE_APPEND);
             fout.write(("@" + username + " " + vendorName + ":"
-            + productName + ":" + productPrice).getBytes());
+            + productName + ":" + productPrice + "\n").getBytes());
             fout.close();
         } catch (Exception e) {
             e.printStackTrace();

@@ -126,16 +126,14 @@ public class ListOfStores {
                 @Override
                 public void onClick(View v) {
                     Bundle b = new Bundle();
-                    int id = v.getId();
+
+                    int index = storeContainer.indexOfChild(v);
+
                     String vendorName = "";
                     Float vendorRating = 0.0f;
-                    for (int i = 0; i < vendorIds.size(); i++) {
-                        if(id == vendorIds.get(i)) {
-                            vendorName = vendorNames.get(i);
-                            vendorRating = Float.valueOf(vendorRatings.get(i));
-                            break;
-                        }
-                    }
+                    vendorName = vendorNames.get(index);
+                    vendorRating = Float.valueOf(vendorRatings.get(index));
+
                     b.putString("username", CustHome.username);
                     b.putString("vendor_name", vendorName);
                     b.putFloat("vendor_rating", vendorRating);
