@@ -94,9 +94,12 @@ public class Reviews extends AppCompatActivity {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         // Get a readable database
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        String query = "SELECT AVG(" + DatabaseHelper.COLUMN_REVIEW_RATING + ") FROM " + DatabaseHelper.TABLE_NAME +
-                " WHERE " + DatabaseHelper.COLUMN_VENDOR_NAME + " = '" + vendorUsername + "'";
-        Cursor cursor = db.rawQuery(query, null);
+        // Define the selection criteria
+        String selection = DatabaseHelper.COLUMN_VENDOR_NAME + " = ?";
+        String[] selectionArgs = {vendorUsername};
+        String[] column = {DatabaseHelper.COLUMN_VENDOR_NAME,DatabaseHelper.COLUMN_REVIEW_RATING};
+
+        Cursor cursor = db.query(DatabaseHelper.TABLE_NAME, column, selection, selectionArgs, null, null, null);
         float averageRating = 0;
         if (cursor.moveToFirst()) {
             averageRating = cursor.getFloat(0);
