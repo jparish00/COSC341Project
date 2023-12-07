@@ -16,6 +16,9 @@
             android:name=".ModifyItem"
             android:exported="false" />
         <activity
+            android:name=".AddVendorItem"
+            android:exported="false" />
+        <activity
             android:name=".VendorItems"
             android:exported="false" />
         <activity
