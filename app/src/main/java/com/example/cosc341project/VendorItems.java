@@ -11,12 +11,14 @@ public class VendorItems extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_items);
-//
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, getIntent().getStringExtra("userType"));
+        String userType = getIntent().getStringExtra("userType");
+        String userName = getIntent().getStringExtra("username");
+        System.out.println(userName + "vendor Item place");
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType, userName);
 
         // code for inserting all stores in market
         LinearLayout itemsLayout = findViewById(R.id.itemsLayout);
         // Populating store cards
-        ListOfVendorItems.populateItems(this, itemsLayout);
+        ListOfVendorItems.populateItems(this, itemsLayout, userName);
     }
 }

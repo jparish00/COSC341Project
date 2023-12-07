@@ -36,7 +36,6 @@ public class CustHome extends AppCompatActivity {
         res = getResources();
 
         Bundle b = getIntent().getExtras();
-        System.out.println(b.getString("username"));
         username = b.getString("username");
         userType = "customer";
 
@@ -69,6 +68,7 @@ public class CustHome extends AppCompatActivity {
         if (isVendor) {
             Intent intent = new Intent(getApplicationContext(), VendorLocations.class);
             b.putString("userType", userType);
+            b.putString("username",username);
             intent.putExtras(b); // from above
             startActivity(intent);
             finish();
@@ -98,7 +98,7 @@ public class CustHome extends AppCompatActivity {
 
 
         /******** Nav bar items I swear not to touch out of fear **********/
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType, username);
 
         Spinner vendorCategorySpinner = findViewById(R.id.categories);
 

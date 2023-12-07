@@ -48,7 +48,9 @@ public class StoreItems extends AppCompatActivity {
         vendorTitle.setText(vendorName);
         ratingBar.setRating(vendorRating);
 
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, getIntent().getStringExtra("userType"));
+        String userType = getIntent().getStringExtra("userType");
+        String userName = getIntent().getStringExtra("username");
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType, userName);
 
         // Code for inserting all items in market
         LinearLayout itemsContainer = findViewById(R.id.itemsLayout);

@@ -11,7 +11,9 @@ public class ViewMarket extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_view_market);
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, getIntent().getStringExtra("userType"));
+        String userType = getIntent().getStringExtra("userType");
+        String userName = getIntent().getStringExtra("username");
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType, userName);
 
         // code for inserting all stores in market
         LinearLayout marketContainer = findViewById(R.id.marketContainer);

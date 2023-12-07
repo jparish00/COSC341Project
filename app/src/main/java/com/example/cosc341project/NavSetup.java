@@ -2,6 +2,7 @@ package com.example.cosc341project;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -14,8 +15,12 @@ import com.google.android.material.navigation.NavigationView;
 public class NavSetup {
 
     static String userType;
-    public static void setupDrawer(final Activity activity, int drawerLayoutId, int navViewId, int toolbarId, String userTypeSent) {
+    static String username;
+    public static void setupDrawer(final Activity activity, int drawerLayoutId, int navViewId, int toolbarId, String userTypeSent, String userNameSent) {
         userType = userTypeSent;
+        username = userNameSent;
+        Bundle b = new Bundle();
+
         DrawerLayout drawerLayout = activity.findViewById(drawerLayoutId);
         NavigationView navigationView = activity.findViewById(navViewId);
         Toolbar toolbar = activity.findViewById(toolbarId);
@@ -50,25 +55,27 @@ public class NavSetup {
             int id = item.getItemId();
 
             if (id == R.id.nav_home) {
-                intent= new Intent(activity, CustHome.class);
+                intent = new Intent(activity.getApplicationContext(), CustHome.class);
             } else if (id == R.id.nav_all_market) {
                 if(userType.equals("customer")){
-                    intent= new Intent(activity, ViewMarket.class);
+                    intent= new Intent(activity.getApplicationContext(), ViewMarket.class);
                 } else {
-                    intent= new Intent(activity, VendorItems.class);
+                    intent= new Intent(activity.getApplicationContext(), VendorItems.class);
                 }
             } else if (id == R.id.nav_account) {
-                intent = new Intent(activity, AccountPage.class);
+                intent = new Intent(activity.getApplicationContext(), AccountPage.class);
             } else if (id == R.id.nav_security) {
-                intent = new Intent(activity, SecurityPage.class);
+                intent = new Intent(activity.getApplicationContext(), SecurityPage.class);
             } else if (id == R.id.nav_reviews) {
-                intent = new Intent(activity, MyReviews.class);
+                intent = new Intent(activity.getApplicationContext(), MyReviews.class);
             } else if (id == R.id.nav_logout) {
-                intent = new Intent(activity, MainActivity.class);
+                intent = new Intent(activity.getApplicationContext(), MainActivity.class);
             }
 
             if (intent != null) {
-                intent.putExtra("userType", userType);
+                b.putString("userType", userType);
+                b.putString("username", username);
+                intent.putExtras(b);
                 activity.startActivity(intent);
             }
 
