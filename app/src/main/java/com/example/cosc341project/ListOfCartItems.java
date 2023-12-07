@@ -1,6 +1,8 @@
 package com.example.cosc341project;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.SyncStats;
 import android.content.res.Resources;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +37,6 @@ public class ListOfCartItems {
         items = new ArrayList<>();
         prices = new ArrayList<>();
 
-        // find Conversation. It there isn't one, make one
         String line, userCheck;
         try {
             FileInputStream fis = context.openFileInput(res.getString(R.string.cart_info));
@@ -45,12 +46,13 @@ public class ListOfCartItems {
             boolean cartFound = false;
             while ((line = br.readLine()) != null) {
                 if (line.charAt(0) == '@') {
-                    userCheck = line.substring(1);
+                    userCheck = line.substring(1).split("/")[0];
                     if (userCheck.equals(Cart.username)) {
                         cartFound = true;
-                        vendors.add(line.split(" ")[1].split("/")[0]);
-                        items.add(line.split(" ")[1].split("/")[1].split(":")[0]);
-                        prices.add(line.split(" ")[1].split("/")[1].split(":")[1]);
+                        System.out.println("HERE: " + line);
+                        vendors.add(line.split("/")[1]);
+                        items.add(line.split("/")[2].split(":")[0]);
+                        prices.add(line.split("/")[2].split(":")[1]);
                     }
                 }
             }
@@ -88,20 +90,16 @@ public class ListOfCartItems {
 
             deleteButton.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View view) {
-                    CardView cardView = null;
-                    for (int i = 0; i < buttonIds.size(); i++) {
-                        if(buttonIds.get(i) == view.getId()) {
-                            cardView = view.findViewById(viewIds.get(i)); // NOT SURE IF THIS WILL WORK
-                            break;
-                        }
-                    }
+                public void onClick(View v) {
+                    int id = v.getRootView().getId(); // Hopefully gets cardview id
+
+                    CardView cardView = itemsContainer.findViewById(id);
 
                     TextView priceView = cardView.findViewById(R.id.cart_price);
                     Float removePrice = Float.valueOf(priceView.getText().toString().substring(1));
                     Cart.totalPriceValue -= removePrice;
                     Cart.totalPrice = String.valueOf(Cart.totalPriceValue);
-                    Cart.price.setText(String.valueOf(Cart.totalPrice));
+                    Cart.price.setText("Total: $" + Cart.totalPrice);
 
                     itemsContainer.removeView(cardView);
 

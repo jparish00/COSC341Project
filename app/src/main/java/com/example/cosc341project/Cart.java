@@ -39,7 +39,6 @@ public class Cart extends AppCompatActivity {
         totalPrice = "";
         totalPriceValue = 0.0f;
 
-
         // Setup
         // Code for inserting all items in cart
         LinearLayout itemsContainer = findViewById(R.id.cartLayout);

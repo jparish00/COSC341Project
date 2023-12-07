@@ -2,6 +2,7 @@ package com.example.cosc341project;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
@@ -47,9 +48,16 @@ public class NavSetup {
                 intent = new Intent(activity, MyReviews.class);
             } else if (id == R.id.nav_logout) {
                 intent = new Intent(activity, MainActivity.class);
-            }
+            } else if (id == R.id.nav_mycart)
+                intent = new Intent(activity, Cart.class);
 
             if (intent != null) {
+
+                if(id == R.id.nav_mycart) {
+                    Bundle b = new Bundle();
+                    b.putString("username", CustHome.username);
+                    intent.putExtras(b);
+                }
                 activity.startActivity(intent);
             }
 
