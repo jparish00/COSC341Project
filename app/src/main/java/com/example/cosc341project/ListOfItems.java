@@ -72,7 +72,7 @@ public class ListOfItems {
 
             // Customize card view
             TextView itemtitle = cardView.findViewById(R.id.item_name);
-            TextView itemPrice = cardView.findViewById(R.id.message);
+            TextView itemPrice = cardView.findViewById(R.id.item_price);
 
             itemtitle.setText(productNames.get(i));
             itemPrice.setText("$"+ prices.get(i)); // Just for example, setting a rating

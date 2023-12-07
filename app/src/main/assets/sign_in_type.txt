@@ -1,1 +1,2 @@
 @JParish customer
+@MRahman vendor

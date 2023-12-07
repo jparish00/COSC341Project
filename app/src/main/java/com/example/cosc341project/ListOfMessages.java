@@ -68,7 +68,7 @@ public class ListOfMessages {
 
             // Customize card view
             TextView itemUser = cardView.findViewById(R.id.item_name);
-            TextView itemMessage = cardView.findViewById(R.id.message);
+            TextView itemMessage = cardView.findViewById(R.id.item_price);
 
             itemUser.setText(users.get(i));
             itemMessage.setText(messages.get(i)); // Just for example, setting a rating
@@ -87,7 +87,7 @@ public class ListOfMessages {
 
         // Customize card view
         TextView itemUser = cardView.findViewById(R.id.item_name);
-        TextView itemMessage = cardView.findViewById(R.id.message);
+        TextView itemMessage = cardView.findViewById(R.id.item_price);
 
         if (Inbox.accountType == "customer") {
             itemUser.setText(Inbox.username);
