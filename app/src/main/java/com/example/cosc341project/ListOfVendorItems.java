@@ -2,6 +2,7 @@ package com.example.cosc341project;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
@@ -14,7 +15,7 @@ import java.util.ArrayList;
 public class ListOfVendorItems {
 
     static ArrayList<String> items;
-    static ArrayList<String> price;
+    static ArrayList<String> prices;
 
     public static void populateItems(Context context, LinearLayout itemsContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
@@ -30,32 +31,54 @@ public class ListOfVendorItems {
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("@")) {
                     if (line.substring(1).split(" ")[0].equals(username)) {
-                        isCorrectVendor = true; // Found the correct vendor
-                    } else {
-                        isCorrectVendor = false; // Reset if it's a different vendor
+                        br.readLine();
+                        br.readLine();
+                        br.readLine();
+                        br.readLine();
+                        line = br.readLine();
+                        break;
                     }
-                } else if (isCorrectVendor && line.startsWith("@items")) {
-                    String[] items = line.substring(7).split("/"); // Process items
-
-                    for (String item : items) {
-                        String[] itemDetails = item.split(":");
-                        if (itemDetails.length == 2) {
-                            String itemName = itemDetails[0];
-                            String itemPrice = itemDetails[1];
-
-                            CardView cardView = (CardView) inflater.inflate(R.layout.items_card, itemsContainer, false);
-                            TextView itemNameView = cardView.findViewById(R.id.item_name);
-                            TextView itemPriceView = cardView.findViewById(R.id.item_price);
-
-                            itemNameView.setText(itemName);
-                            itemPriceView.setText("$" + itemPrice);
-
-                            itemsContainer.addView(cardView);
-                        }
-                    }
-                    break;
                 }
             }
+
+            // Load items
+            String[] products = line.split("/");
+            for (int i = 0; i < products.length; i++) {
+                items.add(products[i].split(":")[0]);
+                prices.add(products[i].split(":")[1]);
+            }
+
+            // Add to layout
+            for (int i = 0; i < items.size(); i++) {
+                CardView cardView = (CardView) inflater.inflate(R.layout.items_card, itemsContainer, false);
+
+                // Customize card view
+                TextView itemName = cardView.findViewById(R.id.item_name);
+                TextView itemPrice = cardView.findViewById(R.id.item_price);
+
+                itemName.setText(items.get(i));
+                itemPrice.setText("$" + prices.get(i));
+
+                // UNCOMMENT TO DELETE ON CLICK
+//                cardView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        int index = itemsContainer.indexOfChild(v); // Hopefully gets cardview id
+//
+//                        CardView cardView = (CardView)itemsContainer.getChildAt(index);
+//
+//                        items.remove(index);
+//                        prices.remove(index);
+//
+//                        itemsContainer.removeView(cardView);
+//
+//                    }
+//                });
+
+                itemsContainer.addView(cardView);
+            }
+
+
             fis.close();
         } catch (IOException e) {
             e.printStackTrace();
