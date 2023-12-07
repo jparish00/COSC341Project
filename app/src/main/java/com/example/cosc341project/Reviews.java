@@ -10,9 +10,11 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
@@ -36,7 +38,6 @@ public class Reviews extends AppCompatActivity {
         setContentView(R.layout.activity_reviews);
         goBackBtn = findViewById(R.id.ReviewBackButt);
         addReview = findViewById(R.id.add_review);
-
 
         reviewList = findViewById(R.id.review_List);
         goBackBtn.setOnClickListener(new View.OnClickListener() {
@@ -75,50 +76,38 @@ public class Reviews extends AppCompatActivity {
     }
     //commented out while testing other method.
     public void displayReviewsForVendor(Context context, String vendorUsername, LinearLayout linearLayout) {
-
         DatabaseHelper dbHelper = new DatabaseHelper(context);
-        SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = null;
 
-
-        try {
-
-            db = dbHelper.getReadableDatabase();
-
-            String[] columns = {
-                    DatabaseHelper.COLUMN_VENDOR_NAME,
-                    DatabaseHelper.COLUMN_REVIEW_RATING,
-                    DatabaseHelper.COLUMN_REVIEW_TEXT
-            };
-
-            String selection = DatabaseHelper.COLUMN_VENDOR_NAME + " = ?";
-            String[] selectionArgs = {vendorUsername};
-
-            cursor = db.query(DatabaseHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
+        try (SQLiteDatabase db = dbHelper.getReadableDatabase();
+             Cursor cursor = db.query(DatabaseHelper.TABLE_NAME,
+                     new String[]{DatabaseHelper.COLUMN_CUST_USERNAME, DatabaseHelper.COLUMN_REVIEW_RATING, DatabaseHelper.COLUMN_REVIEW_TEXT},
+                     DatabaseHelper.COLUMN_VENDOR_NAME + " = ?",
+                     new String[]{vendorUsername},
+                     null, null, null)) {
 
             if (cursor != null && cursor.moveToFirst()) {
                 do {
-                    @SuppressLint("Range") String reviewRating = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_RATING));
+                    @SuppressLint("Range") String customerName = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_CUST_USERNAME));
+                    @SuppressLint("Range") float reviewRating = cursor.getFloat(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_RATING));
                     @SuppressLint("Range") String reviewText = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_TEXT));
-                    @SuppressLint("Range") String customerName = cursor.getString((cursor.getColumnIndex(DatabaseHelper.COLUMN_CUST_USERNAME)));
 
-                    TextView reviewTextView = new TextView(this);
-                    reviewTextView.setText(customerName + " Rating: " + reviewRating + "\nReview: " + reviewText);
-                    reviewTextView.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,LinearLayout.LayoutParams.WRAP_CONTENT));
-                    linearLayout.addView(reviewTextView);
+                    CardView cardView = (CardView) LayoutInflater.from(context).inflate(R.layout.review_card, linearLayout, false);
+                    TextView reviewNameView = cardView.findViewById(R.id.review_title);
+                    RatingBar reviewRateView = cardView.findViewById(R.id.review_rating);
+                    TextView reviewMsgView = cardView.findViewById(R.id.review_msg);
+
+                    reviewNameView.setText(customerName);
+                    reviewRateView.setRating(reviewRating);
+                    reviewMsgView.setText(reviewText);
+
+                    linearLayout.addView(cardView);
                 } while (cursor.moveToNext());
             }
         } catch (Exception e) {
             Log.e("Reviews", "Error in displayReviewsForVendor: ", e);
-        } finally {
-            if (cursor != null) {
-                cursor.close();
-            }
-            if (db != null) {
-                db.close();
-            }
         }
     }
+
 
     public float getAverageReviewRatingForVendor(Context context, String vendorUsername) {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
