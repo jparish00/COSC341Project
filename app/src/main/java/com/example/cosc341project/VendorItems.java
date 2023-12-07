@@ -33,7 +33,7 @@ public class VendorItems extends AppCompatActivity {
         // Create a Dialog instance
         Dialog dialog = new Dialog(this);
         dialog.setContentView(R.layout.add_item_vendor);
-        
+
         //ListOfVendorItems.addItem();
 
         dialog.show();
