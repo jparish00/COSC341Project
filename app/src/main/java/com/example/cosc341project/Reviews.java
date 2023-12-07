@@ -74,12 +74,12 @@ public class Reviews extends AppCompatActivity {
             db = dbHelper.getReadableDatabase();
 
             String[] columns = {
-                    DatabaseHelper.COLUMN_VENDOR_USERNAME,
+                    DatabaseHelper.COLUMN_VENDOR_NAME,
                     DatabaseHelper.COLUMN_REVIEW_RATING,
                     DatabaseHelper.COLUMN_REVIEW_TEXT
             };
 
-            String selection = DatabaseHelper.COLUMN_VENDOR_USERNAME + " = ?";
+            String selection = DatabaseHelper.COLUMN_VENDOR_NAME + " = ?";
             String[] selectionArgs = {vendorUsername};
 
             cursor = db.query(DatabaseHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
@@ -118,7 +118,7 @@ public class Reviews extends AppCompatActivity {
             db = dbHelper.getReadableDatabase();
 
             String query = "SELECT AVG(" + DatabaseHelper.COLUMN_REVIEW_RATING + ") FROM " + DatabaseHelper.TABLE_NAME +
-                    " WHERE " + DatabaseHelper.COLUMN_VENDOR_USERNAME + " = '" + vendorUsername + "'";
+                    " WHERE " + DatabaseHelper.COLUMN_VENDOR_NAME + " = '" + vendorUsername + "'";
             cursor = db.rawQuery(query, null);
 
             if (cursor != null && cursor.moveToFirst()) {

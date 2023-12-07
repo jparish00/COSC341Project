@@ -88,7 +88,7 @@ public class AddReview extends AppCompatActivity {
 
             // Create a ContentValues object to store the review data
             ContentValues values = new ContentValues();
-            values.put(DatabaseHelper.COLUMN_VENDOR_USERNAME, vendorUsername);
+            values.put(DatabaseHelper.COLUMN_VENDOR_NAME, vendorUsername);
             values.put(DatabaseHelper.COLUMN_CUST_USERNAME, custUsername);
             values.put(DatabaseHelper.COLUMN_REVIEW_RATING, reviewRating);
             values.put(DatabaseHelper.COLUMN_REVIEW_TEXT, reviewText);
