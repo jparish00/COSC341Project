@@ -10,7 +10,7 @@ import android.widget.Button;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import android.widget.ArrayAdapter;
 import java.io.FileOutputStream;
 
 // UNTESTED
@@ -41,6 +41,14 @@ public class VendorSignUp2 extends AppCompatActivity {
         vendorTitleInput = findViewById(R.id.vendorT);
         vendorAddressInput = findViewById(R.id.vendorAddress);
         vendorCategorySpinner = findViewById(R.id.categories);
+
+        // add 5 categories here: 1) Meats, 2) Vegetables, 3) Bakery, 4) Dairy, 5) Home-Care
+        String[] categories = {"Meats", "Vegetables", "Bakery", "Dairy", "Home-Care"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        vendorCategorySpinner.setAdapter(adapter);
+
+
         returnButton = findViewById(R.id.return_button);
         createAccountButton = findViewById(R.id.create_account_confirm_button);
 

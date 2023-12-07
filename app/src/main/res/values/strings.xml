@@ -27,7 +27,7 @@
     <string name="password_hint_text">Password</string>
     <string name="forgot_password_text">forgot your password?</string>
     <string name="log_in_text">Log in</string>
-    <string name="create_account_text">Create Customer Account</string>
+    <string name="create_account_text">Create Account</string>
     <string name="is_vendor_text">I am a Vendor</string>
     <string name="toast_missing_login_file">Error: Log-in file not found!</string>
     <string name="toast_add_account">Please add an account</string>
