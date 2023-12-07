@@ -21,10 +21,9 @@ public class CustHome extends AppCompatActivity {
 
     // Views
     TextView marketName;
-
     // Vars
     Resources res;
-    static String username;
+    static String username, userType;
     static String defaultMarket, currentMarket;
     static String type;
 
@@ -38,10 +37,14 @@ public class CustHome extends AppCompatActivity {
         res = getResources();
 
         Bundle b = getIntent().getExtras();
+        System.out.println(b.getString("username"));
         username = b.getString("username");
+        userType = "customer";
+
 
         // Check if this is a vendor account. If it is, launch the vendor activity
         boolean isVendor = false;
+
         try {
             FileInputStream fis = openFileInput(res.getString(R.string.sign_in_type));
             InputStreamReader isr = new InputStreamReader(fis);
@@ -52,8 +55,9 @@ public class CustHome extends AppCompatActivity {
                 if (line.charAt(0) == '@') {
                     userCheck = line.split(" ")[0].substring(1);
                     type = line.split(" ")[1];
-                    if (username.equals(userCheck) && type == "vendor") {
+                    if (username.equals(userCheck) && type.equals("vendor")) {
                         isVendor = true;
+                        userType ="vendor";
                         break;
                     }
                 }
@@ -62,9 +66,10 @@ public class CustHome extends AppCompatActivity {
             Toast.makeText(this, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
         }
 
+
         if (isVendor) {
-            // TODO: Is this the right class to go to? A bit confused about that
             Intent intent = new Intent(getApplicationContext(), VendorLocations.class);
+            b.putString("userType", userType);
             intent.putExtras(b); // from above
             startActivity(intent);
             finish();
@@ -94,7 +99,7 @@ public class CustHome extends AppCompatActivity {
 
 
         /******** Nav bar items I swear not to touch out of fear **********/
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar);
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
         Spinner vendorCategorySpinner = findViewById(R.id.categories);
 
