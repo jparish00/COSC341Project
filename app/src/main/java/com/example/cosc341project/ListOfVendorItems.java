@@ -1,6 +1,8 @@
 package com.example.cosc341project;
 
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -64,21 +66,27 @@ public class ListOfVendorItems {
                 itemName.setText(items.get(i));
                 itemPrice.setText("$" + prices.get(i));
 
-                // UNCOMMENT TO DELETE ON CLICK
-//                cardView.setOnClickListener(new View.OnClickListener() {
-//                    @Override
-//                    public void onClick(View v) {
-//                        int index = itemsContainer.indexOfChild(v); // Hopefully gets cardview id
-//
-//                        CardView cardView = (CardView)itemsContainer.getChildAt(index);
-//
-//                        items.remove(index);
-//                        prices.remove(index);
-//
-//                        itemsContainer.removeView(cardView);
-//
-//                    }
-//                });
+                cardView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        int index = itemsContainer.indexOfChild(v); // Gets cardview id
+                        CardView cardView = (CardView)itemsContainer.getChildAt(index);
+
+                        int id = cardView.getId();
+
+                        String name = items.get(index);
+                        String price = prices.get(index);
+
+                        Intent intent = new Intent(context.getApplicationContext(), ModifyItem.class);
+                        Bundle b = new Bundle();
+                        b.putInt("id", id);
+                        b.putInt("index", index);
+                        b.putString("name", name);
+                        b.putString("price", price);
+
+                        context.startActivity(intent);
+                    }
+                });
 
                 itemsContainer.addView(cardView);
             }
