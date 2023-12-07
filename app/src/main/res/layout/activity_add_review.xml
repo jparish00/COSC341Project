@@ -54,7 +54,7 @@
         android:layout_marginTop="40dp"
         android:orientation="horizontal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vendor_name_text_AR">
+        app:layout_constraintTop_toBottomOf="@+id/vendorName">
 
         <RadioButton
             android:id="@+id/oneStar"
@@ -93,11 +93,12 @@
     </RadioGroup>
 
     <TextView
-        android:id="@+id/vendor_name_text_AR"
+        android:id="@+id/vendorName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="48dp"
+
         android:fontFamily="@font/poppins"
         android:textSize="40sp"
         app:layout_constraintStart_toStartOf="parent"

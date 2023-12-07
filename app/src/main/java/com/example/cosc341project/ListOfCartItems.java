@@ -46,24 +46,19 @@ public class ListOfCartItems {
             while ((line = br.readLine()) != null) {
                 if (line.charAt(0) == '@') {
                     userCheck = line.substring(1);
-                    if (userCheck.equals(Cart.username)) { // conversation found
+                    if (userCheck.equals(Cart.username)) {
                         cartFound = true;
-                        break;
+                        vendors.add(line.split(" ")[1].split("/")[0]);
+                        items.add(line.split(" ")[1].split("/")[1].split(":")[0]);
+                        prices.add(line.split(" ")[1].split("/")[1].split(":")[1]);
                     }
                 }
             }
 
             if (!cartFound) {
-                Cart.totalPrice = "0.00";
+                Cart.totalPriceValue = 0.0f;
+                Cart.totalPrice = "Total: $0.00";
                 return;
-            }
-
-            while ((line = br.readLine()) != null) {
-                if (line.charAt(0) == '@')
-                    break;
-                vendors.add(line.split("/")[0]);
-                items.add(line.split("/")[1].split(":")[0]);
-                prices.add(line.split("/")[1].split(":")[1]);
             }
 
             } catch(IOException e) {
@@ -116,8 +111,8 @@ public class ListOfCartItems {
             itemsContainer.addView(cardView);
         }
 
-        Cart.totalPrice = String.valueOf(Cart.totalPriceValue);
-        Cart.price.setText(String.valueOf(Cart.totalPrice));
+        Cart.totalPrice = "Total: $" + String.valueOf(Cart.totalPriceValue);
+        Cart.price.setText(Cart.totalPrice);
 
     }
 

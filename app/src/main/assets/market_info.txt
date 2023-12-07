@@ -2,16 +2,21 @@
 Henry's Meats
 4
 Local butcher selling various meat products.
+123 North Pole St.
 Jane's Clothes
 4.5
 Homemade clothing for all ages, clothing repairs.
+456 River St.
 Sarah's Stuff
 4
 Knick-knacks, toys, decorations, and antiques.
+789 Desert St.
 Carl's Orchard
 4
 Wines and Fruit. Not much else.
+101 Hord St.
 Jordan's Bakery
 4.5
 A reason to come to the market :).
+112 Woohoo st.
 @MarketB 0

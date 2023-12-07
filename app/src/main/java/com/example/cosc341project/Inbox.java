@@ -45,6 +45,7 @@ public class Inbox extends AppCompatActivity {
         username = b.getString("username");
         vendorName = b.getString("vendor_name");
         accountType = b.getString("account_type");
+        System.out.println("ACCOUNT TYPE: " + accountType);
 
         res = getResources();
 
@@ -52,7 +53,7 @@ public class Inbox extends AppCompatActivity {
         vendorTitle = findViewById(R.id.vendorTitleText);
         custTextInput = findViewById(R.id.cust_msg_input);
         backButton = findViewById(R.id.gobackbtn);
-        sendButton = findViewById(R.id.sendMsg);
+        sendButton = findViewById(R.id.request_button);
 
         vendorTitle.setText(vendorName);
 
@@ -102,8 +103,8 @@ public class Inbox extends AppCompatActivity {
                 lines.add(line);
                 if (line.charAt(0) == '@') { // For now, use an @ sign to indicate a user
 
-                    usernameIn = line.substring(1).split("/")[0];
-                    vendorIn = line.substring(1).split("/")[1];
+                    vendorIn = line.substring(1).split("/")[0];
+                    usernameIn = line.substring(1).split("/")[1];
                     if (username.equals(usernameIn) && vendorName.equals(vendorIn)) {
                         convoLocation = count; // Don't add +1, since arraylist starts from 0
                     }
@@ -114,6 +115,9 @@ public class Inbox extends AppCompatActivity {
         }
 
         String convo = "";
+        System.out.println(ListOfMessages.users.size());
+        System.out.println(ListOfMessages.messages.size());
+
         for (int i = 0; i < ListOfMessages.users.size(); i++) {
             convo += ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i);
             if(i != ListOfMessages.users.size()-1)

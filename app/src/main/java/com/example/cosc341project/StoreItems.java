@@ -17,7 +17,9 @@ public class StoreItems extends AppCompatActivity {
     // Views
     TextView marketTitle, vendorTitle;
     RatingBar ratingBar;
-    Button reviewsButton, inboxButton;
+    Button inboxButton;
+    Button reviewBtn;
+    ImageButton goBackBtn;
 
     // Vars
     static String vendorName, marketName, username;
@@ -32,8 +34,10 @@ public class StoreItems extends AppCompatActivity {
         vendorTitle = findViewById(R.id.vendorTitleText);
         marketTitle = findViewById(R.id.marketName);
         ratingBar = findViewById(R.id.ratingBar);
-        reviewsButton = findViewById(R.id.writeReviewBtn);
+
         inboxButton = findViewById(R.id.inboxBtn);
+        reviewBtn = findViewById(R.id.writeReviewBtn);
+        goBackBtn = findViewById(R.id.gobackbtn);
 
         Resources res = getResources();
 
@@ -59,19 +63,24 @@ public class StoreItems extends AppCompatActivity {
         // Go Back button
         ImageButton goBackBtn = findViewById(R.id.gobackbtn);
 
-        reviewsButton.setOnClickListener(this::viewReview);
         inboxButton.setOnClickListener(this::onClickInbox);
+
 
         goBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Create an Intent to start the CustHome activity
-//                Intent intent = new Intent(StoreItems.this, CustHome.class);
-//                startActivity(intent);
                 finish();
             }
         });
+
+        reviewBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                viewReview(v);
+            }
+        });
     }
+
     public void viewReview(View view){
         Intent intent = new Intent(getApplicationContext(), Reviews.class);
         Bundle bundle = new Bundle();
