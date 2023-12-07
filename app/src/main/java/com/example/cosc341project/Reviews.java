@@ -15,6 +15,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class Reviews extends AppCompatActivity {
 
@@ -35,6 +36,7 @@ public class Reviews extends AppCompatActivity {
         addReview = findViewById(R.id.add_review);
 
 
+        reviews = findViewById(R.id.review_List);
         goBackBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,8 +64,6 @@ public class Reviews extends AppCompatActivity {
             avgRate = String.valueOf(getAverageReviewRatingForVendor(this, venName));
             averageReview.setText(avgRate);
 
-            reviews = findViewById(R.id.review_List);
-
             displayReviewsForVendor(this, venName, reviews);
         } catch (Exception e) {
             Log.e("Reviews", "Error in onCreate: ", e);
@@ -75,6 +75,7 @@ public class Reviews extends AppCompatActivity {
         DatabaseHelper dbHelper = new DatabaseHelper(context);
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         Cursor cursor = null;
+
 
 
 //        try {
