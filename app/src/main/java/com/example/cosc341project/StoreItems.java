@@ -62,4 +62,13 @@ public class StoreItems extends AppCompatActivity {
             }
         });
     }
+    public void viewReview(View view){
+        Intent intent = new Intent(getApplicationContext(), Reviews.class);
+        Bundle bundle = new Bundle();
+
+        bundle.putString("vendorName", vendorName);
+        bundle.putString("customerName", username);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
 }
