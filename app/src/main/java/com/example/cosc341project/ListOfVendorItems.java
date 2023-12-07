@@ -5,14 +5,16 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class ListOfVendorItems {
@@ -71,7 +73,7 @@ public class ListOfVendorItems {
                     @Override
                     public void onClick(View v) {
                         int index = itemsContainer.indexOfChild(v); // Gets cardview id
-                        CardView cardView = (CardView)itemsContainer.getChildAt(index);
+                        CardView cardView = (CardView) itemsContainer.getChildAt(index);
 
                         int id = cardView.getId();
 
@@ -99,7 +101,43 @@ public class ListOfVendorItems {
         }
     }
 
-    public static void addItem(String Name, String price, String imgSrc ) {
 
+    public static void addItem(Context context, String name, String price) throws FileNotFoundException {
+        int count = 0;
+
+        // Read the existing file content
+        try (FileInputStream fis = context.openFileInput("vendor_info.txt");
+             InputStreamReader isr = new InputStreamReader(fis);
+             BufferedReader br = new BufferedReader(isr)) {
+
+            String line;
+            while ((line = br.readLine()) != null) {
+                if (line.startsWith("@")) {
+                    if (line.substring(1).split(" ")[0].equals(CustHome.username)) {
+                        br.readLine();
+                        br.readLine();
+                        br.readLine();
+                        br.readLine();
+                        line = br.readLine();
+                        break;
+                    }
+                }
+            }
+
+            System.out.println(line);
+
+            // Write the updated content back to the file
+            try (FileOutputStream fos = context.openFileOutput("vendor_info.txt", Context.MODE_PRIVATE);
+                 OutputStreamWriter osw = new OutputStreamWriter(fos)) {
+
+                for (String fileLine : ) {
+                    osw.write(fileLine + "/" + name + ":" + price);
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }
