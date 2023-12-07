@@ -112,6 +112,7 @@ public class Reviews extends AppCompatActivity {
         Bundle bundle = new Bundle();
         bundle.putString("vendorName", venName);
         bundle.putString("customerName", custName);
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }

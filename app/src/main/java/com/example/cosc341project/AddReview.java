@@ -93,6 +93,9 @@ public class AddReview extends AppCompatActivity {
 
         addReview(this,venName,custName,review,reviewtext);
 
+        //close activity after submitting review
+        finish();
+
 
     }
 
