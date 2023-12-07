@@ -69,7 +69,7 @@ public class Reviews extends AppCompatActivity {
         // Execute the query to retrieve the reviews for the specific vendor
         Cursor cursor = db.query(DatabaseHelper.TABLE_NAME, columns, selection, selectionArgs, null, null, null);
 
-       
+
         // Iterate through the cursor and add the reviews to the LinearLayout
         while (cursor.moveToNext()) {
             @SuppressLint("Range") String reviewRating = cursor.getString(cursor.getColumnIndex(DatabaseHelper.COLUMN_REVIEW_RATING));
