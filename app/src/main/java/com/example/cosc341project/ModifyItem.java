@@ -3,14 +3,11 @@ package com.example.cosc341project;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 
-import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
-import org.w3c.dom.Text;
 
 public class ModifyItem extends AppCompatActivity {
 
@@ -21,7 +18,7 @@ public class ModifyItem extends AppCompatActivity {
     TextView nameInput, priceInput;
 
     // Var
-    int index, id;
+    int index;
     String name, price;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,18 +26,17 @@ public class ModifyItem extends AppCompatActivity {
         setContentView(R.layout.activity_modify_item);
 
         Bundle b = getIntent().getExtras();
-        id = b.getInt("id");
         index = b.getInt("index");
         name = b.getString("name");
         price = b.getString("price");
 
-//        backButton = findViewById(R.id.backButton);
-//        saveButton = findViewById(R.id.saveButton);
-//        nameInput = findViewById(R.id.name_input);
-//        priceInput = findViewById(R.id.priceInput);
+        backButton = findViewById(R.id.backButton);
+        saveButton = findViewById(R.id.saveButton);
+        nameInput = findViewById(R.id.nameTextInput);
+        priceInput = findViewById(R.id.priceTextInput);
 
         nameInput.setText(name);
-        nameInput.setText(price);
+        priceInput.setText(price);
 
         backButton.setOnClickListener(v -> { finish(); });
         saveButton.setOnClickListener(this::onSaveClick);
@@ -58,12 +54,14 @@ public class ModifyItem extends AppCompatActivity {
         ListOfVendorItems.items.set(index, new_name);
         ListOfVendorItems.prices.set(index, new_price);
 
-        CardView cardView = findViewById(id);
-//        TextView nameView = cardView.findViewById(R.id.name);
-//        TextView priceView = cardView.findViewById(R.id.price);
+        CardView cardView = ListOfVendorItems.modifyCardView;
+        TextView nameView = cardView.findViewById(R.id.item_name);
+        TextView priceView = cardView.findViewById(R.id.item_price);
 
-//        nameView.setText(new_name);
-//        priceView.setText(new_price);
+        nameView.setText(new_name);
+        priceView.setText(new_price);
+
+        finish();
 
     }
 }
