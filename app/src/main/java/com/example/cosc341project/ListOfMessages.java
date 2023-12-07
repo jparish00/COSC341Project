@@ -26,6 +26,10 @@ public class ListOfMessages {
 
         Resources res = context.getResources();
 
+        messageIds = new ArrayList<>();
+        users = new ArrayList<>();
+        messages = new ArrayList<>();
+
         // find Conversation. It there isn't one, make one
         String line, userCheck, vendorCheck, convo = "";
         Inbox.convoFound = false;

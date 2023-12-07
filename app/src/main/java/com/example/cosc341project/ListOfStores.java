@@ -98,7 +98,7 @@ public class ListOfStores {
             }
 
         } catch(IOException e) {
-            Toast.makeText(context, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
+            e.printStackTrace();
         }
 
         // Store names away for indexing when a store is clicked
