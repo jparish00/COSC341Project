@@ -15,8 +15,7 @@ public class VendorLocations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_locations);
         String userType = getIntent().getStringExtra("userType");
-        String userName = getIntent().getStringExtra("username");
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType, userName);
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
         // code for inserting all stores in market
         LinearLayout locationLayout = findViewById(R.id.locationLayout);

@@ -11,8 +11,7 @@ public class SecurityPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_security_page);
         String userType = getIntent().getStringExtra("userType");
-        String userName = getIntent().getStringExtra("username");
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType, userName);
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
     }
 }

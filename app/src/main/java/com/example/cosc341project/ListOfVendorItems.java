@@ -12,9 +12,9 @@ import java.io.InputStreamReader;
 
 public class ListOfVendorItems {
 
-    public static void populateItems(Context context, LinearLayout itemsContainer, String userName) {
+    public static void populateItems(Context context, LinearLayout itemsContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
-
+        String username = CustHome.username;
         try {
             FileInputStream fis = context.openFileInput("vendor_info.txt");
             InputStreamReader isr = new InputStreamReader(fis);
@@ -24,7 +24,7 @@ public class ListOfVendorItems {
 
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("@")) {
-                    if (line.substring(1).split(" ")[0].equals(userName)) {
+                    if (line.substring(1).split(" ")[0].equals(username)) {
                         isCorrectVendor = true; // Found the correct vendor
                     } else {
                         isCorrectVendor = false; // Reset if it's a different vendor

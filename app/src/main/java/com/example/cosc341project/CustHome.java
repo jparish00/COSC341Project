@@ -99,7 +99,7 @@ public class CustHome extends AppCompatActivity {
 
 
         /******** Nav bar items I swear not to touch out of fear **********/
-        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType, username);
+        NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
         Spinner vendorCategorySpinner = findViewById(R.id.categories);
 
