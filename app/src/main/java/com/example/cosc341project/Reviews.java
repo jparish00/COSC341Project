@@ -57,13 +57,13 @@ public class Reviews extends AppCompatActivity {
 
         // Define the columns to retrieve
         String[] columns = {
-                DatabaseHelper.COLUMN_VENDOR_USERNAME,
+                DatabaseHelper.COLUMN_VENDOR_NAME,
                 DatabaseHelper.COLUMN_REVIEW_RATING,
                 DatabaseHelper.COLUMN_REVIEW_TEXT
         };
 
         // Define the selection criteria
-        String selection = DatabaseHelper.COLUMN_VENDOR_USERNAME + " = ?";
+        String selection = DatabaseHelper.COLUMN_VENDOR_NAME + " = ?";
         String[] selectionArgs = {vendorUsername};
 
         // Execute the query to retrieve the reviews for the specific vendor
@@ -95,7 +95,7 @@ public class Reviews extends AppCompatActivity {
         // Get a readable database
         SQLiteDatabase db = dbHelper.getReadableDatabase();
         String query = "SELECT AVG(" + DatabaseHelper.COLUMN_REVIEW_RATING + ") FROM " + DatabaseHelper.TABLE_NAME +
-                " WHERE " + DatabaseHelper.COLUMN_VENDOR_USERNAME + " = '" + vendorUsername + "'";
+                " WHERE " + DatabaseHelper.COLUMN_VENDOR_NAME + " = '" + vendorUsername + "'";
         Cursor cursor = db.rawQuery(query, null);
         float averageRating = 0;
         if (cursor.moveToFirst()) {
