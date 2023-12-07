@@ -20,10 +20,10 @@ import android.widget.Toast;
 
 public class AddReview extends AppCompatActivity {
 
-    int  review;
+    int review;
     TextView vendorName;
     RadioGroup review_rating;
-    RadioButton s1,s2,s3,s4,s5, rb;
+    RadioButton s1, s2, s3, s4, s5, rb;
     EditText leave_review;
     String venName, custName, rv, reviewtext;
     Button submitButton, backButton;
@@ -62,7 +62,7 @@ public class AddReview extends AppCompatActivity {
         vendorName.setText(venName);
 
         leave_review = findViewById(R.id.add_review_input);
-        review_rating =findViewById(R.id.reviewStar);
+        review_rating = findViewById(R.id.reviewStar);
         s1 = findViewById(R.id.oneStar);
         s2 = findViewById(R.id.twoStar);
         s3 = findViewById(R.id.threeStar);
@@ -94,7 +94,12 @@ public class AddReview extends AppCompatActivity {
             values.put(DatabaseHelper.COLUMN_REVIEW_TEXT, reviewText);
 
             // Insert the review data into the database
-            db.insert(DatabaseHelper.TABLE_NAME, null, values);
+            long newRowID = db.insert(DatabaseHelper.TABLE_NAME, null, values);
+            if (newRowID != -1) {
+                Log.d("Database", "Review data saved successfully");
+            } else {
+               Log.e("Database", "Failed to save review data");
+            }
         } catch (Exception e) {
             // Log the exception
             Log.e("AddReview", "Error adding review", e);
@@ -107,6 +112,7 @@ public class AddReview extends AppCompatActivity {
             }
         }
     }
+
     public void submitReview(View view) {
         int selectedID = review_rating.getCheckedRadioButtonId();
         if (selectedID == -1) {
@@ -132,7 +138,7 @@ public class AddReview extends AppCompatActivity {
         finish();
     }
 
-    public void back(View view){
+    public void back(View view) {
         finish();
     }
 }
