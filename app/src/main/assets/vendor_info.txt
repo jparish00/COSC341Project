@@ -1,3 +1,8 @@
+@HSmith test@email.com
+Henry's Meats
+example.com
+Highway 97
+Meats
 Teriyaki Beef Jerky:6.50/Salt & Pepper Jerky:6.50/Ribeye Steak:30.00/Tomahawk Steak:33.00/Beer Cheese:9.50
 @JDoe test@email.com
 Jane's Clothes
