@@ -3,6 +3,7 @@ package com.example.cosc341project;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import androidx.cardview.widget.CardView;
@@ -88,5 +89,9 @@ public class ListOfVendorItems {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void addItem(String Name, String price, String imgSrc ) {
+
     }
 }
