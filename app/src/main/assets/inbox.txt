@@ -1,2 +1,10 @@
 @Henry's Meats/JParish
 JParish:Do you have any other beef Jerky flavors?/Henry's Meats:I also have Mesquite/JParish:Could you reserve that for me?/Henry's Meats:Sure, I can hold about 200 grams for the day
+@Jane's Clothes/JParish
+JParish:What age groups do you have
+@Jordan's Goods/JParish
+JParish:Are you antiques expensive?/Jordan's Goods:A bit
+@Sarah's Stuff/JParish
+JParish:What kind of things are in the surprise bag?/Sarah's Stuff:It wouldn't be much of a surprise then haha
+@Carl's Orchard/JParish
+JParish:What kind of wines do you have?

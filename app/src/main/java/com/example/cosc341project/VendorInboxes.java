@@ -15,7 +15,6 @@ public class VendorInboxes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_inboxes);
-
         backButton = findViewById(R.id.back_button);
         backButton.setOnClickListener(v -> { finish(); } );
 

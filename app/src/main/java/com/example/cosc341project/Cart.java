@@ -14,6 +14,7 @@ import android.widget.Toast;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -99,31 +100,24 @@ public class Cart extends AppCompatActivity {
         // Now, add the messages to inbox
         // Extremely inefficient, but no time
         for (int i = 0; i < ListOfCartItems.vendors.size(); i++) {
-
+            boolean inboxFound = false;
+            int count = 0, location = -1;
             try {
                 FileInputStream fis = openFileInput(res.getString(R.string.inbox_data));
                 InputStreamReader isr = new InputStreamReader(fis);
                 BufferedReader br = new BufferedReader(isr);
 
+
                 String line, userCheck, vendorCheck;
                 while ((line = br.readLine()) != null) {
-                    System.out.println("LINE: " + line);
+                    count++;
+                    lines.add(line);
                     if (line.charAt(0) == '@') {
                         vendorCheck = line.substring(1).split("/")[0];
                         userCheck = line.substring(1).split("/")[1];
                         if (userCheck.equals(Cart.username) && vendorCheck.equals(ListOfCartItems.vendors.get(i))) {
-                            lines.add(line);
-                            line = br.readLine();
-                            if(line.equals("none"))
-                                lines.add(username + ":" + "Requesting " + ListOfCartItems.items.get(i)
-                                        + " at $" + ListOfCartItems.prices.get(i));
-                            else
-
-                                lines.add(line + "/" + username + ":" + "Requesting " + ListOfCartItems.items.get(i)
-                                    + " at $" + ListOfCartItems.prices.get(i));
-                        } else {
-                            lines.add(line);
-                            lines.add(br.readLine());
+                            inboxFound = true;
+                            location = count;
                         }
                     }
                 }
@@ -132,17 +126,34 @@ public class Cart extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.inbox_data));
-            try {
-                fw = new FileWriter(f, false);
-                for (int j = 0; j < lines.size(); j++)
-                    fw.write(lines.get(j) + "\n");
-                fw.close();
+            if(inboxFound) {
 
-            } catch (Exception e) {
-                e.printStackTrace();
+                lines.set(location, lines.get(location) + "/" + username + ":" + "Requesting " + ListOfCartItems.items.get(i)
+                        + " at $" + ListOfCartItems.prices.get(i));
+
+                f = new File(getApplicationContext().getFilesDir(), res.getString(R.string.inbox_data));
+                try {
+                    fw = new FileWriter(f, false);
+                    for (int j = 0; j < lines.size(); j++)
+                        fw.write(lines.get(j) + "\n");
+                    fw.close();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            } else {
+                FileOutputStream fout;
+                try {
+                    fout = openFileOutput(res.getString(R.string.inbox_data), MODE_APPEND);
+                    fout.write(("@" + ListOfCartItems.vendors.get(i) + "/" + username).getBytes());
+                    fout.write((username + ":" + "Requesting " + ListOfCartItems.items.get(i)
+                            + " at $" + ListOfCartItems.prices.get(i)).getBytes());
+                    fout.write(("\n").getBytes());
+                    fout.close();
+                } catch(Exception e) {
+                    e.printStackTrace();
+                }
             }
-
 
         }
 

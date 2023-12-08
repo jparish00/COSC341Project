@@ -73,26 +73,29 @@ public class Inbox extends AppCompatActivity {
         if (!convoFound) {
             try {
                 fout = openFileOutput(res.getString(R.string.inbox_data), Context.MODE_APPEND);
-                fout.write(("@" + vendorName + "/" + username + "\n").getBytes());
-                System.out.println("SIZE: " + ListOfMessages.users.size());
-                if (ListOfMessages.users.size() < 1) {
-                    fout.write(("none").getBytes());
-                    System.out.println("WRITTEN");
-                } else {
+                if (ListOfMessages.users.size() > 0) {
+                    fout.write(("@" + vendorName + "/" + username + "\n").getBytes());
                     for (int i = 0; i < ListOfMessages.users.size(); i++) {
                         fout.write((ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i)).getBytes());
                         if (i != ListOfMessages.users.size() - 1)
                             fout.write(("/").getBytes());
                     }
                 }
-                fout.write(("\n").getBytes());
+                //fout.write(("\n").getBytes());
                 fout.close();
             } catch (Exception e) {
+                System.out.println("ERROR");
                 e.printStackTrace();
             }
             finish();
+            return;
         }
 
+        System.out.println("SIZE: " + ListOfMessages.messages.size());
+        if (ListOfMessages.messages.size() == 0) {
+            finish();
+            return;
+        }
         // If the convo already exists, pull the entire inbox file, modify the convo line, and rewrite
         ArrayList<String> lines = new ArrayList<>();
         int count = 0, convoLocation = -1;
@@ -115,13 +118,14 @@ public class Inbox extends AppCompatActivity {
                     }
                 }
             }
+            br.close();
+            isr.close();
+            fis.close();
         } catch(IOException e) {
             e.printStackTrace();
         }
 
         String convo = "";
-        System.out.println(ListOfMessages.users.size());
-        System.out.println(ListOfMessages.messages.size());
 
         for (int i = 0; i < ListOfMessages.users.size(); i++) {
             convo += ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i);
