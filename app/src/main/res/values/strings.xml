@@ -55,6 +55,18 @@
     <string name="toast_password_mismatch">Passwords do not match</string>
     <string name="toast_account_creation_success">Success! Username is: %1$s</string>
 
+    <!--Vendor Signup 2 Activity -->
+    <string-array name="categories">
+        <item>Fruits and Veggies</item>
+        <item>Dairy and Eggs</item>
+        <item>Meats and Seafood</item>
+        <item>Pantry</item>
+        <item>Bakery</item>
+        <item>Clothing and Textiles</item>
+        <item>Health and Beauty</item>
+        <item>Pet Care</item>
+    </string-array>
+
     <!--Reviews activity-->
     <string name="back_button_review">Back</string>
     <string name="add_review_button">Add Review</string>
