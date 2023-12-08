@@ -16,7 +16,7 @@ example.com
 Clothes
 Clothing repair per hour:9.50
 @JDoe test@email.com
-Jane's Clothes
+Jordan's Goods
 4.5
 Knick-knacks, toys, decorations, and antiques.
 789 Desert St.

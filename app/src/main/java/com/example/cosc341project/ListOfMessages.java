@@ -49,14 +49,14 @@ public class ListOfMessages {
                     }
                 }
             }
-
+            br.close();
         } catch(IOException e) {
             e.printStackTrace();
         }
 
-        // Issue with items from differnt vendors
+        // Issue with items from different vendors
 
-        if (!Inbox.convoFound || convo.equals("none") || convo.isEmpty()) {
+        if (!Inbox.convoFound) {
             return;
         }
 
