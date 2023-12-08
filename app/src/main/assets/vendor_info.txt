@@ -1,32 +1,43 @@
+@KelownaMarket 5
 @HSmith test@email.com
 Henry's Meats
+4
+Local butcher selling various meat products.
+123 North Pole St.
 example.com
-Highway 97
 Meats
 Teriyaki Beef Jerky:6.50/Salt & Pepper Jerky:6.50/Ribeye Steak:30.00/Tomahawk Steak:33.00/Beer Cheese:9.50
 @JDoe test@email.com
 Jane's Clothes
+4.5
+Homemade clothing for all ages, clothing repairs.
+456 River St.
 example.com
-Highway 97
 Clothes
 Clothing repair per hour:9.50
 @JDoe test@email.com
 Jane's Clothes
+4.5
+Knick-knacks, toys, decorations, and antiques.
+789 Desert St.
 example.com
-Highway 97
-Clothes
+Gifts
 Clothing repair(per hour):9.50
 @SSilverman test@email.com
 Sarah's Stuff
+4
+Wines and Fruit. Not much else.
+101 Hord St.
 example.com
-Highway 98
-Toys, Antiques
+Drinks
 Surprise Bag:5.00/Furniture(message):0.00
 @CGoodman test@email.com
 Carl's Orchard
+2
+A reason to come to the market :).
+112 Woohoo st.
 example.com
-Highway 98
-Toys, Antiques
+Toys
 Wines:25.00/Grapes(per kg):8.00/Specialty Wines:200.00
+@MarketB 0
 @stopper
-

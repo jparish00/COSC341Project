@@ -28,8 +28,10 @@ public class ListOfVendorItems {
     static CardView modifyCardView;
     static Context modContext;
 
+
     public static void populateItems(Context context, LinearLayout itemsContainer) {
         LayoutInflater inflater = LayoutInflater.from(context);
+        Resources res = context.getResources();
 
         items = new ArrayList<>();
         prices = new ArrayList<>();
@@ -37,15 +39,16 @@ public class ListOfVendorItems {
 
         String username = CustHome.username;
         try {
-            FileInputStream fis = context.openFileInput("vendor_info.txt");
+            FileInputStream fis = context.openFileInput(res.getString(R.string.vendor_data));
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
 
             String line;
-
             while ((line = br.readLine()) != null) {
                 if (line.startsWith("@")) {
                     if (line.substring(1).split(" ")[0].equals(username)) {
+                        br.readLine();
+                        br.readLine();
                         br.readLine();
                         br.readLine();
                         br.readLine();
@@ -168,10 +171,10 @@ public class ListOfVendorItems {
     }
 
     public static void saveVendorData(Context context) {
-
+        Resources res = context.getResources();
         int count = 0, itemLocation = -1;
         ArrayList<String> lines = new ArrayList<>();
-        try (FileInputStream fis = context.openFileInput("vendor_info.txt");
+        try (FileInputStream fis = context.openFileInput(res.getString(R.string.vendor_data));
              InputStreamReader isr = new InputStreamReader(fis);
              BufferedReader br = new BufferedReader(isr)) {
 
@@ -180,7 +183,7 @@ public class ListOfVendorItems {
                 lines.add(line);
                 if (line.startsWith("@")) {
                     if (line.substring(1).split(" ")[0].equals(CustHome.username)) {
-                        itemLocation = count += 5;
+                        itemLocation = count += 7;
                     }
                 }
                 count++;
@@ -199,7 +202,6 @@ public class ListOfVendorItems {
         }
         lines.set(itemLocation, itemLine);
 
-        Resources res = context.getResources();
 
         FileWriter fw;
         File f = new File(context.getApplicationContext().getFilesDir(), res.getString(R.string.vendor_data));

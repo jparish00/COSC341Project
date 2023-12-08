@@ -1,7 +1,6 @@
 package com.example.cosc341project;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
@@ -10,12 +9,13 @@ import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+import android.view.View;
+import android.widget.AdapterView;
 
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-
 
 public class CustHome extends AppCompatActivity {
 
@@ -26,11 +26,19 @@ public class CustHome extends AppCompatActivity {
     static String username, userType;
     static String defaultMarket, currentMarket;
     static String type;
+    static LinearLayout storeContainer;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cust_home);
+
+        Spinner vendorCategorySpinner = findViewById(R.id.categories);
+        // Set up spinner with categories
+        String[] categories = {"All", "Meats", "Clothes", "Gifts", "Drinks", "Toys"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        vendorCategorySpinner.setAdapter(adapter);
 
         marketName = findViewById(R.id.marketName);
 
@@ -88,6 +96,7 @@ public class CustHome extends AppCompatActivity {
                     userCheck = line.split(" ")[0].substring(1);
                     if (username.equals(userCheck)) {
                         defaultMarket = br.readLine();
+                        currentMarket = defaultMarket;
                         break;
                     }
                 }
@@ -97,22 +106,25 @@ public class CustHome extends AppCompatActivity {
         }
 
 
-
         /******** Nav bar items I swear not to touch out of fear **********/
         NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
-        Spinner vendorCategorySpinner = findViewById(R.id.categories);
+        // Container for stores
+        storeContainer = findViewById(R.id.storesLayout);
 
-        String[] categories = {"Meats", "Vegetables", "Bakery", "Dairy", "Home-Care"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        vendorCategorySpinner.setAdapter(adapter);
+        vendorCategorySpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                // calling populateStores whenever a new category is selected
+                ListOfStores.populateStores(CustHome.this, storeContainer, vendorCategorySpinner);
+            }
 
-        // Layout stuff I will likely touch
-        // code for inserting all stores in market
-        LinearLayout storeContainer = findViewById(R.id.storesLayout);
-        // Populating store cards
-        ListOfStores.populateStores(this, storeContainer);
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                // wont run but just in case
+            }
+        });
+
 
         marketName.setText(currentMarket);
 

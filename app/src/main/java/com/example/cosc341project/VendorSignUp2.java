@@ -17,7 +17,7 @@ import java.io.FileOutputStream;
 public class VendorSignUp2 extends AppCompatActivity {
 
     // Views
-    TextView vendorTitleInput, vendorAddressInput ;
+    TextView vendorTitleInput, vendorAddressInput, vendorDescInput ;
     Spinner vendorCategorySpinner;
     Button returnButton, createAccountButton;
 
@@ -41,6 +41,7 @@ public class VendorSignUp2 extends AppCompatActivity {
         vendorTitleInput = findViewById(R.id.vendorT);
         vendorAddressInput = findViewById(R.id.vendorAddress);
         vendorCategorySpinner = findViewById(R.id.categories);
+        vendorDescInput = findViewById(R.id.vendorDesc);
 
         String[] categories = {"Meats", "Vegetables", "Bakery", "Dairy", "Home-Care"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
@@ -73,7 +74,7 @@ public class VendorSignUp2 extends AppCompatActivity {
         // getInfo
         String vendorTitle = vendorTitleInput.getText().toString();
         String vendorAddress = vendorAddressInput.getText().toString();
-
+        String vendorDesc = vendorDescInput.getText().toString();
         String category = vendorCategorySpinner.getSelectedItem().toString();
 
         // Write user info, appending to end
@@ -93,9 +94,12 @@ public class VendorSignUp2 extends AppCompatActivity {
             fout = openFileOutput(res.getString(R.string.vendor_data), Context.MODE_APPEND);
             fout.write(("@" + username + " " + email + "\n").getBytes());
             fout.write((vendorTitle + "\n").getBytes());
-            fout.write((storeURL + "\n").getBytes());
+            fout.write(("0"+"\n").getBytes());
+            fout.write((vendorDesc +"\n").getBytes());
             fout.write((vendorAddress + "\n").getBytes());
+            fout.write((storeURL + "\n").getBytes());
             fout.write((category + "\n").getBytes());
+            fout.write(("\n").getBytes());
             fout.close();
         } catch (Exception e) {
             e.printStackTrace();
