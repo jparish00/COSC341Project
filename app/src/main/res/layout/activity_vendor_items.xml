@@ -55,7 +55,6 @@
                 android:id="@+id/vendorName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Vendor Name"
                 android:fontFamily="@font/poppins"
                 android:textSize="24sp"/>
 

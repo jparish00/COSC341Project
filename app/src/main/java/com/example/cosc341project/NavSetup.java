@@ -44,6 +44,9 @@ public class NavSetup {
             MenuItem allMarketItem = menu.findItem(R.id.nav_all_market);
             allMarketItem.setTitle("My Items");
 
+            MenuItem homeItem = menu.findItem(R.id.nav_home);
+            homeItem.setTitle("My Locations");
+
         } else if ("customer".equals(userType)) {
             // Optionally remove "My Inbox" if it exists for customer
             menu.removeItem(R.id.nav_my_inbox);
