@@ -8,6 +8,7 @@ import android.widget.LinearLayout;
 import android.app.Dialog;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.io.FileNotFoundException;
 
@@ -18,7 +19,10 @@ public class VendorItems extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_items);
-        String userType = getIntent().getStringExtra("userType");
+        TextView vendorName = findViewById(R.id.vendorName);
+        vendorName.setText(CustHome.vendorName);
+
+                String userType = getIntent().getStringExtra("userType");
         NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
         itemsLayout = findViewById(R.id.itemsLayout);

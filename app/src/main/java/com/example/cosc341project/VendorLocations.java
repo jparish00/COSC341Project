@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.widget.LinearLayout;
+import android.widget.TextView;
 
 public class VendorLocations extends AppCompatActivity {
 
@@ -15,6 +16,8 @@ public class VendorLocations extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vendor_locations);
         String userType = getIntent().getStringExtra("userType");
+        TextView vendorName = findViewById(R.id.vendorName);
+        vendorName.setText(CustHome.vendorName);
         NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
         // code for inserting all stores in market
