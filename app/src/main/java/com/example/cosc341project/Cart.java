@@ -104,6 +104,7 @@ public class Cart extends AppCompatActivity {
         for (int i = 0; i < ListOfCartItems.vendors.size(); i++) {
             boolean inboxFound = false;
             int count = 0, location = -1;
+            lines = new ArrayList<>();
             try {
                 FileInputStream fis = openFileInput(res.getString(R.string.inbox_data));
                 InputStreamReader isr = new InputStreamReader(fis);
