@@ -19,9 +19,6 @@
             android:name=".ModifyItem"
             android:exported="false" />
         <activity
-            android:name=".AddVendorItem"
-            android:exported="false" />
-        <activity
             android:name=".VendorItems"
             android:exported="false" />
         <activity
@@ -29,7 +26,9 @@
             android:exported="false" />
         <activity
             android:name=".Inbox"
-            android:exported="false" />
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize|stateHidden"
+        />
         <activity
             android:name=".MyReviews"
             android:exported="false" />
@@ -68,9 +67,6 @@
             android:exported="false" />
         <activity
             android:name=".CustHome"
-            android:exported="false" />
-        <activity
-            android:name=".VendorLogin"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import java.io.BufferedReader;
@@ -23,6 +24,7 @@ import java.util.ArrayList;
 // NO NAV BAR HERE
 // When opening the inbox, all you need to pass in the bundle is the username, vendor name, and account type.
 public class Inbox extends AppCompatActivity {
+
 
     // Views
     TextView vendorTitle;
@@ -154,11 +156,22 @@ public class Inbox extends AppCompatActivity {
 
         // Go into List of messages and update
         LinearLayout itemsContainer = findViewById(R.id.messageLayout);
+        final ScrollView messageScrollView = findViewById(R.id.messageScrollView);
+
 
         String message = custTextInput.getText().toString();
         custTextInput.setText("");
 
         ListOfMessages.updateMessages(this, itemsContainer, message);
 
+        messageScrollView.post(new Runnable() {
+            @Override
+            public void run() {
+                // Scroll to the end of the ScrollView
+                messageScrollView.fullScroll(ScrollView.FOCUS_DOWN);
+            }
+        });
     }
+
+
 }
