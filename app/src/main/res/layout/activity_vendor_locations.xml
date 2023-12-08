@@ -124,12 +124,16 @@
 
         <!-- Buttons and Space -->
 
-        <Button
-            android:id="@+id/addLocationBtn"
+        <ImageButton
+            android:id="@+id/infoButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/black"
-            android:text="info" />
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/info_icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent" />
 
         <Space
             android:layout_width="0dp"
@@ -140,6 +144,8 @@
             android:id="@+id/infoBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:backgroundTint="@color/black"
+            android:textColor="@color/white"
             android:text="Add Location" />
 
     </LinearLayout>

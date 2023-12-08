@@ -57,6 +57,8 @@ public class Cart extends AppCompatActivity {
         LinearLayout itemsContainer = findViewById(R.id.custLayout);
          //Populating store cards
         ListOfCartItems.populateCartItems(this, itemsContainer);
+
+
     }
 
     public void onRequestClick(View v) {
