@@ -37,6 +37,7 @@ public class ListOfItems {
             String line;
             while ((line = br.readLine()) != null) {
                 if (line.charAt(0) == '@') {
+                    if(line.contains("Market")) br.readLine();
                     line = br.readLine();
                     if (line.equals(StoreItems.vendorName)) { // vendor found
                         br.readLine();
