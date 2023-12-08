@@ -81,7 +81,7 @@
             android:background="#99FFFFFF">
 
                     <LinearLayout
-                        android:id="@+id/cartLayout"
+                        android:id="@+id/custLayout"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical"

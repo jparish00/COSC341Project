@@ -17,9 +17,6 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Cart extends AppCompatActivity {
@@ -56,7 +53,7 @@ public class Cart extends AppCompatActivity {
 
         // Setup
         // Code for inserting all items in cart
-        LinearLayout itemsContainer = findViewById(R.id.cartLayout);
+        LinearLayout itemsContainer = findViewById(R.id.custLayout);
          //Populating store cards
         ListOfCartItems.populateCartItems(this, itemsContainer);
     }
