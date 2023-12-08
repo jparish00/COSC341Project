@@ -37,10 +37,8 @@ public class NavSetup {
         Menu menu = navigationView.getMenu();
 
         if ("vendor".equals(userType)) {
-            // Remove the "Cart" menu item for vendors
             menu.removeItem(R.id.nav_mycart);
 
-            // Change "All Markets" to "My Items"
             MenuItem allMarketItem = menu.findItem(R.id.nav_all_market);
             allMarketItem.setTitle("My Items");
 
@@ -48,7 +46,6 @@ public class NavSetup {
             homeItem.setTitle("My Locations");
 
         } else if ("customer".equals(userType)) {
-            // Optionally remove "My Inbox" if it exists for customer
             menu.removeItem(R.id.nav_my_inbox);
         }
 

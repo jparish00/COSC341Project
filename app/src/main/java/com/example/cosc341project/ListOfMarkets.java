@@ -13,10 +13,8 @@ public class ListOfMarkets {
         LayoutInflater inflater = LayoutInflater.from(context);
 
         for (int i = 0; i < 10; i++) {
-            // Inflate or create your custom card view layout
             CardView cardView = (CardView) inflater.inflate(R.layout.market_card, marketContainer, false);
 
-            // Customize card view
             TextView marketName = cardView.findViewById(R.id.market_name);
             TextView marketAddress = cardView.findViewById(R.id.market_address);
             RatingBar marketRating = cardView.findViewById(R.id.market_rating);
@@ -26,7 +24,6 @@ public class ListOfMarkets {
             marketAddress.setText("Market Address");
 
 
-            // Add the card view to your container
             marketContainer.addView(cardView);
         }
     }

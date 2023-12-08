@@ -56,12 +56,9 @@ public class StoreItems extends AppCompatActivity {
         String userType = getIntent().getStringExtra("userType");
         NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
-        // Code for inserting all items in market
         LinearLayout itemsContainer = findViewById(R.id.itemsLayout);
-        // Populating store cards
         ListOfItems.populateItems(this, itemsContainer);
 
-        // Go Back button
         ImageButton goBackBtn = findViewById(R.id.gobackbtn);
 
         inboxButton.setOnClickListener(this::onClickInbox);

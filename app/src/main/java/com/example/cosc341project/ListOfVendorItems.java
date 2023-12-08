@@ -14,11 +14,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 
 public class ListOfVendorItems {
@@ -73,7 +71,6 @@ public class ListOfVendorItems {
 
                 ImageView deleteButton = cardView.findViewById(R.id.delete_icon);
 
-                // Customize card view
                 TextView itemName = cardView.findViewById(R.id.item_name);
                 TextView itemPrice = cardView.findViewById(R.id.item_price);
 

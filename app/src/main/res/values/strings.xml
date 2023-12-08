@@ -57,15 +57,16 @@
 
     <!--Vendor Signup 2 Activity -->
     <string-array name="categories">
-        <item>Fruits and Veggies</item>
-        <item>Dairy and Eggs</item>
-        <item>Meats and Seafood</item>
-        <item>Pantry</item>
-        <item>Bakery</item>
-        <item>Clothing and Textiles</item>
-        <item>Health and Beauty</item>
+        <item>All</item>
+        <item>Meats</item>
+        <item>Clothes</item>
+        <item>Gifts</item>
+        <item>Drinks</item>
+        <item>Toys</item>
+        <item>Health</item>
         <item>Pet Care</item>
     </string-array>
+    
 
     <!--Reviews activity-->
     <string name="back_button_review">Back</string>

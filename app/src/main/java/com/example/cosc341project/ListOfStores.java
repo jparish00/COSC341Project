@@ -46,7 +46,7 @@ public class ListOfStores {
         String selectedCategory = categorySpinner.getSelectedItem().toString();
         System.out.println(selectedCategory);
 
-        // Open and get information from market_info
+        // Open and get information from vendor_info.txt
         try {
             FileInputStream fis = context.openFileInput(res.getString(R.string.vendor_data));
             InputStreamReader isr = new InputStreamReader(fis);
@@ -116,10 +116,8 @@ public class ListOfStores {
 
         // Load into cardview
         for (int i = 0; i < names.size(); i++) {
-            // Inflate or create your custom card view layout
             CardView cardView = (CardView) inflater.inflate(R.layout.store_card, storeContainer, false);
 
-            // Customize card view
             TextView storeTitle = cardView.findViewById(R.id.store_title);
             RatingBar storeRating = cardView.findViewById(R.id.store_rating);
             TextView storeDesc = cardView.findViewById(R.id.message_text);
@@ -131,7 +129,6 @@ public class ListOfStores {
             storeAddress.setText(address.get(i));
             vendorIds.add(cardView.getId());
 
-            // Set an OnClickListener for each CardView
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -153,7 +150,6 @@ public class ListOfStores {
                 }
             });
 
-            // Add the card view to your container
             storeContainer.addView(cardView);
         }
     }

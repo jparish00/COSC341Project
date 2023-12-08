@@ -35,8 +35,7 @@ public class CustHome extends AppCompatActivity {
 
         Spinner vendorCategorySpinner = findViewById(R.id.categories);
         // Set up spinner with categories
-        String[] categories = {"All", "Meats", "Clothes", "Gifts", "Drinks", "Toys"};
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, categories);
+        ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         vendorCategorySpinner.setAdapter(adapter);
 

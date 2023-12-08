@@ -81,9 +81,7 @@ public class AddReview extends AppCompatActivity {
     public void addReview(Context context, String vendorUsername, String custUsername, int reviewRating, String reviewText) {
         SQLiteDatabase db = null;
         try {
-            // Create an instance of the DatabaseHelper class
             DatabaseHelper dbHelper = new DatabaseHelper(context);
-            // Get a writable database
             db = dbHelper.getWritableDatabase();
 
             // Create a ContentValues object to store the review data
@@ -101,12 +99,9 @@ public class AddReview extends AppCompatActivity {
                Log.e("Database", "Failed to save review data");
             }
         } catch (Exception e) {
-            // Log the exception
             Log.e("AddReview", "Error adding review", e);
-            // Optionally, show a user-friendly error message
             Toast.makeText(context, "Error adding review", Toast.LENGTH_SHORT).show();
         } finally {
-            // Ensure the database connection is closed
             if (db != null) {
                 db.close();
             }
@@ -120,9 +115,9 @@ public class AddReview extends AppCompatActivity {
             return; // Return to prevent further execution in case of no selection
         }
 
-        rb = findViewById(selectedID); // Get the selected RadioButton
+        rb = findViewById(selectedID);
         rv = rb.getText().toString();
-        review = Integer.parseInt(rv); // Convert rating to integer
+        review = Integer.parseInt(rv);
 
         reviewtext = leave_review.getText().toString();
 
@@ -130,11 +125,9 @@ public class AddReview extends AppCompatActivity {
             addReview(this, venName, custName, review, reviewtext);
             Toast.makeText(this, "Review submitted successfully", Toast.LENGTH_SHORT).show(); // Toast for successful submission
         } catch (Exception e) {
-            // Handle exception if review submission fails
             Toast.makeText(this, "Error submitting review", Toast.LENGTH_SHORT).show();
         }
 
-        // Close activity after submitting review
         finish();
     }
 

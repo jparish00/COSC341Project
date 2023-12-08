@@ -46,7 +46,6 @@ public class VendorSignUp2 extends AppCompatActivity {
         vendorCategorySpinner = findViewById(R.id.categories);
         vendorDescInput = findViewById(R.id.vendorDesc);
 
-        // String[] categories = {"Meats", "Vegetables", "Bakery", "Dairy", "Home-Care"};
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this, R.array.categories, android.R.layout.simple_spinner_dropdown_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         vendorCategorySpinner.setAdapter(adapter);

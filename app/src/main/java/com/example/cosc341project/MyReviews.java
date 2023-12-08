@@ -20,9 +20,7 @@ public class MyReviews extends AppCompatActivity {
         String userType = getIntent().getStringExtra("userType");
         NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
-        // code for inserting all stores in market
         LinearLayout reviewsContainer = findViewById(R.id.reviewsLayout);
-        // Populating store cards
         MyReviewCards(this, reviewsContainer);
     }
 
@@ -32,17 +30,14 @@ public class MyReviews extends AppCompatActivity {
         LayoutInflater inflater = LayoutInflater.from(context);
 
         for (int i = 0; i < 10; i++) {
-            // Inflate or create your custom card view layout
             CardView cardView = (CardView) inflater.inflate(R.layout.review_preview_card, reviewsContainer, false);
 
-            // Customize card view
             TextView storeTitle = cardView.findViewById(R.id.review_title);
             RatingBar storeRating = cardView.findViewById(R.id.review_rating);
 
             storeTitle.setText("Review " + (i + 1));
             storeRating.setRating(i % 5 + 1); // Just for example, setting a rating
 
-            // Add the card view to your container
             reviewsContainer.addView(cardView);
         }
     }

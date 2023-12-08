@@ -68,8 +68,6 @@ public class Reviews extends AppCompatActivity {
             averageReview.setText(avgRate);
             displayReviewsForVendor(this,venName,reviewList);
 
-
-            // displayReviewsForVendor(this, venName, reviews);
         } catch (Exception e) {
             Log.e("Reviews", "Error in onCreate: ", e);
         }

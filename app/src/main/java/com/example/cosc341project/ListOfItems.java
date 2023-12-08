@@ -55,7 +55,6 @@ public class ListOfItems {
             e.printStackTrace();
         }
 
-        // Organize the information
         productNames = new ArrayList<>();
         prices = new ArrayList<>();
         productIds = new ArrayList<>();
@@ -70,10 +69,8 @@ public class ListOfItems {
         }
 
         for (int i = 0; i < productNames.size(); i++) {
-            // Inflate or create your custom card view layout
             CardView cardView = (CardView) inflater.inflate(R.layout.items_card, itemsContainer, false);
 
-            // Customize card view
             TextView itemtitle = cardView.findViewById(R.id.item_name);
             TextView itemPrice = cardView.findViewById(R.id.item_price);
 
@@ -81,7 +78,6 @@ public class ListOfItems {
             itemPrice.setText("$"+ prices.get(i)); // Just for example, setting a rating
             productIds.add(cardView.getId());
 
-            // Set an OnClickListener for each CardView
             cardView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
@@ -94,7 +90,6 @@ public class ListOfItems {
                 }
             });
 
-            // Add the card view to your container
             itemsContainer.addView(cardView);
         }
     }

@@ -9,8 +9,7 @@ import android.widget.TextView;
 public class VendorLocations extends AppCompatActivity {
 
 
-    // spinner drop down options should be location list and Items list
-    // took off search bar because vendors only edit their own store in the vendor side view
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,9 +19,7 @@ public class VendorLocations extends AppCompatActivity {
         vendorName.setText(CustHome.vendorName);
         NavSetup.setupDrawer(this, R.id.drawer_layout, R.id.nav_view, R.id.toolbar, userType);
 
-        // code for inserting all stores in market
         LinearLayout locationLayout = findViewById(R.id.locationLayout);
-        // Populating store cards
         ListOfLocations.populateLocations(this, locationLayout);
     }
 }
