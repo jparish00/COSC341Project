@@ -57,10 +57,10 @@ public class NavSetup {
             if (id == R.id.nav_home) {
                 intent = new Intent(activity.getApplicationContext(), CustHome.class);
             } else if (id == R.id.nav_all_market) {
-                if(userType.equals("customer")){
-                    intent= new Intent(activity.getApplicationContext(), ViewMarket.class);
+                if (userType.equals("customer")) {
+                    intent = new Intent(activity.getApplicationContext(), ViewMarket.class);
                 } else {
-                    intent= new Intent(activity.getApplicationContext(), VendorItems.class);
+                    intent = new Intent(activity.getApplicationContext(), VendorItems.class);
                 }
             } else if (id == R.id.nav_account) {
                 intent = new Intent(activity.getApplicationContext(), AccountPage.class);
@@ -70,8 +70,10 @@ public class NavSetup {
                 intent = new Intent(activity.getApplicationContext(), MyReviews.class);
             } else if (id == R.id.nav_logout) {
                 intent = new Intent(activity.getApplicationContext(), MainActivity.class);
-            } else if (id == R.id.nav_mycart)
+            } else if (id == R.id.nav_mycart) {
                 intent = new Intent(activity.getApplicationContext(), Cart.class);
+            } else if (id == R.id.nav_my_inbox)
+                intent = new Intent(activity.getApplicationContext(), VendorInboxes.class);
 
             if (intent != null) {
                 b.putString("userType", userType);

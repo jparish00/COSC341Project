@@ -23,7 +23,7 @@ public class CustHome extends AppCompatActivity {
     TextView marketName;
     // Vars
     Resources res;
-    static String username, userType;
+    static String username, vendorName, userType;
     static String defaultMarket, currentMarket;
     static String type;
     static LinearLayout storeContainer;
@@ -75,6 +75,28 @@ public class CustHome extends AppCompatActivity {
 
 
         if (isVendor) {
+
+            // getVendorName
+            try {
+                FileInputStream fis = openFileInput(res.getString(R.string.vendor_data));
+                InputStreamReader isr = new InputStreamReader(fis);
+                BufferedReader br = new BufferedReader(isr);
+
+                String line, userCheck;
+                while ((line = br.readLine()) != null) {
+                    if (line.charAt(0) == '@') {
+                        userCheck = line.split(" ")[0].substring(1);
+                        type = line.split(" ")[1];
+                        if (username.equals(userCheck)) {
+                            vendorName = br.readLine();
+                            break;
+                        }
+                    }
+                }
+            } catch(IOException e) {
+                Toast.makeText(this, res.getString(R.string.toast_missing_login_file), Toast.LENGTH_SHORT).show();
+            }
+
             Intent intent = new Intent(getApplicationContext(), VendorLocations.class);
             b.putString("userType", userType);
             b.putString("username",username);
