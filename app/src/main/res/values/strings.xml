@@ -7,7 +7,7 @@
     <string name="vendor_data">vendor_info.txt</string>
     <string name="sign_in_type">sign_in_type.txt</string>
     <string name="default_market">default_market.txt</string>
-    <string name="default_market_preference">MARKETA</string>
+    <string name="default_market_preference">KelownaMarket</string>
     <string name="market_info">market_info.txt</string>
     <string name="cart_info">cart_info.txt</string>
     <string name="inbox_data">inbox.txt</string>

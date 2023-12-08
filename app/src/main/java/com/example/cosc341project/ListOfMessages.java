@@ -49,23 +49,34 @@ public class ListOfMessages {
                     }
                 }
             }
-            System.out.println("CONVO:" + convo);
 
         } catch(IOException e) {
             e.printStackTrace();
         }
 
-        if (!Inbox.convoFound)
+        // Issue with items from differnt vendors
+
+        if (!Inbox.convoFound || convo.equals("none") || convo.isEmpty()) {
             return;
-
-        // Parse message data
-        messageData = convo.split("/");
-
-        for (int i = 0; i < messageData.length; i++) {
-            users.add(messageData[i].split(":")[0]);
-            messages.add(messageData[i].split(":")[1]);
         }
 
+        messageData = null;
+
+        // Parse message data
+        if(convo.contains("/"))
+            messageData = convo.split("/");
+
+        if (messageData != null) {
+            for (int i = 0; i < messageData.length; i++) {
+                users.add(messageData[i].split(":")[0]);
+                messages.add(messageData[i].split(":")[1]);
+            }
+        } else {
+            users.add(convo.split(":")[0]);
+            messages.add(convo.split(":")[1]);
+        }
+
+        // Add cards
         for (int i = 0; i < users.size(); i++) {
             // Inflate or create your custom card view layout
             CardView cardView = (CardView) inflater.inflate(R.layout.message_card, itemsContainer, false);
@@ -94,7 +105,8 @@ public class ListOfMessages {
         TextView itemUser = cardView.findViewById(R.id.vendor_name);
         TextView itemMessage = cardView.findViewById(R.id.message_text);
 
-
+        System.out.println(Inbox.username);
+        System.out.println(Inbox.accountType);
         if (Inbox.accountType.equals("customer")) {
             itemUser.setText(Inbox.username);
             users.add(Inbox.username);

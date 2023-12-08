@@ -17,6 +17,9 @@ import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ArrayList;
 
 public class Cart extends AppCompatActivity {
@@ -99,7 +102,7 @@ public class Cart extends AppCompatActivity {
         // Now, add the messages to inbox
         // Extremely inefficient, but no time
         for (int i = 0; i < ListOfCartItems.vendors.size(); i++) {
-            lines = new ArrayList<>();
+
             try {
                 FileInputStream fis = openFileInput(res.getString(R.string.inbox_data));
                 InputStreamReader isr = new InputStreamReader(fis);
@@ -107,16 +110,23 @@ public class Cart extends AppCompatActivity {
 
                 String line, userCheck, vendorCheck;
                 while ((line = br.readLine()) != null) {
-                    if (!line.isEmpty() && line.charAt(0) == '@') {
+                    System.out.println("LINE: " + line);
+                    if (line.charAt(0) == '@') {
                         vendorCheck = line.substring(1).split("/")[0];
                         userCheck = line.substring(1).split("/")[1];
                         if (userCheck.equals(Cart.username) && vendorCheck.equals(ListOfCartItems.vendors.get(i))) {
                             lines.add(line);
                             line = br.readLine();
-                            lines.add(line + "/" + username + ":" + "Requesting " + ListOfCartItems.items.get(i)
+                            if(line.equals("none"))
+                                lines.add(username + ":" + "Requesting " + ListOfCartItems.items.get(i)
+                                        + " at $" + ListOfCartItems.prices.get(i));
+                            else
+
+                                lines.add(line + "/" + username + ":" + "Requesting " + ListOfCartItems.items.get(i)
                                     + " at $" + ListOfCartItems.prices.get(i));
                         } else {
                             lines.add(line);
+                            lines.add(br.readLine());
                         }
                     }
                 }

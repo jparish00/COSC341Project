@@ -45,7 +45,6 @@ public class Inbox extends AppCompatActivity {
         username = b.getString("username");
         vendorName = b.getString("vendor_name");
         accountType = b.getString("account_type");
-        System.out.println("ACCOUNT TYPE: " + accountType);
 
         res = getResources();
 
@@ -74,11 +73,17 @@ public class Inbox extends AppCompatActivity {
         if (!convoFound) {
             try {
                 fout = openFileOutput(res.getString(R.string.inbox_data), Context.MODE_APPEND);
-                fout.write(("\n@" + vendorName + "/" + username + "\n").getBytes());
-                for (int i = 0; i < ListOfMessages.users.size(); i++) {
-                    fout.write((ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i)).getBytes());
-                    if(i != ListOfMessages.users.size()-1)
-                        fout.write(("/").getBytes());
+                fout.write(("@" + vendorName + "/" + username + "\n").getBytes());
+                System.out.println("SIZE: " + ListOfMessages.users.size());
+                if (ListOfMessages.users.size() < 1) {
+                    fout.write(("none").getBytes());
+                    System.out.println("WRITTEN");
+                } else {
+                    for (int i = 0; i < ListOfMessages.users.size(); i++) {
+                        fout.write((ListOfMessages.users.get(i) + ":" + ListOfMessages.messages.get(i)).getBytes());
+                        if (i != ListOfMessages.users.size() - 1)
+                            fout.write(("/").getBytes());
+                    }
                 }
                 fout.write(("\n").getBytes());
                 fout.close();
@@ -147,6 +152,7 @@ public class Inbox extends AppCompatActivity {
         LinearLayout itemsContainer = findViewById(R.id.messageLayout);
 
         String message = custTextInput.getText().toString();
+        custTextInput.setText("");
 
         ListOfMessages.updateMessages(this, itemsContainer, message);
 

@@ -61,8 +61,7 @@ public class ModifyItem extends AppCompatActivity {
         nameView.setText(new_name);
         priceView.setText(new_price);
 
-        // TODO: Figure this out
-        //ListOfVendorItems.saveVendorData();
+        ListOfVendorItems.saveVendorData(this);
 
         finish();
 
