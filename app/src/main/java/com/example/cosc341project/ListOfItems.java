@@ -42,6 +42,8 @@ public class ListOfItems {
                         br.readLine();
                         br.readLine();
                         br.readLine();
+                        br.readLine();
+                        br.readLine();
                         products = br.readLine();
                         break;
                     }

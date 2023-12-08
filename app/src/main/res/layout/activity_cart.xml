@@ -57,12 +57,15 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+
+
+
     <LinearLayout
                 android:id="@+id/chatLayout"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_marginTop="20dp"
-                android:background="#99FFFFFF"
+                android:background="#99EEFFDD"
                 android:orientation="vertical"
                 android:padding="16dp"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -74,7 +77,8 @@
 
         <ScrollView
                     android:layout_width="match_parent"
-                    android:layout_height="472dp">
+                    android:layout_height="472dp"
+            android:background="#99FFFFFF">
 
                     <LinearLayout
                         android:id="@+id/cartLayout"
@@ -100,7 +104,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Total: $0.00" />
+                android:text="Total: $0.00"
+                android:textSize="16dp"
+                android:fontFamily="@font/poppinslight"
+                android:background="@color/white"
+                android:padding="16dp"/>
 
             <Space
                 android:layout_width="0dp"
@@ -111,9 +119,9 @@
                 android:id="@+id/request_button"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:backgroundTint="@color/black"
                 android:text="Send Requests"
-                android:textColor="@color/white" />
+                android:backgroundTint="@color/black"
+                android:textColor="#C0F0C5" />
         </LinearLayout>
     </LinearLayout>
 
